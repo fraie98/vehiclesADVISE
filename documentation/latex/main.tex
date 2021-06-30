@@ -1,0 +1,153 @@
+%-------------------------------------------------------------------------------
+% File: main.tex
+%       Formal Methods for Secure Systems project documentation.
+%
+%
+% Author: Yuri Mazzuoli, Francesco Iemma
+%         Created on 30/06/2021
+%-------------------------------------------------------------------------------
+\documentclass[11pt, a4paper, twoside, openright]{book}
+
+% equal left and right margins
+\usepackage[hmarginratio=1:1]{geometry}
+
+% configuration to typeset documents in italian
+\usepackage[english]{babel}
+
+% include graphics in the file
+\usepackage{graphicx}
+
+% used in the dedication environment definition
+\usepackage{afterpage}
+
+% used to set page background image
+\usepackage{tikz}
+
+% used to handle math equations and formulas
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+% used to handle quotes
+\usepackage{csquotes}
+
+%used to handle bibliography
+\usepackage{biblatex}
+
+%used to change color and background color of single words
+\usepackage{xcolor}
+
+%used to place figures side by side
+\usepackage{subfig}
+
+%used to fix figure positioning
+\usepackage{float}
+
+%used to reference sections
+\usepackage{hyperref}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% Macros
+\newcommand{\believes}{\mid\equiv}
+\newcommand{\sees}{\triangleleft}
+\newcommand{\oncesaid}{\mid\sim}
+\newcommand{\controls}{\Rightarrow}
+\newcommand{\fresh}[1]{\#(#1)}
+\newcommand{\combine}[2]{{\langle #1 \rangle}_{#2}}
+\newcommand{\encrypt}[2]{{ \{ #1 \} }_{#2}}
+\newcommand{\sharekey}[1]{\xleftrightarrow{#1}}
+\newcommand{\pubkey}[1]{\xmapsto{#1}}
+\newcommand{\secret}[1]{\xleftrightharpoons{#1}}
+
+% blank page command
+\newcommand{\blankpage}
+{
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage
+}
+
+% dedication environment
+\newenvironment{dedication}
+{
+    % blank page before dedication
+    \afterpage{\blankpage}
+    % we want a new page
+    \clearpage
+    % no header and footer
+    \thispagestyle{empty}
+    % some space at the top
+    \vspace*{\stretch{1}}
+    % the text is in italics
+    \itshape
+    % flush to the right margin
+    \raggedleft
+    % blank page after dedication
+    \afterpage{\blankpage}
+}
+{
+    % end the paragraph
+    \par
+    % space at bottom is one times that at the top
+    \vspace{\stretch{1}}
+    % finish off the page
+    \clearpage
+}
+
+\newenvironment{specifications}
+{
+	\fontfamily{qtm}\selectfont
+}{\par}
+
+%-------------------------------------------------------------------------------
+% Title page
+%-------------------------------------------------------------------------------
+\title{
+    \vspace{-3cm}
+    \includegraphics[scale=0.3]{img/cherubino_black.eps}\\
+    {\scshape University of Pisa}\\
+    School of Engineering\\
+    \rule{7cm}{0.01cm}\\
+    {\normalsize{\scshape Formal Methods for Secure Systems}}\\
+    [2cm]
+    {\scshape An ADVISE model for attacks on autonomous vehicles back-end servers}\\
+    [3cm]
+    \LARGE{\textbf{Supervisors}\hfill\textbf{Students}}\\
+    \Large{\emph{Prof. Cinzia Bernardeschi}\hfill\emph{Yuri Mazzuoli\\}}
+    \Large{\emph{Ing. Maurizio Palmieri}\hfill\emph{Francesco Iemma\\}}
+    \Large{\hfill\emph{Marco Pinna\\}}
+    \vfill
+    \date{\today}
+}
+
+% leave the author field ampty in the title page
+\author{}
+
+%-------------------------------------------------------------------------------
+% Document beginning
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% make title page
+\maketitle
+
+% blank page before dedication
+\afterpage{\blankpage}	
+
+% enable page numbering back: roman numbers style
+\pagenumbering{roman}
+
+% print table of contents
+\tableofcontents
+
+% set arabic page numbering style
+\pagenumbering{arabic}
+
+\include{introduction}
+\include{overview}
+\include{attackTree}
+\include{simulation}
+
+\end{document}
