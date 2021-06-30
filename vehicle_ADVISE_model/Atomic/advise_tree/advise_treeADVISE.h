@@ -26,19 +26,19 @@ extern UserDistributions* TheDistribution;
 class advise_treeADVISE : public ADVISEModel {
 public:
 
-class FirmwareReversingAdversaryDecision : public AdversaryDecision {
+class QueryFloodingAdversaryDecision : public AdversaryDecision {
 public:
 
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
-  StepChosen *FirmwareReversingChosen;
-  short *FirmwareReversingChosen_Mobius_Mark;
-  StepWeight *FirmwareReversingWeight;
-  short *FirmwareReversingWeight_Mobius_Mark;
+  StepChosen *QueryFloodingChosen;
+  short *QueryFloodingChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
   double *TheDistributionParameters;
 
-  FirmwareReversingAdversaryDecision();
-  ~FirmwareReversingAdversaryDecision();
+  QueryFloodingAdversaryDecision();
+  ~QueryFloodingAdversaryDecision();
   bool Enabled();
   void LinkVariables();
   double Weight();
@@ -48,7 +48,7 @@ public:
   double* ReturnDistributionParameters();
   int Rank();
   BaseActionClass *Fire();
-}; // FirmwareReversingAdversaryDecision
+}; // QueryFloodingAdversaryDecision
 
 class DoNothingAdversaryDecision : public AdversaryDecision {
 public:
@@ -74,19 +74,19 @@ public:
   BaseActionClass *Fire();
 }; // DoNothingAdversaryDecision
 
-class QueryFloodingAdversaryDecision : public AdversaryDecision {
+class FirmwareReversingAdversaryDecision : public AdversaryDecision {
 public:
 
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
-  StepChosen *QueryFloodingChosen;
-  short *QueryFloodingChosen_Mobius_Mark;
-  StepWeight *QueryFloodingWeight;
-  short *QueryFloodingWeight_Mobius_Mark;
+  StepChosen *FirmwareReversingChosen;
+  short *FirmwareReversingChosen_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
   double *TheDistributionParameters;
 
-  QueryFloodingAdversaryDecision();
-  ~QueryFloodingAdversaryDecision();
+  FirmwareReversingAdversaryDecision();
+  ~FirmwareReversingAdversaryDecision();
   bool Enabled();
   void LinkVariables();
   double Weight();
@@ -96,122 +96,7 @@ public:
   double* ReturnDistributionParameters();
   int Rank();
   BaseActionClass *Fire();
-}; // QueryFloodingAdversaryDecision
-
-class FirmwareReversingFailureStep : public Step {
-public:
-
-  Knowledge *HandshakeProtocol;
-  short* HandshakeProtocol_Mobius_Mark;
-  Knowledge *SocketAddress;
-  short* SocketAddress_Mobius_Mark;
-  Knowledge *BinaryDump;
-  short* BinaryDump_Mobius_Mark;
-  Skill *ReverseEngineering;
-  short* ReverseEngineering_Mobius_Mark;
-  StepChosen *FirmwareReversingChosen;
-  short *FirmwareReversingChosen_Mobius_Mark;
-  StepWeight *FirmwareReversingWeight;
-  short *FirmwareReversingWeight_Mobius_Mark;
-  StepWeight *DoNothingWeight;
-  short *DoNothingWeight_Mobius_Mark;
-  StepWeight *QueryFloodingWeight;
-  short *QueryFloodingWeight_Mobius_Mark;
-  BeginAdversaryDecision *MakeDecision;
-  short *MakeDecision_Mobius_Mark;
-  double *TheDistributionParameters;
-
-  FirmwareReversingFailureStep();
-  ~FirmwareReversingFailureStep();
-  bool Enabled();
-  void LinkVariables();
-  double Weight();
-  bool ReactivationPredicate();
-  bool ReactivationFunction();
-  double SampleDistribution();
-  double* ReturnDistributionParameters();
-  double getCost();
-  double getOutcomeProbability();
-  double getDetection();
-  int Rank();
-  double timeDistributionParameter0();
-  bool preconditionsMet();
-  void executeEffects();
-}; // FirmwareReversingFailureStep
-
-class FirmwareReversingSuccessStep : public Step {
-public:
-
-  Knowledge *HandshakeProtocol;
-  short* HandshakeProtocol_Mobius_Mark;
-  Knowledge *SocketAddress;
-  short* SocketAddress_Mobius_Mark;
-  Knowledge *BinaryDump;
-  short* BinaryDump_Mobius_Mark;
-  Skill *ReverseEngineering;
-  short* ReverseEngineering_Mobius_Mark;
-  StepChosen *FirmwareReversingChosen;
-  short *FirmwareReversingChosen_Mobius_Mark;
-  StepWeight *FirmwareReversingWeight;
-  short *FirmwareReversingWeight_Mobius_Mark;
-  StepWeight *DoNothingWeight;
-  short *DoNothingWeight_Mobius_Mark;
-  StepWeight *QueryFloodingWeight;
-  short *QueryFloodingWeight_Mobius_Mark;
-  BeginAdversaryDecision *MakeDecision;
-  short *MakeDecision_Mobius_Mark;
-  double *TheDistributionParameters;
-
-  FirmwareReversingSuccessStep();
-  ~FirmwareReversingSuccessStep();
-  bool Enabled();
-  void LinkVariables();
-  double Weight();
-  bool ReactivationPredicate();
-  bool ReactivationFunction();
-  double SampleDistribution();
-  double* ReturnDistributionParameters();
-  double getCost();
-  double getOutcomeProbability();
-  double getDetection();
-  int Rank();
-  double timeDistributionParameter0();
-  bool preconditionsMet();
-  void executeEffects();
-}; // FirmwareReversingSuccessStep
-
-class DoNothingOutcome1Step : public Step {
-public:
-
-  StepChosen *DoNothingChosen;
-  short *DoNothingChosen_Mobius_Mark;
-  StepWeight *FirmwareReversingWeight;
-  short *FirmwareReversingWeight_Mobius_Mark;
-  StepWeight *DoNothingWeight;
-  short *DoNothingWeight_Mobius_Mark;
-  StepWeight *QueryFloodingWeight;
-  short *QueryFloodingWeight_Mobius_Mark;
-  BeginAdversaryDecision *MakeDecision;
-  short *MakeDecision_Mobius_Mark;
-  double *TheDistributionParameters;
-
-  DoNothingOutcome1Step();
-  ~DoNothingOutcome1Step();
-  bool Enabled();
-  void LinkVariables();
-  double Weight();
-  bool ReactivationPredicate();
-  bool ReactivationFunction();
-  double SampleDistribution();
-  double* ReturnDistributionParameters();
-  double getCost();
-  double getOutcomeProbability();
-  double getDetection();
-  int Rank();
-  double timeDistributionParameter0();
-  bool preconditionsMet();
-  void executeEffects();
-}; // DoNothingOutcome1Step
+}; // FirmwareReversingAdversaryDecision
 
 class QueryFloodingFailureStep : public Step {
 public:
@@ -226,12 +111,12 @@ public:
   short* SocketAddress_Mobius_Mark;
   StepChosen *QueryFloodingChosen;
   short *QueryFloodingChosen_Mobius_Mark;
-  StepWeight *FirmwareReversingWeight;
-  short *FirmwareReversingWeight_Mobius_Mark;
-  StepWeight *DoNothingWeight;
-  short *DoNothingWeight_Mobius_Mark;
   StepWeight *QueryFloodingWeight;
   short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
   double *TheDistributionParameters;
@@ -267,12 +152,12 @@ public:
   short* SocketAddress_Mobius_Mark;
   StepChosen *QueryFloodingChosen;
   short *QueryFloodingChosen_Mobius_Mark;
-  StepWeight *FirmwareReversingWeight;
-  short *FirmwareReversingWeight_Mobius_Mark;
-  StepWeight *DoNothingWeight;
-  short *DoNothingWeight_Mobius_Mark;
   StepWeight *QueryFloodingWeight;
   short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
   double *TheDistributionParameters;
@@ -295,34 +180,191 @@ public:
   void executeEffects();
 }; // QueryFloodingSuccessStep
 
-  //List of user-specified state variables
+class DoNothingOutcome1Step : public Step {
+public:
+
+  StepChosen *DoNothingChosen;
+  short *DoNothingChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  DoNothingOutcome1Step();
+  ~DoNothingOutcome1Step();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // DoNothingOutcome1Step
+
+class FirmwareReversingFailureStep : public Step {
+public:
+
   Knowledge *HandshakeProtocol;
+  short* HandshakeProtocol_Mobius_Mark;
   Knowledge *SocketAddress;
+  short* SocketAddress_Mobius_Mark;
   Knowledge *BinaryDump;
+  short* BinaryDump_Mobius_Mark;
+  Skill *ReverseEngineering;
+  short* ReverseEngineering_Mobius_Mark;
+  StepChosen *FirmwareReversingChosen;
+  short *FirmwareReversingChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  FirmwareReversingFailureStep();
+  ~FirmwareReversingFailureStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // FirmwareReversingFailureStep
+
+class FirmwareReversingObtainallStep : public Step {
+public:
+
+  Knowledge *HandshakeProtocol;
+  short* HandshakeProtocol_Mobius_Mark;
+  Knowledge *SocketAddress;
+  short* SocketAddress_Mobius_Mark;
+  Knowledge *BinaryDump;
+  short* BinaryDump_Mobius_Mark;
+  Skill *ReverseEngineering;
+  short* ReverseEngineering_Mobius_Mark;
+  StepChosen *FirmwareReversingChosen;
+  short *FirmwareReversingChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  FirmwareReversingObtainallStep();
+  ~FirmwareReversingObtainallStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // FirmwareReversingObtainallStep
+
+class FirmwareReversingObtainaddressonlyStep : public Step {
+public:
+
+  Knowledge *HandshakeProtocol;
+  short* HandshakeProtocol_Mobius_Mark;
+  Knowledge *SocketAddress;
+  short* SocketAddress_Mobius_Mark;
+  Knowledge *BinaryDump;
+  short* BinaryDump_Mobius_Mark;
+  Skill *ReverseEngineering;
+  short* ReverseEngineering_Mobius_Mark;
+  StepChosen *FirmwareReversingChosen;
+  short *FirmwareReversingChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  FirmwareReversingObtainaddressonlyStep();
+  ~FirmwareReversingObtainaddressonlyStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // FirmwareReversingObtainaddressonlyStep
+
+  //List of user-specified state variables
+  Knowledge *BinaryDump;
+  Knowledge *SocketAddress;
+  Knowledge *HandshakeProtocol;
   Skill *ReverseEngineering;
   Skill *Script;
   Goal *DoS;
   //List of attack step weight state variables
-  StepWeight *FirmwareReversingWeight;
-  StepWeight *DoNothingWeight;
   StepWeight *QueryFloodingWeight;
+  StepWeight *DoNothingWeight;
+  StepWeight *FirmwareReversingWeight;
   //List of attack step chosen state variables
-  StepChosen *FirmwareReversingChosen;
-  StepChosen *DoNothingChosen;
   StepChosen *QueryFloodingChosen;
+  StepChosen *DoNothingChosen;
+  StepChosen *FirmwareReversingChosen;
   //List of attack steps
-  FirmwareReversingFailureStep FirmwareReversingFailure;
-  FirmwareReversingSuccessStep FirmwareReversingSuccess;
-  DoNothingOutcome1Step DoNothingOutcome1;
   QueryFloodingFailureStep QueryFloodingFailure;
   QueryFloodingSuccessStep QueryFloodingSuccess;
-  FirmwareReversingAdversaryDecision FirmwareReversingAD;
-  DoNothingAdversaryDecision DoNothingAD;
+  DoNothingOutcome1Step DoNothingOutcome1;
+  FirmwareReversingFailureStep FirmwareReversingFailure;
+  FirmwareReversingObtainallStep FirmwareReversingObtainall;
+  FirmwareReversingObtainaddressonlyStep FirmwareReversingObtainaddressonly;
   QueryFloodingAdversaryDecision QueryFloodingAD;
+  DoNothingAdversaryDecision DoNothingAD;
+  FirmwareReversingAdversaryDecision FirmwareReversingAD;
   //Groups for attack steps
   PreselectGroup ImmediateGroup;
-  PostselectGroup FirmwareReversingGroup;
   PostselectGroup QueryFloodingGroup;
+  PostselectGroup FirmwareReversingGroup;
   PostselectGroup AdversaryDecisionGroup;
   advise_treeADVISE();
   ~advise_treeADVISE();

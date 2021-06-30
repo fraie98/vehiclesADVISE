@@ -27,12 +27,15 @@
       </value>
     </stepElements>
     <stepElements key="FirmwareReversing">
-      <value name="FirmwareReversing" codename="FirmwareReversing" xpos="116" ypos="203" sourceArcs="//@aeg/@arcElements.2 //@aeg/@arcElements.3" targetArcs="//@aeg/@arcElements.0 //@aeg/@arcElements.1" attackExecutionGraph="//@aeg" width="150" preconditions="return (BinaryDump->Mark() &amp;&amp; (ReverseEngineering->Mark()>1) &amp;&amp; !HandshakeProtocol->Mark() &amp;&amp; !SocketAddress->Mark());&#xA;&#x9;" cost="return 0;">
+      <value name="FirmwareReversing" codename="FirmwareReversing" xpos="129" ypos="203" sourceArcs="//@aeg/@arcElements.2 //@aeg/@arcElements.3" targetArcs="//@aeg/@arcElements.0 //@aeg/@arcElements.1" attackExecutionGraph="//@aeg" width="150" preconditions="return (BinaryDump->Mark() &amp;&amp; (ReverseEngineering->Mark()>1) &amp;&amp; !HandshakeProtocol->Mark() &amp;&amp; !SocketAddress->Mark());&#xA;&#x9;" cost="return 0;">
         <outcomes key="Success">
-          <value name="Success" probability="return 0.8;" detection="return 0.2;" effects="HandshakeProtocol->Mark() = 1;&#xA;SocketAddress->Mark() = 1;"/>
+          <value name="Obtain address only" probability="return 0.7;" detection="return 0;" effects="SocketAddress->Mark() = 1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="return 0.2;" detection="return 0.3;" effects=""/>
+          <value name="Failure" probability="return 0.2;" detection="return 0;" effects=""/>
+        </outcomes>
+        <outcomes key="Obtain all">
+          <value name="Obtain all" probability="return 0.1;" detection="return 0;" effects="HandshakeProtocol->Mark() = 1;&#xA;SocketAddress->Mark() = 1;"/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 5;</parameters>
@@ -40,12 +43,12 @@
       </value>
     </stepElements>
     <stepElements key="QueryFlooding">
-      <value name="QueryFlooding" codename="QueryFlooding" xpos="130" ypos="427" sourceArcs="//@aeg/@arcElements.7" targetArcs="//@aeg/@arcElements.4 //@aeg/@arcElements.5 //@aeg/@arcElements.6" attackExecutionGraph="//@aeg" width="150" preconditions="return ((Script->Mark()>2) &amp;&amp; HandshakeProtocol->Mark() &amp;&amp; SocketAddress->Mark() &amp;&amp; !DoS->Mark());" cost="return 0;">
+      <value name="QueryFlooding" codename="QueryFlooding" xpos="130" ypos="427" sourceArcs="//@aeg/@arcElements.7" targetArcs="//@aeg/@arcElements.4 //@aeg/@arcElements.5 //@aeg/@arcElements.6" attackExecutionGraph="//@aeg" width="150" preconditions="return ((Script->Mark()>2) &amp;&amp; SocketAddress->Mark() &amp;&amp; !DoS->Mark());" cost="return 0;">
         <outcomes key="Success">
-          <value name="Success" probability="return 0.6;" detection="return 0.5;" effects="DoS->Mark() = 1;"/>
+          <value name="Success" probability="if( HandshakeProtocol->Mark()) return 0.6;&#xA;else return 0.1;" detection="return 0.5;" effects="DoS->Mark() = 1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="return 0.4;" detection="return 0.6;" effects=""/>
+          <value name="Failure" probability="if( HandshakeProtocol->Mark()) return 0.4;&#xA;else return 0.9;" detection="return 0.6;" effects=""/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 10;</parameters>
