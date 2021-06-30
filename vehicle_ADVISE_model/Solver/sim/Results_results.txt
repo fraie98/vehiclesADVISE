@@ -1,0 +1,124 @@
+_______________________________Simulator Results______________________________
+Date:                        Wed Jun 30 13:36:18 CEST 2021
+
+____________________________Simulator Configuration___________________________
+Simulation Type:             Terminating
+Project Name:                vehicle_ADVISE_model
+Study Name:                  rangeStudy
+Random Number Generator:     Mersenne Twister
+Random Number Seed:          31415
+Maximum Batches:             10000
+Minimum Batches:             1000
+Data Reporting Frequency:    1000
+Display Update Frequency:    1000
+BuildType:                   Normal
+Execution Architecture:      64-bit
+Runname:                     Results
+Output File:                 Results_output.txt
+Results File:                Results_results
+Jackknife Variance:          On
+Processors Per Experiment:   1
+Maximize Processor Usage:    false
+Processors Selected for Simulation: 
+        student-VirtualBox   amd64
+
+_________________________________Experiment 1_________________________________
+Start Time:                  Wed Jun 30 13:36:16 CEST 2021
+Finish Time:                 Wed Jun 30 13:36:18 CEST 2021
+Elapsed Running Time:        1.798
+Total CPU Time:              0.292571
+Batches Completed:           1000
+Experiment Name:             Experiment 1
+
+
+_________________________________Mean Results_________________________________
+Name                  Time               Mean                     Confidence Interval
+handshakeProtocol     0.0               0.0000000000E00   +/-   0.0000000000E00 
+handshakeProtocol     5.0               8.1300000000E-01  +/-   2.4179059463E-02
+handshakeProtocol     10.0              9.5900000000E-01  +/-   1.2296303081E-02
+handshakeProtocol     15.0              9.9500000000E-01  +/-   4.3739102747E-03
+handshakeProtocol     20.0              9.9800000000E-01  +/-   2.7704709183E-03
+handshakeProtocol     25.0              1.0000000000E00   +/-   0.0000000000E00 
+handshakeProtocol     30.0              1.0000000000E00   +/-   0.0000000000E00 
+handshakeProtocol     35.0              1.0000000000E00   +/-   0.0000000000E00 
+handshakeProtocol     40.0              1.0000000000E00   +/-   0.0000000000E00 
+handshakeProtocol     45.0              1.0000000000E00   +/-   0.0000000000E00 
+handshakeProtocol     50.0              1.0000000000E00   +/-   0.0000000000E00 
+handshakeProtocol     55.0              1.0000000000E00   +/-   0.0000000000E00 
+handshakeProtocol     60.0              1.0000000000E00   +/-   0.0000000000E00 
+socketAddress         0.0               0.0000000000E00   +/-   0.0000000000E00 
+socketAddress         5.0               8.1300000000E-01  +/-   2.4179059463E-02
+socketAddress         10.0              9.5900000000E-01  +/-   1.2296303081E-02
+socketAddress         15.0              9.9500000000E-01  +/-   4.3739102747E-03
+socketAddress         20.0              9.9800000000E-01  +/-   2.7704709183E-03
+socketAddress         25.0              1.0000000000E00   +/-   0.0000000000E00 
+socketAddress         30.0              1.0000000000E00   +/-   0.0000000000E00 
+socketAddress         35.0              1.0000000000E00   +/-   0.0000000000E00 
+socketAddress         40.0              1.0000000000E00   +/-   0.0000000000E00 
+socketAddress         45.0              1.0000000000E00   +/-   0.0000000000E00 
+socketAddress         50.0              1.0000000000E00   +/-   0.0000000000E00 
+socketAddress         55.0              1.0000000000E00   +/-   0.0000000000E00 
+socketAddress         60.0              1.0000000000E00   +/-   0.0000000000E00 
+DoS                   0.0               0.0000000000E00   +/-   0.0000000000E00 
+DoS                   5.0               0.0000000000E00   +/-   0.0000000000E00 
+DoS                   10.0              0.0000000000E00   +/-   0.0000000000E00 
+DoS                   15.0              4.9100000000E-01  +/-   3.1000804510E-02
+DoS                   20.0              5.8100000000E-01  +/-   3.0596264376E-02
+DoS                   25.0              7.8300000000E-01  +/-   2.5561366964E-02
+DoS                   30.0              8.1400000000E-01  +/-   2.4129148808E-02
+DoS                   35.0              9.1300000000E-01  +/-   1.7477058596E-02
+DoS                   40.0              9.3000000000E-01  +/-   1.5822088942E-02
+DoS                   45.0              9.6300000000E-01  +/-   1.1705428940E-02
+DoS                   50.0              9.6900000000E-01  +/-   1.0747713047E-02
+DoS                   55.0              9.8400000000E-01  +/-   7.7809185250E-03
+DoS                   60.0              9.8900000000E-01  +/-   6.4679673006E-03
+binaryDump            0.0               1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            5.0               1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            10.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            15.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            20.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            25.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            30.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            35.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            40.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            45.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            50.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            55.0              1.0000000000E00   +/-   0.0000000000E00 
+binaryDump            60.0              1.0000000000E00   +/-   0.0000000000E00 
+reverseEngineering    0.0               5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    5.0               5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    10.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    15.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    20.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    25.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    30.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    35.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    40.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    45.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    50.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    55.0              5.0000000000E00   +/-   5.2245774697E-09
+reverseEngineering    60.0              5.0000000000E00   +/-   5.2245774697E-09
+script                0.0               7.0000000000E00   +/-   0.0000000000E00 
+script                5.0               7.0000000000E00   +/-   0.0000000000E00 
+script                10.0              7.0000000000E00   +/-   0.0000000000E00 
+script                15.0              7.0000000000E00   +/-   0.0000000000E00 
+script                20.0              7.0000000000E00   +/-   0.0000000000E00 
+script                25.0              7.0000000000E00   +/-   0.0000000000E00 
+script                30.0              7.0000000000E00   +/-   0.0000000000E00 
+script                35.0              7.0000000000E00   +/-   0.0000000000E00 
+script                40.0              7.0000000000E00   +/-   0.0000000000E00 
+script                45.0              7.0000000000E00   +/-   0.0000000000E00 
+script                50.0              7.0000000000E00   +/-   0.0000000000E00 
+script                55.0              7.0000000000E00   +/-   0.0000000000E00 
+script                60.0              7.0000000000E00   +/-   0.0000000000E00 
+
+
+_______________________________Variance Results_______________________________
+
+
+_______________________________Interval Results_______________________________
+
+
+_____________________________Distribution Results_____________________________
+
+<END_MOBIUS_RESULTS>

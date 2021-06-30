@@ -1,0 +1,113 @@
+Simulator Results
+Date:, Wed Jun 30 13:36:18 CEST 2021
+
+Simulator Configuration
+Simulation Type:,Terminating
+Project Name:,vehicle_ADVISE_model
+Study Name:,rangeStudy
+Random Number Generator:,Mersenne Twister
+Random Number Seed:,31415
+Maximum Batches:,10000
+Minimum Batches:,1000
+Data Reporting Frequency:,1000
+Display Update Frequency:,1000
+BuildType:,Normal
+Execution Architecture:,64-bit
+Runname:,Results
+Output File:,Results_output.txt
+Results File:,Results_results
+Jackknife Variance:,On
+Processors Per Experiment:,1
+Maximize Processor Usage:,false
+Processors Selected for Simulation:
+student-VirtualBox,amd64
+
+Experiment 1
+Experiment 1,Start Time:,Wed Jun 30 13:36:16 CEST 2021
+Experiment 1,Finish Time:,Wed Jun 30 13:36:18 CEST 2021
+Experiment 1,Elapsed Running Time:,1.798
+Experiment 1,Total CPU Time:,0.292571
+Experiment 1,Batches Completed:,1000
+Experiment 1,Experiment Name:,Experiment 1
+Experiment 1, Results
+Experiment 1,Result Type,Name,Start Time,End Time,Mean,,Confidence Interval,Failed To Converge
+Experiment 1,Mean,handshakeProtocol,0.0,0.0,0.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,handshakeProtocol,5.0,5.0,8.1300000000E-01,+/-,2.4179059463E-02
+Experiment 1,Mean,handshakeProtocol,10.0,10.0,9.5900000000E-01,+/-,1.2296303081E-02
+Experiment 1,Mean,handshakeProtocol,15.0,15.0,9.9500000000E-01,+/-,4.3739102747E-03
+Experiment 1,Mean,handshakeProtocol,20.0,20.0,9.9800000000E-01,+/-,2.7704709183E-03
+Experiment 1,Mean,handshakeProtocol,25.0,25.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,handshakeProtocol,30.0,30.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,handshakeProtocol,35.0,35.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,handshakeProtocol,40.0,40.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,handshakeProtocol,45.0,45.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,handshakeProtocol,50.0,50.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,handshakeProtocol,55.0,55.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,handshakeProtocol,60.0,60.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,0.0,0.0,0.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,5.0,5.0,8.1300000000E-01,+/-,2.4179059463E-02
+Experiment 1,Mean,socketAddress,10.0,10.0,9.5900000000E-01,+/-,1.2296303081E-02
+Experiment 1,Mean,socketAddress,15.0,15.0,9.9500000000E-01,+/-,4.3739102747E-03
+Experiment 1,Mean,socketAddress,20.0,20.0,9.9800000000E-01,+/-,2.7704709183E-03
+Experiment 1,Mean,socketAddress,25.0,25.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,30.0,30.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,35.0,35.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,40.0,40.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,45.0,45.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,50.0,50.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,55.0,55.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,socketAddress,60.0,60.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,DoS,0.0,0.0,0.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,DoS,5.0,5.0,0.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,DoS,10.0,10.0,0.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,DoS,15.0,15.0,4.9100000000E-01,+/-,3.1000804510E-02
+Experiment 1,Mean,DoS,20.0,20.0,5.8100000000E-01,+/-,3.0596264376E-02
+Experiment 1,Mean,DoS,25.0,25.0,7.8300000000E-01,+/-,2.5561366964E-02
+Experiment 1,Mean,DoS,30.0,30.0,8.1400000000E-01,+/-,2.4129148808E-02
+Experiment 1,Mean,DoS,35.0,35.0,9.1300000000E-01,+/-,1.7477058596E-02
+Experiment 1,Mean,DoS,40.0,40.0,9.3000000000E-01,+/-,1.5822088942E-02
+Experiment 1,Mean,DoS,45.0,45.0,9.6300000000E-01,+/-,1.1705428940E-02
+Experiment 1,Mean,DoS,50.0,50.0,9.6900000000E-01,+/-,1.0747713047E-02
+Experiment 1,Mean,DoS,55.0,55.0,9.8400000000E-01,+/-,7.7809185250E-03
+Experiment 1,Mean,DoS,60.0,60.0,9.8900000000E-01,+/-,6.4679673006E-03
+Experiment 1,Mean,binaryDump,0.0,0.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,5.0,5.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,10.0,10.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,15.0,15.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,20.0,20.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,25.0,25.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,30.0,30.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,35.0,35.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,40.0,40.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,45.0,45.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,50.0,50.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,55.0,55.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,binaryDump,60.0,60.0,1.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,reverseEngineering,0.0,0.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,5.0,5.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,10.0,10.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,15.0,15.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,20.0,20.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,25.0,25.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,30.0,30.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,35.0,35.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,40.0,40.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,45.0,45.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,50.0,50.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,55.0,55.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,reverseEngineering,60.0,60.0,5.0000000000E00 ,+/-,5.2245774697E-09
+Experiment 1,Mean,script,0.0,0.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,5.0,5.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,10.0,10.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,15.0,15.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,20.0,20.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,25.0,25.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,30.0,30.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,35.0,35.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,40.0,40.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,45.0,45.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,50.0,50.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,55.0,55.0,7.0000000000E00 ,+/-,0.0000000000E00 
+Experiment 1,Mean,script,60.0,60.0,7.0000000000E00 ,+/-,0.0000000000E00 
+
+<END_MOBIUS_RESULTS>

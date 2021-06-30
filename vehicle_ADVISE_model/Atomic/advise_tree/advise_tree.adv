@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<models:AdviseAtomicModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:models="http://www.mobius.illinois.edu/atomic/advise/" name="advise_tree">
+  <aeg adviseModel="/">
+    <skillElements key="ReverseEngineering">
+      <value name="ReverseEngineering" codename="ReverseEngineering" xpos="253" ypos="87" sourceArcs="//@aeg/@arcElements.1" attackExecutionGraph="//@aeg"/>
+    </skillElements>
+    <skillElements key="Script">
+      <value name="Script" codename="Script" xpos="33" ypos="294" sourceArcs="//@aeg/@arcElements.4" attackExecutionGraph="//@aeg"/>
+    </skillElements>
+    <knowledgeElements key="BinaryDump">
+      <value name="BinaryDump" codename="BinaryDump" xpos="104" ypos="90" sourceArcs="//@aeg/@arcElements.0" attackExecutionGraph="//@aeg"/>
+    </knowledgeElements>
+    <knowledgeElements key="HandshakeProtocol">
+      <value name="HandshakeProtocol" codename="HandshakeProtocol" xpos="114" ypos="294" sourceArcs="//@aeg/@arcElements.5" targetArcs="//@aeg/@arcElements.2" attackExecutionGraph="//@aeg"/>
+    </knowledgeElements>
+    <knowledgeElements key="SocketAddress">
+      <value name="SocketAddress" codename="SocketAddress" xpos="223" ypos="291" sourceArcs="//@aeg/@arcElements.6" targetArcs="//@aeg/@arcElements.3" attackExecutionGraph="//@aeg"/>
+    </knowledgeElements>
+    <stepElements key="Do Nothing">
+      <value name="Do Nothing" codename="DoNothing" editMask="15" attackExecutionGraph="//@aeg" height="0" width="0" cost="return 0;">
+        <outcomes key="Outcome 1">
+          <value name="Outcome 1" probability="return 1;" detection="return 0;" effects=""/>
+        </outcomes>
+        <timing distributionType="Deterministic">
+          <parameters>return 1;</parameters>
+        </timing>
+      </value>
+    </stepElements>
+    <stepElements key="FirmwareReversing">
+      <value name="FirmwareReversing" codename="FirmwareReversing" xpos="116" ypos="203" sourceArcs="//@aeg/@arcElements.2 //@aeg/@arcElements.3" targetArcs="//@aeg/@arcElements.0 //@aeg/@arcElements.1" attackExecutionGraph="//@aeg" width="150" preconditions="return (BinaryDump->Mark() &amp;&amp; (ReverseEngineering->Mark()>1) &amp;&amp; !HandshakeProtocol->Mark() &amp;&amp; !SocketAddress->Mark());&#xA;&#x9;" cost="return 0;">
+        <outcomes key="Success">
+          <value name="Success" probability="return 0.8;" detection="return 0.2;" effects="HandshakeProtocol->Mark() = 1;&#xA;SocketAddress->Mark() = 1;"/>
+        </outcomes>
+        <outcomes key="Failure">
+          <value name="Failure" probability="return 0.2;" detection="return 0.3;" effects=""/>
+        </outcomes>
+        <timing distributionType="Deterministic">
+          <parameters>return 5;</parameters>
+        </timing>
+      </value>
+    </stepElements>
+    <stepElements key="QueryFlooding">
+      <value name="QueryFlooding" codename="QueryFlooding" xpos="130" ypos="427" sourceArcs="//@aeg/@arcElements.7" targetArcs="//@aeg/@arcElements.4 //@aeg/@arcElements.5 //@aeg/@arcElements.6" attackExecutionGraph="//@aeg" width="150" preconditions="return ((Script->Mark()>2) &amp;&amp; HandshakeProtocol->Mark() &amp;&amp; SocketAddress->Mark() &amp;&amp; !DoS->Mark());" cost="return 0;">
+        <outcomes key="Success">
+          <value name="Success" probability="return 0.6;" detection="return 0.5;" effects="DoS->Mark() = 1;"/>
+        </outcomes>
+        <outcomes key="Failure">
+          <value name="Failure" probability="return 0.4;" detection="return 0.6;" effects=""/>
+        </outcomes>
+        <timing distributionType="Deterministic">
+          <parameters>return 10;</parameters>
+        </timing>
+      </value>
+    </stepElements>
+    <goalElements key="DoS">
+      <value name="DoS" codename="DoS" xpos="167" ypos="543" targetArcs="//@aeg/@arcElements.7" attackExecutionGraph="//@aeg" width="75"/>
+    </goalElements>
+    <arcElements sourceName="BinaryDump" targetName="FirmwareReversing" sourceType="Knowledge" targetType="Step"/>
+    <arcElements sourceName="ReverseEngineering" targetName="FirmwareReversing" sourceType="Skill" targetType="Step"/>
+    <arcElements sourceName="FirmwareReversing" targetName="HandshakeProtocol" sourceType="Step" targetType="Knowledge"/>
+    <arcElements sourceName="FirmwareReversing" targetName="SocketAddress" sourceType="Step" targetType="Knowledge"/>
+    <arcElements sourceName="Script" targetName="QueryFlooding" sourceType="Skill" targetType="Step"/>
+    <arcElements sourceName="HandshakeProtocol" targetName="QueryFlooding" sourceType="Knowledge" targetType="Step"/>
+    <arcElements sourceName="SocketAddress" targetName="QueryFlooding" sourceType="Knowledge" targetType="Step"/>
+    <arcElements sourceName="QueryFlooding" targetName="DoS" sourceType="Step" targetType="Goal"/>
+  </aeg>
+  <adversary name="Hacker" codename="Hacker" horizon="2">
+    <goalInit key="DoS" value="0"/>
+    <goalPayoff key="DoS" value="500"/>
+    <knowledgeInit key="BinaryDump" value="1"/>
+    <skillInit key="ReverseEngineering" value="5"/>
+    <skillInit key="Script" value="7"/>
+  </adversary>
+</models:AdviseAtomicModel>
