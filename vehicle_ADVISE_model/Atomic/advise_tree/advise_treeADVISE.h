@@ -74,6 +74,78 @@ public:
   BaseActionClass *Fire();
 }; // DoNothingAdversaryDecision
 
+class PortScanAdversaryDecision : public AdversaryDecision {
+public:
+
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  StepChosen *PortScanChosen;
+  short *PortScanChosen_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  PortScanAdversaryDecision();
+  ~PortScanAdversaryDecision();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  int Rank();
+  BaseActionClass *Fire();
+}; // PortScanAdversaryDecision
+
+class DatabaseDumpAdversaryDecision : public AdversaryDecision {
+public:
+
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  StepChosen *DatabaseDumpChosen;
+  short *DatabaseDumpChosen_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  DatabaseDumpAdversaryDecision();
+  ~DatabaseDumpAdversaryDecision();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  int Rank();
+  BaseActionClass *Fire();
+}; // DatabaseDumpAdversaryDecision
+
+class TamperingAdversaryDecision : public AdversaryDecision {
+public:
+
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  StepChosen *TamperingChosen;
+  short *TamperingChosen_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  TamperingAdversaryDecision();
+  ~TamperingAdversaryDecision();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  int Rank();
+  BaseActionClass *Fire();
+}; // TamperingAdversaryDecision
+
 class FirmwareReversingAdversaryDecision : public AdversaryDecision {
 public:
 
@@ -98,6 +170,30 @@ public:
   BaseActionClass *Fire();
 }; // FirmwareReversingAdversaryDecision
 
+class ExploitAdversaryDecision : public AdversaryDecision {
+public:
+
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  StepChosen *ExploitChosen;
+  short *ExploitChosen_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  ExploitAdversaryDecision();
+  ~ExploitAdversaryDecision();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  int Rank();
+  BaseActionClass *Fire();
+}; // ExploitAdversaryDecision
+
 class QueryFloodingFailureStep : public Step {
 public:
 
@@ -115,8 +211,16 @@ public:
   short *QueryFloodingWeight_Mobius_Mark;
   StepWeight *DoNothingWeight;
   short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
   StepWeight *FirmwareReversingWeight;
   short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
   double *TheDistributionParameters;
@@ -156,8 +260,16 @@ public:
   short *QueryFloodingWeight_Mobius_Mark;
   StepWeight *DoNothingWeight;
   short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
   StepWeight *FirmwareReversingWeight;
   short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
   double *TheDistributionParameters;
@@ -189,8 +301,16 @@ public:
   short *QueryFloodingWeight_Mobius_Mark;
   StepWeight *DoNothingWeight;
   short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
   StepWeight *FirmwareReversingWeight;
   short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
   double *TheDistributionParameters;
@@ -213,6 +333,276 @@ public:
   void executeEffects();
 }; // DoNothingOutcome1Step
 
+class PortScanFailureStep : public Step {
+public:
+
+  Knowledge *VulnerabilityAwareness;
+  short* VulnerabilityAwareness_Mobius_Mark;
+  Knowledge *SocketAddress;
+  short* SocketAddress_Mobius_Mark;
+  StepChosen *PortScanChosen;
+  short *PortScanChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  PortScanFailureStep();
+  ~PortScanFailureStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // PortScanFailureStep
+
+class PortScanSuccessStep : public Step {
+public:
+
+  Knowledge *VulnerabilityAwareness;
+  short* VulnerabilityAwareness_Mobius_Mark;
+  Knowledge *SocketAddress;
+  short* SocketAddress_Mobius_Mark;
+  StepChosen *PortScanChosen;
+  short *PortScanChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  PortScanSuccessStep();
+  ~PortScanSuccessStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // PortScanSuccessStep
+
+class DatabaseDumpFailureStep : public Step {
+public:
+
+  Goal *DataBreach;
+  short* DataBreach_Mobius_Mark;
+  Access *VehicleServerRootAccess;
+  short* VehicleServerRootAccess_Mobius_Mark;
+  StepChosen *DatabaseDumpChosen;
+  short *DatabaseDumpChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  DatabaseDumpFailureStep();
+  ~DatabaseDumpFailureStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // DatabaseDumpFailureStep
+
+class DatabaseDumpSuccessStep : public Step {
+public:
+
+  Goal *DataBreach;
+  short* DataBreach_Mobius_Mark;
+  Access *VehicleServerRootAccess;
+  short* VehicleServerRootAccess_Mobius_Mark;
+  StepChosen *DatabaseDumpChosen;
+  short *DatabaseDumpChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  DatabaseDumpSuccessStep();
+  ~DatabaseDumpSuccessStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // DatabaseDumpSuccessStep
+
+class TamperingFailureStep : public Step {
+public:
+
+  Goal *VehicleUndesideredBehaviour;
+  short* VehicleUndesideredBehaviour_Mobius_Mark;
+  Access *VehicleServerRootAccess;
+  short* VehicleServerRootAccess_Mobius_Mark;
+  StepChosen *TamperingChosen;
+  short *TamperingChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  TamperingFailureStep();
+  ~TamperingFailureStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // TamperingFailureStep
+
+class TamperingSuccessStep : public Step {
+public:
+
+  Goal *VehicleUndesideredBehaviour;
+  short* VehicleUndesideredBehaviour_Mobius_Mark;
+  Access *VehicleServerRootAccess;
+  short* VehicleServerRootAccess_Mobius_Mark;
+  StepChosen *TamperingChosen;
+  short *TamperingChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  TamperingSuccessStep();
+  ~TamperingSuccessStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // TamperingSuccessStep
+
 class FirmwareReversingFailureStep : public Step {
 public:
 
@@ -230,8 +620,16 @@ public:
   short *QueryFloodingWeight_Mobius_Mark;
   StepWeight *DoNothingWeight;
   short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
   StepWeight *FirmwareReversingWeight;
   short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
   double *TheDistributionParameters;
@@ -271,8 +669,16 @@ public:
   short *QueryFloodingWeight_Mobius_Mark;
   StepWeight *DoNothingWeight;
   short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
   StepWeight *FirmwareReversingWeight;
   short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
   double *TheDistributionParameters;
@@ -312,8 +718,16 @@ public:
   short *QueryFloodingWeight_Mobius_Mark;
   StepWeight *DoNothingWeight;
   short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
   StepWeight *FirmwareReversingWeight;
   short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
   BeginAdversaryDecision *MakeDecision;
   short *MakeDecision_Mobius_Mark;
   double *TheDistributionParameters;
@@ -336,35 +750,153 @@ public:
   void executeEffects();
 }; // FirmwareReversingObtainaddressonlyStep
 
+class ExploitFailureStep : public Step {
+public:
+
+  Access *VehicleServerRootAccess;
+  short* VehicleServerRootAccess_Mobius_Mark;
+  Knowledge *VulnerabilityAwareness;
+  short* VulnerabilityAwareness_Mobius_Mark;
+  StepChosen *ExploitChosen;
+  short *ExploitChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  ExploitFailureStep();
+  ~ExploitFailureStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // ExploitFailureStep
+
+class ExploitSuccessStep : public Step {
+public:
+
+  Access *VehicleServerRootAccess;
+  short* VehicleServerRootAccess_Mobius_Mark;
+  Knowledge *VulnerabilityAwareness;
+  short* VulnerabilityAwareness_Mobius_Mark;
+  StepChosen *ExploitChosen;
+  short *ExploitChosen_Mobius_Mark;
+  StepWeight *QueryFloodingWeight;
+  short *QueryFloodingWeight_Mobius_Mark;
+  StepWeight *DoNothingWeight;
+  short *DoNothingWeight_Mobius_Mark;
+  StepWeight *PortScanWeight;
+  short *PortScanWeight_Mobius_Mark;
+  StepWeight *DatabaseDumpWeight;
+  short *DatabaseDumpWeight_Mobius_Mark;
+  StepWeight *TamperingWeight;
+  short *TamperingWeight_Mobius_Mark;
+  StepWeight *FirmwareReversingWeight;
+  short *FirmwareReversingWeight_Mobius_Mark;
+  StepWeight *ExploitWeight;
+  short *ExploitWeight_Mobius_Mark;
+  BeginAdversaryDecision *MakeDecision;
+  short *MakeDecision_Mobius_Mark;
+  double *TheDistributionParameters;
+
+  ExploitSuccessStep();
+  ~ExploitSuccessStep();
+  bool Enabled();
+  void LinkVariables();
+  double Weight();
+  bool ReactivationPredicate();
+  bool ReactivationFunction();
+  double SampleDistribution();
+  double* ReturnDistributionParameters();
+  double getCost();
+  double getOutcomeProbability();
+  double getDetection();
+  int Rank();
+  double timeDistributionParameter0();
+  bool preconditionsMet();
+  void executeEffects();
+}; // ExploitSuccessStep
+
   //List of user-specified state variables
+  Access *VehicleServerRootAccess;
   Knowledge *BinaryDump;
   Knowledge *SocketAddress;
+  Knowledge *VulnerabilityAwareness;
   Knowledge *HandshakeProtocol;
   Skill *ReverseEngineering;
   Skill *Script;
+  Goal *DataBreach;
+  Goal *VehicleUndesideredBehaviour;
   Goal *DoS;
   //List of attack step weight state variables
   StepWeight *QueryFloodingWeight;
   StepWeight *DoNothingWeight;
+  StepWeight *PortScanWeight;
+  StepWeight *DatabaseDumpWeight;
+  StepWeight *TamperingWeight;
   StepWeight *FirmwareReversingWeight;
+  StepWeight *ExploitWeight;
   //List of attack step chosen state variables
   StepChosen *QueryFloodingChosen;
   StepChosen *DoNothingChosen;
+  StepChosen *PortScanChosen;
+  StepChosen *DatabaseDumpChosen;
+  StepChosen *TamperingChosen;
   StepChosen *FirmwareReversingChosen;
+  StepChosen *ExploitChosen;
   //List of attack steps
   QueryFloodingFailureStep QueryFloodingFailure;
   QueryFloodingSuccessStep QueryFloodingSuccess;
   DoNothingOutcome1Step DoNothingOutcome1;
+  PortScanFailureStep PortScanFailure;
+  PortScanSuccessStep PortScanSuccess;
+  DatabaseDumpFailureStep DatabaseDumpFailure;
+  DatabaseDumpSuccessStep DatabaseDumpSuccess;
+  TamperingFailureStep TamperingFailure;
+  TamperingSuccessStep TamperingSuccess;
   FirmwareReversingFailureStep FirmwareReversingFailure;
   FirmwareReversingObtainallStep FirmwareReversingObtainall;
   FirmwareReversingObtainaddressonlyStep FirmwareReversingObtainaddressonly;
+  ExploitFailureStep ExploitFailure;
+  ExploitSuccessStep ExploitSuccess;
   QueryFloodingAdversaryDecision QueryFloodingAD;
   DoNothingAdversaryDecision DoNothingAD;
+  PortScanAdversaryDecision PortScanAD;
+  DatabaseDumpAdversaryDecision DatabaseDumpAD;
+  TamperingAdversaryDecision TamperingAD;
   FirmwareReversingAdversaryDecision FirmwareReversingAD;
+  ExploitAdversaryDecision ExploitAD;
   //Groups for attack steps
   PreselectGroup ImmediateGroup;
   PostselectGroup QueryFloodingGroup;
+  PostselectGroup PortScanGroup;
+  PostselectGroup DatabaseDumpGroup;
+  PostselectGroup TamperingGroup;
   PostselectGroup FirmwareReversingGroup;
+  PostselectGroup ExploitGroup;
   PostselectGroup AdversaryDecisionGroup;
   advise_treeADVISE();
   ~advise_treeADVISE();

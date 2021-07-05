@@ -138,4 +138,92 @@ class RewardPV5:public PerformanceVariableNode
   void CreateWorkerList(void);
 };
 
+class RewardPV6Worker:public InstantOfTime
+{
+ public:
+  advise_treeADVISE *advise_tree;
+  
+  RewardPV6Worker();
+  ~RewardPV6Worker();
+  double Reward_Function();
+};
+
+class RewardPV6:public PerformanceVariableNode
+{
+ public:
+  advise_treeADVISE *Theadvise_treeADVISE;
+
+  RewardPV6Worker *RewardPV6WorkerList;
+
+  RewardPV6(int timeindex=0);
+  ~RewardPV6();
+  void CreateWorkerList(void);
+};
+
+class RewardPV7Worker:public InstantOfTime
+{
+ public:
+  advise_treeADVISE *advise_tree;
+  
+  RewardPV7Worker();
+  ~RewardPV7Worker();
+  double Reward_Function();
+};
+
+class RewardPV7:public PerformanceVariableNode
+{
+ public:
+  advise_treeADVISE *Theadvise_treeADVISE;
+
+  RewardPV7Worker *RewardPV7WorkerList;
+
+  RewardPV7(int timeindex=0);
+  ~RewardPV7();
+  void CreateWorkerList(void);
+};
+
+class RewardPV8Worker:public InstantOfTime
+{
+ public:
+  advise_treeADVISE *advise_tree;
+  
+  RewardPV8Worker();
+  ~RewardPV8Worker();
+  double Reward_Function();
+};
+
+class RewardPV8:public PerformanceVariableNode
+{
+ public:
+  advise_treeADVISE *Theadvise_treeADVISE;
+
+  RewardPV8Worker *RewardPV8WorkerList;
+
+  RewardPV8(int timeindex=0);
+  ~RewardPV8();
+  void CreateWorkerList(void);
+};
+
+class RewardPV9Worker:public InstantOfTime
+{
+ public:
+  advise_treeADVISE *advise_tree;
+  
+  RewardPV9Worker();
+  ~RewardPV9Worker();
+  double Reward_Function();
+};
+
+class RewardPV9:public PerformanceVariableNode
+{
+ public:
+  advise_treeADVISE *Theadvise_treeADVISE;
+
+  RewardPV9Worker *RewardPV9WorkerList;
+
+  RewardPV9(int timeindex=0);
+  ~RewardPV9();
+  void CreateWorkerList(void);
+};
+
 #endif

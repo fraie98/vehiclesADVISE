@@ -2,20 +2,26 @@
 <models:AdviseAtomicModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:models="http://www.mobius.illinois.edu/atomic/advise/" name="advise_tree">
   <aeg adviseModel="/">
     <skillElements key="ReverseEngineering">
-      <value name="ReverseEngineering" codename="ReverseEngineering" xpos="253" ypos="87" sourceArcs="//@aeg/@arcElements.1" attackExecutionGraph="//@aeg"/>
+      <value name="ReverseEngineering" codename="ReverseEngineering" xpos="228" ypos="84" sourceArcs="//@aeg/@arcElements.1" attackExecutionGraph="//@aeg"/>
     </skillElements>
     <skillElements key="Script">
       <value name="Script" codename="Script" xpos="33" ypos="294" sourceArcs="//@aeg/@arcElements.4" attackExecutionGraph="//@aeg"/>
     </skillElements>
     <knowledgeElements key="BinaryDump">
-      <value name="BinaryDump" codename="BinaryDump" xpos="104" ypos="90" sourceArcs="//@aeg/@arcElements.0" attackExecutionGraph="//@aeg"/>
+      <value name="BinaryDump" codename="BinaryDump" xpos="139" ypos="88" sourceArcs="//@aeg/@arcElements.0" attackExecutionGraph="//@aeg"/>
     </knowledgeElements>
     <knowledgeElements key="HandshakeProtocol">
-      <value name="HandshakeProtocol" codename="HandshakeProtocol" xpos="114" ypos="294" sourceArcs="//@aeg/@arcElements.5" targetArcs="//@aeg/@arcElements.2" attackExecutionGraph="//@aeg"/>
+      <value name="HandshakeProtocol" codename="HandshakeProtocol" xpos="132" ypos="290" sourceArcs="//@aeg/@arcElements.5" targetArcs="//@aeg/@arcElements.2" attackExecutionGraph="//@aeg"/>
     </knowledgeElements>
     <knowledgeElements key="SocketAddress">
-      <value name="SocketAddress" codename="SocketAddress" xpos="223" ypos="291" sourceArcs="//@aeg/@arcElements.6" targetArcs="//@aeg/@arcElements.3" attackExecutionGraph="//@aeg"/>
+      <value name="SocketAddress" codename="SocketAddress" xpos="223" ypos="297" sourceArcs="//@aeg/@arcElements.6 //@aeg/@arcElements.8" targetArcs="//@aeg/@arcElements.3" attackExecutionGraph="//@aeg"/>
     </knowledgeElements>
+    <knowledgeElements key="VulnerabilityAwareness">
+      <value name="VulnerabilityAwareness" codename="VulnerabilityAwareness" xpos="400" ypos="423" sourceArcs="//@aeg/@arcElements.10" targetArcs="//@aeg/@arcElements.9" attackExecutionGraph="//@aeg"/>
+    </knowledgeElements>
+    <accessElements key="VehicleServerRootAccess">
+      <value name="VehicleServerRootAccess" codename="VehicleServerRootAccess" xpos="402" ypos="647" sourceArcs="//@aeg/@arcElements.12 //@aeg/@arcElements.14" targetArcs="//@aeg/@arcElements.11" attackExecutionGraph="//@aeg"/>
+    </accessElements>
     <stepElements key="Do Nothing">
       <value name="Do Nothing" codename="DoNothing" editMask="15" attackExecutionGraph="//@aeg" height="0" width="0" cost="return 0;">
         <outcomes key="Outcome 1">
@@ -55,8 +61,66 @@
         </timing>
       </value>
     </stepElements>
+    <stepElements key="PortScan">
+      <value name="PortScan" codename="PortScan" xpos="351" ypos="301" sourceArcs="//@aeg/@arcElements.9" targetArcs="//@aeg/@arcElements.8" attackExecutionGraph="//@aeg" width="150" preconditions="return (SocketAddress->Mark() &amp;&amp; !VulnerabilityAwareness->Mark());" cost="return 0;">
+        <outcomes key="Success">
+          <value name="Success" probability="return 0.7;" detection="return 0.1;" effects="VulnerabilityAwareness->Mark()=1;"/>
+        </outcomes>
+        <outcomes key="Failure">
+          <value name="Failure" probability="return 0.3;" detection="return 0.1;" effects=""/>
+        </outcomes>
+        <timing distributionType="Deterministic">
+          <parameters>return 5;</parameters>
+        </timing>
+      </value>
+    </stepElements>
+    <stepElements key="Exploit">
+      <value name="Exploit" codename="Exploit" xpos="352" ypos="531" sourceArcs="//@aeg/@arcElements.11" targetArcs="//@aeg/@arcElements.10" attackExecutionGraph="//@aeg" width="150" preconditions="return (VulnerabilityAwareness->Mark() &amp;&amp; !VehicleServerRootAccess->Mark());" cost="return 0;">
+        <outcomes key="Success">
+          <value name="Success" probability="return 0.8;" detection="return 0.2;" effects="VehicleServerRootAccess->Mark()=1;"/>
+        </outcomes>
+        <outcomes key="Failure">
+          <value name="Failure" probability="return 0.2;" detection="return 0.6;" effects=""/>
+        </outcomes>
+        <timing distributionType="Deterministic">
+          <parameters>return 5;</parameters>
+        </timing>
+      </value>
+    </stepElements>
+    <stepElements key="DatabaseDump">
+      <value name="DatabaseDump" codename="DatabaseDump" xpos="159" ypos="650" sourceArcs="//@aeg/@arcElements.15" targetArcs="//@aeg/@arcElements.14" attackExecutionGraph="//@aeg" width="150" preconditions="return (VehicleServerRootAccess->Mark() &amp;&amp; !DataBreach->Mark());" cost="return 0;">
+        <outcomes key="Success">
+          <value name="Success" probability="return 0.8;" detection="return 0.5;" effects="DataBreach->Mark()=1;"/>
+        </outcomes>
+        <outcomes key="Failure">
+          <value name="Failure" probability="return 0.2;" detection="return 0.7;" effects=""/>
+        </outcomes>
+        <timing distributionType="Deterministic">
+          <parameters>return 5;</parameters>
+        </timing>
+      </value>
+    </stepElements>
+    <stepElements key="Tampering">
+      <value name="Tampering" codename="Tampering" xpos="353" ypos="745" sourceArcs="//@aeg/@arcElements.13" targetArcs="//@aeg/@arcElements.12" attackExecutionGraph="//@aeg" width="150" preconditions="return (VehicleServerRootAccess->Mark() &amp;&amp; !VehicleUndesideredBehaviour->Mark());" cost="return 0;">
+        <outcomes key="Success">
+          <value name="Success" probability="return 0.6;" detection="return 0.6;" effects="VehicleUndesideredBehaviour->Mark()=1;"/>
+        </outcomes>
+        <outcomes key="Failure">
+          <value name="Failure" probability="return 0.4;" detection="return 0.8;" effects=""/>
+        </outcomes>
+        <timing distributionType="Deterministic">
+          <parameters>return 5;</parameters>
+        </timing>
+      </value>
+    </stepElements>
     <goalElements key="DoS">
       <value name="DoS" codename="DoS" xpos="167" ypos="543" targetArcs="//@aeg/@arcElements.7" attackExecutionGraph="//@aeg" width="75"/>
+    </goalElements>
+    <goalElements key="DataBreach">
+      <value name="DataBreach" codename="DataBreach" xpos="191" ypos="763" targetArcs="//@aeg/@arcElements.15" attackExecutionGraph="//@aeg" width="75"/>
+    </goalElements>
+    <goalElements key="VehicleUndesideredBehaviour">
+      <value name="VehicleUndesideredBehaviour" codename="VehicleUndesideredBehaviour" xpos="395" ypos="835" targetArcs="//@aeg/@arcElements.13" attackExecutionGraph="//@aeg" width="75"/>
     </goalElements>
     <arcElements sourceName="BinaryDump" targetName="FirmwareReversing" sourceType="Knowledge" targetType="Step"/>
     <arcElements sourceName="ReverseEngineering" targetName="FirmwareReversing" sourceType="Skill" targetType="Step"/>
@@ -66,10 +130,22 @@
     <arcElements sourceName="HandshakeProtocol" targetName="QueryFlooding" sourceType="Knowledge" targetType="Step"/>
     <arcElements sourceName="SocketAddress" targetName="QueryFlooding" sourceType="Knowledge" targetType="Step"/>
     <arcElements sourceName="QueryFlooding" targetName="DoS" sourceType="Step" targetType="Goal"/>
+    <arcElements sourceName="SocketAddress" targetName="PortScan" sourceType="Knowledge" targetType="Step"/>
+    <arcElements sourceName="PortScan" targetName="VulnerabilityAwareness" sourceType="Step" targetType="Knowledge"/>
+    <arcElements sourceName="VulnerabilityAwareness" targetName="Exploit" sourceType="Knowledge" targetType="Step"/>
+    <arcElements sourceName="Exploit" targetName="VehicleServerRootAccess" sourceType="Step"/>
+    <arcElements sourceName="VehicleServerRootAccess" targetName="Tampering" targetType="Step"/>
+    <arcElements sourceName="Tampering" targetName="VehicleUndesideredBehaviour" sourceType="Step" targetType="Goal"/>
+    <arcElements sourceName="VehicleServerRootAccess" targetName="DatabaseDump" targetType="Step"/>
+    <arcElements sourceName="DatabaseDump" targetName="DataBreach" sourceType="Step" targetType="Goal"/>
   </aeg>
-  <adversary name="Hacker" codename="Hacker" horizon="2">
+  <adversary name="Hacker" codename="Hacker" horizon="4">
+    <goalInit key="DataBreach" value="0"/>
+    <goalInit key="VehicleUndesideredBehaviour" value="0"/>
     <goalInit key="DoS" value="0"/>
-    <goalPayoff key="DoS" value="500"/>
+    <goalPayoff key="DataBreach" value="4000"/>
+    <goalPayoff key="VehicleUndesideredBehaviour" value="3000"/>
+    <goalPayoff key="DoS" value="1000"/>
     <knowledgeInit key="BinaryDump" value="1"/>
     <skillInit key="ReverseEngineering" value="5"/>
     <skillInit key="Script" value="7"/>
