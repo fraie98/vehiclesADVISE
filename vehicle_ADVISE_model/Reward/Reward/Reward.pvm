@@ -1051,7 +1051,7 @@
 				</vector>
 				<vector id="ImpulseFunctionsList">
 				</vector>
-				<string id="RewardFunction">advise_tree-&gt;DataBreach-&gt;Mark();</string>
+				<string id="RewardFunction">return advise_tree-&gt;DataBreach-&gt;Mark();</string>
 				<int id="Type">0</int>
 				<int id="TimeSeriesType">2</int>
 				<double id="TimeSeriesFirst">0.0</double>
@@ -1178,7 +1178,10 @@
 				</vector>
 				<vector id="ImpulseFunctionsList">
 				</vector>
-				<string id="RewardFunction">advise_tree-&gt;VehicleUndesideredBehaviour-&gt;Mark();</string>
+				<string id="RewardFunction">
+					return advise_tree-&gt;VehicleUndesideredBehaviour-&gt;Mark(
+					);
+				</string>
 				<int id="Type">0</int>
 				<int id="TimeSeriesType">2</int>
 				<double id="TimeSeriesFirst">0.0</double>

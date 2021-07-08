@@ -333,7 +333,7 @@ RewardPV8Worker::~RewardPV8Worker() {
 
 double RewardPV8Worker::Reward_Function(void) {
 
-advise_tree->DataBreach->Mark();
+return advise_tree->DataBreach->Mark();
 
 return (0);
 
@@ -345,8 +345,8 @@ RewardPV8::RewardPV8(int timeindex) {
   TheModelPtr = (BaseModelClass**)(&Theadvise_treeADVISE);
   double startpts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
   double stoppts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
-  Initialize("dataBreach",(RewardType)0,41, startpts, stoppts, timeindex, 0,1, 0);
-  AddModelDependency("advise_tree");
+  Initialize("dataBreach",(RewardType)0,41, startpts, stoppts, timeindex, 0,1, 1);
+  AddVariableDependency("DataBreach","advise_tree");
 }
 
 RewardPV8::~RewardPV8() {
@@ -373,7 +373,7 @@ RewardPV9Worker::~RewardPV9Worker() {
 
 double RewardPV9Worker::Reward_Function(void) {
 
-advise_tree->VehicleUndesideredBehaviour->Mark();
+return advise_tree->VehicleUndesideredBehaviour->Mark();
 
 return (0);
 
@@ -385,8 +385,8 @@ RewardPV9::RewardPV9(int timeindex) {
   TheModelPtr = (BaseModelClass**)(&Theadvise_treeADVISE);
   double startpts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
   double stoppts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
-  Initialize("vehicleUndesideredBehaviour",(RewardType)0,41, startpts, stoppts, timeindex, 0,1, 0);
-  AddModelDependency("advise_tree");
+  Initialize("vehicleUndesideredBehaviour",(RewardType)0,41, startpts, stoppts, timeindex, 0,1, 1);
+  AddVariableDependency("VehicleUndesideredBehaviour","advise_tree");
 }
 
 RewardPV9::~RewardPV9() {

@@ -90,10 +90,10 @@
     <stepElements key="DatabaseDump">
       <value name="DatabaseDump" codename="DatabaseDump" xpos="159" ypos="650" sourceArcs="//@aeg/@arcElements.15" targetArcs="//@aeg/@arcElements.14" attackExecutionGraph="//@aeg" width="150" preconditions="return (VehicleServerRootAccess->Mark() &amp;&amp; !DataBreach->Mark());" cost="return 0;">
         <outcomes key="Success">
-          <value name="Success" probability="return 0.8;" detection="return 0.5;" effects="DataBreach->Mark()=1;"/>
+          <value name="Success" probability="return 0.9;" detection="return 0.2;" effects="DataBreach->Mark()=1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="return 0.2;" detection="return 0.7;" effects=""/>
+          <value name="Failure" probability="return 0.1;" detection="return 0.1;" effects=""/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 5;</parameters>
@@ -103,10 +103,10 @@
     <stepElements key="Tampering">
       <value name="Tampering" codename="Tampering" xpos="353" ypos="745" sourceArcs="//@aeg/@arcElements.13" targetArcs="//@aeg/@arcElements.12" attackExecutionGraph="//@aeg" width="150" preconditions="return (VehicleServerRootAccess->Mark() &amp;&amp; !VehicleUndesideredBehaviour->Mark());" cost="return 0;">
         <outcomes key="Success">
-          <value name="Success" probability="return 0.6;" detection="return 0.6;" effects="VehicleUndesideredBehaviour->Mark()=1;"/>
+          <value name="Success" probability="return 0.9;" detection="return 0.2;" effects="VehicleUndesideredBehaviour->Mark()=1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="return 0.4;" detection="return 0.8;" effects=""/>
+          <value name="Failure" probability="return 0.1;" detection="return 0.3;" effects=""/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 5;</parameters>
@@ -139,13 +139,9 @@
     <arcElements sourceName="VehicleServerRootAccess" targetName="DatabaseDump" targetType="Step"/>
     <arcElements sourceName="DatabaseDump" targetName="DataBreach" sourceType="Step" targetType="Goal"/>
   </aeg>
-  <adversary name="Hacker" codename="Hacker" horizon="4">
-    <goalInit key="DataBreach" value="0"/>
+  <adversary name="Hacker" codename="Hacker" horizon="4" costSW="0" payoffSW="0.9">
     <goalInit key="VehicleUndesideredBehaviour" value="0"/>
-    <goalInit key="DoS" value="0"/>
-    <goalPayoff key="DataBreach" value="4000"/>
-    <goalPayoff key="VehicleUndesideredBehaviour" value="3000"/>
-    <goalPayoff key="DoS" value="1000"/>
+    <goalPayoff key="VehicleUndesideredBehaviour" value="300"/>
     <knowledgeInit key="BinaryDump" value="1"/>
     <skillInit key="ReverseEngineering" value="5"/>
     <skillInit key="Script" value="7"/>
