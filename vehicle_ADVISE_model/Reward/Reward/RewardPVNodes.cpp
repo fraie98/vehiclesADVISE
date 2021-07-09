@@ -400,3 +400,123 @@ void RewardPV9::CreateWorkerList(void) {
   for(int i = 0; i < NumberOfWorkers; i++)
     WorkerList[i] = new RewardPV9Worker;
 }
+RewardPV10Worker::RewardPV10Worker()
+{
+  NumModels = 1;
+  TheModelPtr = new BaseModelClass**[NumModels];
+  TheModelPtr[0] = (BaseModelClass**)(&advise_tree);
+}
+
+RewardPV10Worker::~RewardPV10Worker() {
+  delete [] TheModelPtr;
+}
+
+double RewardPV10Worker::Reward_Function(void) {
+
+return advise_tree->vehicleServerUnprivAccess->Mark();
+
+return (0);
+
+
+
+}
+
+RewardPV10::RewardPV10(int timeindex) {
+  TheModelPtr = (BaseModelClass**)(&Theadvise_treeADVISE);
+  double startpts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
+  double stoppts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
+  Initialize("VehicleServerUnpAccess",(RewardType)0,41, startpts, stoppts, timeindex, 0,1, 1);
+  AddVariableDependency("vehicleServerUnprivAccess","advise_tree");
+}
+
+RewardPV10::~RewardPV10() {
+  for(int i = 0; i < NumberOfWorkers; i++) {
+    delete[] WorkerList[i]->Name;
+    delete WorkerList[i];
+  }
+}
+
+void RewardPV10::CreateWorkerList(void) {
+  for(int i = 0; i < NumberOfWorkers; i++)
+    WorkerList[i] = new RewardPV10Worker;
+}
+RewardPV11Worker::RewardPV11Worker()
+{
+  NumModels = 1;
+  TheModelPtr = new BaseModelClass**[NumModels];
+  TheModelPtr[0] = (BaseModelClass**)(&advise_tree);
+}
+
+RewardPV11Worker::~RewardPV11Worker() {
+  delete [] TheModelPtr;
+}
+
+double RewardPV11Worker::Reward_Function(void) {
+
+return advise_tree->PhysicalAccess->Mark();
+
+return (0);
+
+
+
+}
+
+RewardPV11::RewardPV11(int timeindex) {
+  TheModelPtr = (BaseModelClass**)(&Theadvise_treeADVISE);
+  double startpts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
+  double stoppts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
+  Initialize("PhysicalAccess",(RewardType)0,41, startpts, stoppts, timeindex, 0,1, 1);
+  AddVariableDependency("PhysicalAccess","advise_tree");
+}
+
+RewardPV11::~RewardPV11() {
+  for(int i = 0; i < NumberOfWorkers; i++) {
+    delete[] WorkerList[i]->Name;
+    delete WorkerList[i];
+  }
+}
+
+void RewardPV11::CreateWorkerList(void) {
+  for(int i = 0; i < NumberOfWorkers; i++)
+    WorkerList[i] = new RewardPV11Worker;
+}
+RewardPV12Worker::RewardPV12Worker()
+{
+  NumModels = 1;
+  TheModelPtr = new BaseModelClass**[NumModels];
+  TheModelPtr[0] = (BaseModelClass**)(&advise_tree);
+}
+
+RewardPV12Worker::~RewardPV12Worker() {
+  delete [] TheModelPtr;
+}
+
+double RewardPV12Worker::Reward_Function(void) {
+
+return advise_tree->CorporateNetworkAccess->Mark();
+
+return (0);
+
+
+
+}
+
+RewardPV12::RewardPV12(int timeindex) {
+  TheModelPtr = (BaseModelClass**)(&Theadvise_treeADVISE);
+  double startpts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
+  double stoppts[41]={0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 105.0, 110.0, 115.0, 120.0, 125.0, 130.0, 135.0, 140.0, 145.0, 150.0, 155.0, 160.0, 165.0, 170.0, 175.0, 180.0, 185.0, 190.0, 195.0, 200.0};
+  Initialize("corporateNetworkAccess",(RewardType)0,41, startpts, stoppts, timeindex, 0,1, 1);
+  AddVariableDependency("CorporateNetworkAccess","advise_tree");
+}
+
+RewardPV12::~RewardPV12() {
+  for(int i = 0; i < NumberOfWorkers; i++) {
+    delete[] WorkerList[i]->Name;
+    delete WorkerList[i];
+  }
+}
+
+void RewardPV12::CreateWorkerList(void) {
+  for(int i = 0; i < NumberOfWorkers; i++)
+    WorkerList[i] = new RewardPV12Worker;
+}

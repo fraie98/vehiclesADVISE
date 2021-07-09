@@ -226,4 +226,70 @@ class RewardPV9:public PerformanceVariableNode
   void CreateWorkerList(void);
 };
 
+class RewardPV10Worker:public InstantOfTime
+{
+ public:
+  advise_treeADVISE *advise_tree;
+  
+  RewardPV10Worker();
+  ~RewardPV10Worker();
+  double Reward_Function();
+};
+
+class RewardPV10:public PerformanceVariableNode
+{
+ public:
+  advise_treeADVISE *Theadvise_treeADVISE;
+
+  RewardPV10Worker *RewardPV10WorkerList;
+
+  RewardPV10(int timeindex=0);
+  ~RewardPV10();
+  void CreateWorkerList(void);
+};
+
+class RewardPV11Worker:public InstantOfTime
+{
+ public:
+  advise_treeADVISE *advise_tree;
+  
+  RewardPV11Worker();
+  ~RewardPV11Worker();
+  double Reward_Function();
+};
+
+class RewardPV11:public PerformanceVariableNode
+{
+ public:
+  advise_treeADVISE *Theadvise_treeADVISE;
+
+  RewardPV11Worker *RewardPV11WorkerList;
+
+  RewardPV11(int timeindex=0);
+  ~RewardPV11();
+  void CreateWorkerList(void);
+};
+
+class RewardPV12Worker:public InstantOfTime
+{
+ public:
+  advise_treeADVISE *advise_tree;
+  
+  RewardPV12Worker();
+  ~RewardPV12Worker();
+  double Reward_Function();
+};
+
+class RewardPV12:public PerformanceVariableNode
+{
+ public:
+  advise_treeADVISE *Theadvise_treeADVISE;
+
+  RewardPV12Worker *RewardPV12WorkerList;
+
+  RewardPV12(int timeindex=0);
+  ~RewardPV12();
+  void CreateWorkerList(void);
+};
+
 #endif

@@ -3,7 +3,7 @@
 RewardPVModel::RewardPVModel(bool expandTimeArrays) {
   TheModel=new advise_treeADVISE();
   DefineName("RewardPVModel");
-  CreatePVList(10, expandTimeArrays);
+  CreatePVList(13, expandTimeArrays);
   Initialize();
 }
 
@@ -40,6 +40,15 @@ PerformanceVariableNode* RewardPVModel::createPVNode(int pvindex, int timeindex)
     break;
   case 9:
     return new RewardPV9(timeindex);
+    break;
+  case 10:
+    return new RewardPV10(timeindex);
+    break;
+  case 11:
+    return new RewardPV11(timeindex);
+    break;
+  case 12:
+    return new RewardPV12(timeindex);
     break;
   }
   return NULL;

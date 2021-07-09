@@ -20,7 +20,7 @@
 			<long id="MaximumBatches">10000</long>
 			<long id="MinimumBatches">1000</long>
 			<long id="ReportFrequency">1000</long>
-			<byte id="BuildType">1</byte>
+			<byte id="BuildType">0</byte>
 			<string id="BuildArch">64-bit</string>
 			<byte id="TraceLevel">1</byte>
 			<string id="Runname">Results</string>
