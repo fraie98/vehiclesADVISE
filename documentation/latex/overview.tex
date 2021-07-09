@@ -8,23 +8,59 @@
 %-------------------------------------------------------------------------------
 \chapter{Overview}\label{ch:overview}
 
-In this chapter a general overview of the scenarios and the involved actors is given.
+In this chapter a general overview of the scenarios and the involved actors is given.\\
+The final goal for each one of the attackers it to gain access to the back-end servers related to self-driving vehicles. This goal can be reached by means of different knowledges, skills and types of attacks, which all differ from one adversary to the other.
 
-\section{Actors} %TODO change to adversaries?
-\noindent In our model we have three different types of actors:
-\begin{itemize}
-	\item Hacker
-	
-	\noindent (S)he is a malicious person with an in-depth knowledge of the most important and widespread technologies and attacks. For this reasons he is the most skilled user.
-	
-	\item Insider
-	
-	\noindent (S)he is a person who is inside the organization and so he has more accesses w.r.t. an outsider attacker and in particular he has a lot of knowledges, on the other side he has not the same skill level of the hacker.
-	
-	\item Physical Intruder
-	
-	\noindent (S)he is a person who is able to have physical access to the infrastructures under analysis. The physical intruder can be an insider with particular privileges (e.g. access to the server room) or also an hacker who was able to retrieve in a malicious way the physical access to the infrastructures.
-\end{itemize}
+\section{Actors}
+\noindent Three different types of actor have been identified:
+
+\subsection*{Insider}
+An insider is defined as someone who belongs to the company or works for it. They already have, therefore, access to some facilities (depending on their role in the company) and the equipment they contain (PCs, laptops, routers, etc.), the knowledge necessary to perform some tasks (internal network passwords, website and/or database credentials, VPN access, etc.) and possibly the trust of the rest of the staff.\\
+They might also be aware of potential flaws in the company's systems (vulnerabilities in information system, defective equipment, weaknesses of some employees, etc.).\\
+On the other hand, an insider does not necessarily have the skills needed to perform some of the intermediate attack steps needed to reach the final goal.
+
+\subsection*{Physical intruder}
+A physical intruder is different from an insider since they have less knowledge about the internals of the company. However, they have advanced \textit{physical} penetration testing skills and tools, as well as the knowledge about the company facilities location, security systems and possibly the timetables of employees and/or security personnel.\\
+Therefore they might have access to a bigger number of facilities and spaces (e.g. they might have -- or be able to gain -- direct access to a server room).
+
+\subsection*{Hacker}
+A hacker is an external actor with no prior knowledge of the company's systems and no access to its facilities.
+On the other hand, they have advanced security and penetration skills, in-depth knowledge of the most important and widespread technologies and attacks, as well as the tools needed to perform these attacks on the target systems.
+\hfill
+\hfill
+
+%TODO improve table formatting?
+
+\begin{center}
+    \begin{tabular}{ | p{1.5 cm} | p{3.5cm} | p{3.5cm} | p{3.5cm} |}
+    \hline
+    \begin{center}
+    	\textbf{Actor}
+    \end{center} & 
+    \begin{center}
+    	\textbf{Skills}
+  	\end{center} & 
+    \begin{center}
+    	\textbf{Knowledges}
+   	\end{center} &
+    \begin{center}
+    	\textbf{Accesses} 
+    \end{center} \\ \hline
+    Insider & basic/medium IT skills, social engineering & login credentials (website, LAN, VPN, DB), employees info, vulns in company security & LAN, VPN, DB, facilities, PCs, workstations, routers, switches \\ \hline
+    Physical intruder & Lockpicking, ??? & Facilities location, personnel timetables & company's external premises \\ \hline
+    Hacker & Reverse engineering, social engineering, advanced attack and penetration testing & - & vehicle (i.e. firmware) \\
+    \hline
+    \end{tabular}
+\end{center}
 
 
-\noindent TODO: mettere una tabella con le skill, le conoscenze e gli accessi a disposizione di ogni attaccante
+\section{Goals}
+
+\subsection*{Attack a vehicle or extract data}
+The back-end servers can be used as a means to attack a vehicle and/or extract data from it e.g. its position, the destination the driver is heading to etc.
+
+\subsection*{Data breach}
+Servers can be also attacked to extract sensitive data related to customers
+
+\subsection*{Back-end server service disruption (DoS)}
+An attacker could also target the back-end server just to take them down and disrupt their service (Denial of Service), causing issues to all the vehicles whose proper functioning relies on it.
