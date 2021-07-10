@@ -6,39 +6,73 @@
 
 
 advise_treeADVISE::advise_treeADVISE() {
+  ExploitAD.setParent(this);
+  UnauthorizedRemoteLoginAD.setParent(this);
+  TamperingAD.setParent(this);
+  WebIntrusionAD.setParent(this);
+  PivotingAD.setParent(this);
+  PrivilegeEscalationAD.setParent(this);
+  DatabaseDumpAD.setParent(this);
   QueryFloodingAD.setParent(this);
   FirmwareReversingAD.setParent(this);
   DoNothingAD.setParent(this);
-  PortScanAD.setParent(this);
-  DatabaseDumpAD.setParent(this);
-  TamperingAD.setParent(this);
   NetworkAttackAD.setParent(this);
-  ExploitAD.setParent(this);
-  PivotingAD.setParent(this);
   MalwareIntroductionAD.setParent(this);
-  PrivilegeEscalationAD.setParent(this);
+  PortScanAD.setParent(this);
+  ExploitFailure.setParent(this);
+  ExploitSuccess.setParent(this);
+  UnauthorizedRemoteLoginFaliure.setParent(this);
+  UnauthorizedRemoteLoginSuccess.setParent(this);
+  TamperingFailure.setParent(this);
+  TamperingSuccess.setParent(this);
+  WebIntrusionFaliure.setParent(this);
+  WebIntrusionSuccess.setParent(this);
+  Pivotingfaliure.setParent(this);
+  Pivotingsuccess.setParent(this);
+  PrivilegeEscalationfaliure.setParent(this);
+  PrivilegeEscalationsuccess.setParent(this);
+  DatabaseDumpFailure.setParent(this);
+  DatabaseDumpSuccess.setParent(this);
   QueryFloodingFailure.setParent(this);
   QueryFloodingSuccess.setParent(this);
   FirmwareReversingFailure.setParent(this);
   FirmwareReversingObtainall.setParent(this);
   FirmwareReversingObtainaddressonly.setParent(this);
   DoNothingOutcome1.setParent(this);
+  NetworkAttackfaliure.setParent(this);
+  NetworkAttacksuccess.setParent(this);
+  MalwareIntroductionfaliure.setParent(this);
+  MalwareIntroductionsuccess.setParent(this);
   PortScanFailure.setParent(this);
   PortScanSuccess.setParent(this);
-  DatabaseDumpFailure.setParent(this);
-  DatabaseDumpSuccess.setParent(this);
-  TamperingFailure.setParent(this);
-  TamperingSuccess.setParent(this);
-  NetworkAttacksuccess.setParent(this);
-  NetworkAttackfaliure.setParent(this);
-  ExploitFailure.setParent(this);
-  ExploitSuccess.setParent(this);
-  Pivotingsuccess.setParent(this);
-  Pivotingfaliure.setParent(this);
-  MalwareIntroductionsuccess.setParent(this);
-  MalwareIntroductionfaliure.setParent(this);
-  PrivilegeEscalationsuccess.setParent(this);
-  PrivilegeEscalationfaliure.setParent(this);
+  ExploitGroup.initialize(2, "ExploitGroup");
+  ExploitGroup.appendGroup((BaseGroupClass*) &ExploitFailure);
+  ExploitGroup.appendGroup((BaseGroupClass*) &ExploitSuccess);
+
+  UnauthorizedRemoteLoginGroup.initialize(2, "UnauthorizedRemoteLoginGroup");
+  UnauthorizedRemoteLoginGroup.appendGroup((BaseGroupClass*) &UnauthorizedRemoteLoginFaliure);
+  UnauthorizedRemoteLoginGroup.appendGroup((BaseGroupClass*) &UnauthorizedRemoteLoginSuccess);
+
+  TamperingGroup.initialize(2, "TamperingGroup");
+  TamperingGroup.appendGroup((BaseGroupClass*) &TamperingFailure);
+  TamperingGroup.appendGroup((BaseGroupClass*) &TamperingSuccess);
+
+  WebIntrusionGroup.initialize(2, "WebIntrusionGroup");
+  WebIntrusionGroup.appendGroup((BaseGroupClass*) &WebIntrusionFaliure);
+  WebIntrusionGroup.appendGroup((BaseGroupClass*) &WebIntrusionSuccess);
+
+  PivotingGroup.initialize(2, "PivotingGroup");
+  PivotingGroup.appendGroup((BaseGroupClass*) &Pivotingfaliure);
+  PivotingGroup.appendGroup((BaseGroupClass*) &Pivotingsuccess);
+
+  PrivilegeEscalationGroup.initialize(2, "PrivilegeEscalationGroup");
+  PrivilegeEscalationGroup.appendGroup((BaseGroupClass*) &PrivilegeEscalationfaliure);
+  PrivilegeEscalationGroup.appendGroup((BaseGroupClass*) &PrivilegeEscalationsuccess);
+
+  DatabaseDumpGroup.initialize(2, "DatabaseDumpGroup");
+  DatabaseDumpGroup.appendGroup((BaseGroupClass*) &DatabaseDumpFailure);
+  DatabaseDumpGroup.appendGroup((BaseGroupClass*) &DatabaseDumpSuccess);
+
   QueryFloodingGroup.initialize(2, "QueryFloodingGroup");
   QueryFloodingGroup.appendGroup((BaseGroupClass*) &QueryFloodingFailure);
   QueryFloodingGroup.appendGroup((BaseGroupClass*) &QueryFloodingSuccess);
@@ -48,136 +82,132 @@ advise_treeADVISE::advise_treeADVISE() {
   FirmwareReversingGroup.appendGroup((BaseGroupClass*) &FirmwareReversingObtainall);
   FirmwareReversingGroup.appendGroup((BaseGroupClass*) &FirmwareReversingObtainaddressonly);
 
+  NetworkAttackGroup.initialize(2, "NetworkAttackGroup");
+  NetworkAttackGroup.appendGroup((BaseGroupClass*) &NetworkAttackfaliure);
+  NetworkAttackGroup.appendGroup((BaseGroupClass*) &NetworkAttacksuccess);
+
+  MalwareIntroductionGroup.initialize(2, "MalwareIntroductionGroup");
+  MalwareIntroductionGroup.appendGroup((BaseGroupClass*) &MalwareIntroductionfaliure);
+  MalwareIntroductionGroup.appendGroup((BaseGroupClass*) &MalwareIntroductionsuccess);
+
   PortScanGroup.initialize(2, "PortScanGroup");
   PortScanGroup.appendGroup((BaseGroupClass*) &PortScanFailure);
   PortScanGroup.appendGroup((BaseGroupClass*) &PortScanSuccess);
 
-  DatabaseDumpGroup.initialize(2, "DatabaseDumpGroup");
-  DatabaseDumpGroup.appendGroup((BaseGroupClass*) &DatabaseDumpFailure);
-  DatabaseDumpGroup.appendGroup((BaseGroupClass*) &DatabaseDumpSuccess);
-
-  TamperingGroup.initialize(2, "TamperingGroup");
-  TamperingGroup.appendGroup((BaseGroupClass*) &TamperingFailure);
-  TamperingGroup.appendGroup((BaseGroupClass*) &TamperingSuccess);
-
-  NetworkAttackGroup.initialize(2, "NetworkAttackGroup");
-  NetworkAttackGroup.appendGroup((BaseGroupClass*) &NetworkAttacksuccess);
-  NetworkAttackGroup.appendGroup((BaseGroupClass*) &NetworkAttackfaliure);
-
-  ExploitGroup.initialize(2, "ExploitGroup");
-  ExploitGroup.appendGroup((BaseGroupClass*) &ExploitFailure);
-  ExploitGroup.appendGroup((BaseGroupClass*) &ExploitSuccess);
-
-  PivotingGroup.initialize(2, "PivotingGroup");
-  PivotingGroup.appendGroup((BaseGroupClass*) &Pivotingsuccess);
-  PivotingGroup.appendGroup((BaseGroupClass*) &Pivotingfaliure);
-
-  MalwareIntroductionGroup.initialize(2, "MalwareIntroductionGroup");
-  MalwareIntroductionGroup.appendGroup((BaseGroupClass*) &MalwareIntroductionsuccess);
-  MalwareIntroductionGroup.appendGroup((BaseGroupClass*) &MalwareIntroductionfaliure);
-
-  PrivilegeEscalationGroup.initialize(2, "PrivilegeEscalationGroup");
-  PrivilegeEscalationGroup.appendGroup((BaseGroupClass*) &PrivilegeEscalationsuccess);
-  PrivilegeEscalationGroup.appendGroup((BaseGroupClass*) &PrivilegeEscalationfaliure);
-
-  AdversaryDecisionGroup.initialize(11, "AdversaryDecisionGroup");
+  AdversaryDecisionGroup.initialize(13, "AdversaryDecisionGroup");
+  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &ExploitAD);
+  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &UnauthorizedRemoteLoginAD);
+  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &TamperingAD);
+  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &WebIntrusionAD);
+  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &PivotingAD);
+  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &PrivilegeEscalationAD);
+  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &DatabaseDumpAD);
   AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &QueryFloodingAD);
   AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &FirmwareReversingAD);
   AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &DoNothingAD);
-  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &PortScanAD);
-  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &DatabaseDumpAD);
-  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &TamperingAD);
   AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &NetworkAttackAD);
-  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &ExploitAD);
-  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &PivotingAD);
   AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &MalwareIntroductionAD);
-  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &PrivilegeEscalationAD);
+  AdversaryDecisionGroup.appendGroup((BaseGroupClass*) &PortScanAD);
 
-  BaseADVISEAction* InitialActions[33] = {
-    &QueryFloodingAD, // 0
-    &FirmwareReversingAD, // 1
-    &DoNothingAD, // 2
-    &PortScanAD, // 3
-    &DatabaseDumpAD, // 4
-    &TamperingAD, // 5
-    &NetworkAttackAD, // 6
-    &ExploitAD, // 7
-    &PivotingAD, // 8
-    &MalwareIntroductionAD, // 9
-    &PrivilegeEscalationAD, // 10
-    &QueryFloodingFailure, // 11
-    &QueryFloodingSuccess, // 12
-    &FirmwareReversingFailure, // 13
-    &FirmwareReversingObtainall, // 14
-    &FirmwareReversingObtainaddressonly, // 15
-    &DoNothingOutcome1, // 16
-    &PortScanFailure, // 17
-    &PortScanSuccess, // 18
-    &DatabaseDumpFailure, // 19
-    &DatabaseDumpSuccess, // 20
-    &TamperingFailure, // 21
-    &TamperingSuccess, // 22
-    &NetworkAttacksuccess, // 23
-    &NetworkAttackfaliure, // 24
-    &ExploitFailure, // 25
-    &ExploitSuccess, // 26
-    &Pivotingsuccess, // 27
-    &Pivotingfaliure, // 28
-    &MalwareIntroductionsuccess, // 29
-    &MalwareIntroductionfaliure, // 30
-    &PrivilegeEscalationsuccess, // 31
-    &PrivilegeEscalationfaliure // 32
+  BaseADVISEAction* InitialActions[39] = {
+    &ExploitAD, // 0
+    &UnauthorizedRemoteLoginAD, // 1
+    &TamperingAD, // 2
+    &WebIntrusionAD, // 3
+    &PivotingAD, // 4
+    &PrivilegeEscalationAD, // 5
+    &DatabaseDumpAD, // 6
+    &QueryFloodingAD, // 7
+    &FirmwareReversingAD, // 8
+    &DoNothingAD, // 9
+    &NetworkAttackAD, // 10
+    &MalwareIntroductionAD, // 11
+    &PortScanAD, // 12
+    &ExploitFailure, // 13
+    &ExploitSuccess, // 14
+    &UnauthorizedRemoteLoginFaliure, // 15
+    &UnauthorizedRemoteLoginSuccess, // 16
+    &TamperingFailure, // 17
+    &TamperingSuccess, // 18
+    &WebIntrusionFaliure, // 19
+    &WebIntrusionSuccess, // 20
+    &Pivotingfaliure, // 21
+    &Pivotingsuccess, // 22
+    &PrivilegeEscalationfaliure, // 23
+    &PrivilegeEscalationsuccess, // 24
+    &DatabaseDumpFailure, // 25
+    &DatabaseDumpSuccess, // 26
+    &QueryFloodingFailure, // 27
+    &QueryFloodingSuccess, // 28
+    &FirmwareReversingFailure, // 29
+    &FirmwareReversingObtainall, // 30
+    &FirmwareReversingObtainaddressonly, // 31
+    &DoNothingOutcome1, // 32
+    &NetworkAttackfaliure, // 33
+    &NetworkAttacksuccess, // 34
+    &MalwareIntroductionfaliure, // 35
+    &MalwareIntroductionsuccess, // 36
+    &PortScanFailure, // 37
+    &PortScanSuccess // 38
   };
 
-  Step* InitialSteps[22] = {
+  Step* InitialSteps[26] = {
+      &ExploitFailure,
+      &ExploitSuccess,
+      &UnauthorizedRemoteLoginFaliure,
+      &UnauthorizedRemoteLoginSuccess,
+      &TamperingFailure,
+      &TamperingSuccess,
+      &WebIntrusionFaliure,
+      &WebIntrusionSuccess,
+      &Pivotingfaliure,
+      &Pivotingsuccess,
+      &PrivilegeEscalationfaliure,
+      &PrivilegeEscalationsuccess,
+      &DatabaseDumpFailure,
+      &DatabaseDumpSuccess,
       &QueryFloodingFailure,
       &QueryFloodingSuccess,
       &FirmwareReversingFailure,
       &FirmwareReversingObtainall,
       &FirmwareReversingObtainaddressonly,
       &DoNothingOutcome1,
-      &PortScanFailure,
-      &PortScanSuccess,
-      &DatabaseDumpFailure,
-      &DatabaseDumpSuccess,
-      &TamperingFailure,
-      &TamperingSuccess,
-      &NetworkAttacksuccess,
       &NetworkAttackfaliure,
-      &ExploitFailure,
-      &ExploitSuccess,
-      &Pivotingsuccess,
-      &Pivotingfaliure,
-      &MalwareIntroductionsuccess,
+      &NetworkAttacksuccess,
       &MalwareIntroductionfaliure,
-      &PrivilegeEscalationsuccess,
-      &PrivilegeEscalationfaliure
+      &MalwareIntroductionsuccess,
+      &PortScanFailure,
+      &PortScanSuccess
   };
 
-  BaseGroupClass* InitialGroups[12] = {
-    (BaseGroupClass*) &QueryFloodingGroup, // 0
-    (BaseGroupClass*) &FirmwareReversingGroup, // 1
-    (BaseGroupClass*) &DoNothingOutcome1, // 2
-    (BaseGroupClass*) &PortScanGroup, // 3
-    (BaseGroupClass*) &DatabaseDumpGroup, // 4
-    (BaseGroupClass*) &TamperingGroup, // 5
-    (BaseGroupClass*) &NetworkAttackGroup, // 6
-    (BaseGroupClass*) &ExploitGroup, // 7
-    (BaseGroupClass*) &PivotingGroup, // 8
-    (BaseGroupClass*) &MalwareIntroductionGroup, // 9
-    (BaseGroupClass*) &PrivilegeEscalationGroup, // 10
+  BaseGroupClass* InitialGroups[14] = {
+    (BaseGroupClass*) &ExploitGroup, // 0
+    (BaseGroupClass*) &UnauthorizedRemoteLoginGroup, // 1
+    (BaseGroupClass*) &TamperingGroup, // 2
+    (BaseGroupClass*) &WebIntrusionGroup, // 3
+    (BaseGroupClass*) &PivotingGroup, // 4
+    (BaseGroupClass*) &PrivilegeEscalationGroup, // 5
+    (BaseGroupClass*) &DatabaseDumpGroup, // 6
+    (BaseGroupClass*) &QueryFloodingGroup, // 7
+    (BaseGroupClass*) &FirmwareReversingGroup, // 8
+    (BaseGroupClass*) &DoNothingOutcome1, // 9
+    (BaseGroupClass*) &NetworkAttackGroup, // 10
+    (BaseGroupClass*) &MalwareIntroductionGroup, // 11
+    (BaseGroupClass*) &PortScanGroup, // 12
     (BaseGroupClass*) &AdversaryDecisionGroup
   };
 
-  CorporateNetworkAccess = new Access("CorporateNetworkAccess", 0);
   VehicleServerRootAccess = new Access("VehicleServerRootAccess", 0);
   vehicleServerUnprivAccess = new Access("vehicleServerUnprivAccess", 0);
-  PhysicalAccess = new Access("PhysicalAccess", 1);
-  HandshakeProtocol = new Knowledge("HandshakeProtocol", 0);
-  VulnerabilityAwareness = new Knowledge("VulnerabilityAwareness", 0);
+  PhysicalAccess = new Access("PhysicalAccess", 0);
+  CorporateNetworkAccess = new Access("CorporateNetworkAccess", 0);
   SocketAddress = new Knowledge("SocketAddress", 0);
+  VulnerabilityAwareness = new Knowledge("VulnerabilityAwareness", 0);
   BinaryDump = new Knowledge("BinaryDump", 1);
-  CorporateServerLocation = new Knowledge("CorporateServerLocation", 1);
+  EmoployeePersonalInfo = new Knowledge("EmoployeePersonalInfo", 0);
+  HandshakeProtocol = new Knowledge("HandshakeProtocol", 0);
+  CorporateServerLocation = new Knowledge("CorporateServerLocation", 0);
+  CorporateInternetAddress = new Knowledge("CorporateInternetAddress", 0);
   ReverseEngineering = new Skill("ReverseEngineering", 5);
   Script = new Skill("Script", 7);
   DataBreach = new Goal("DataBreach", 0);
@@ -187,28 +217,32 @@ advise_treeADVISE::advise_treeADVISE() {
   DoS = new Goal("DoS", 0);
   DoS->setPayoff(100);
   MakeDecision = new BeginAdversaryDecision("MakeDecision", 0);
+  ExploitWeight = new StepWeight("ExploitWeight", 0);
+  ExploitChosen = new StepChosen("ExploitChosen", 0);
+  UnauthorizedRemoteLoginWeight = new StepWeight("UnauthorizedRemoteLoginWeight", 0);
+  UnauthorizedRemoteLoginChosen = new StepChosen("UnauthorizedRemoteLoginChosen", 0);
+  TamperingWeight = new StepWeight("TamperingWeight", 0);
+  TamperingChosen = new StepChosen("TamperingChosen", 0);
+  WebIntrusionWeight = new StepWeight("WebIntrusionWeight", 0);
+  WebIntrusionChosen = new StepChosen("WebIntrusionChosen", 0);
+  PivotingWeight = new StepWeight("PivotingWeight", 0);
+  PivotingChosen = new StepChosen("PivotingChosen", 0);
+  PrivilegeEscalationWeight = new StepWeight("PrivilegeEscalationWeight", 0);
+  PrivilegeEscalationChosen = new StepChosen("PrivilegeEscalationChosen", 0);
+  DatabaseDumpWeight = new StepWeight("DatabaseDumpWeight", 0);
+  DatabaseDumpChosen = new StepChosen("DatabaseDumpChosen", 0);
   QueryFloodingWeight = new StepWeight("QueryFloodingWeight", 0);
   QueryFloodingChosen = new StepChosen("QueryFloodingChosen", 0);
   FirmwareReversingWeight = new StepWeight("FirmwareReversingWeight", 0);
   FirmwareReversingChosen = new StepChosen("FirmwareReversingChosen", 0);
   DoNothingWeight = new StepWeight("DoNothingWeight", 0);
   DoNothingChosen = new StepChosen("DoNothingChosen", 0);
-  PortScanWeight = new StepWeight("PortScanWeight", 0);
-  PortScanChosen = new StepChosen("PortScanChosen", 0);
-  DatabaseDumpWeight = new StepWeight("DatabaseDumpWeight", 0);
-  DatabaseDumpChosen = new StepChosen("DatabaseDumpChosen", 0);
-  TamperingWeight = new StepWeight("TamperingWeight", 0);
-  TamperingChosen = new StepChosen("TamperingChosen", 0);
   NetworkAttackWeight = new StepWeight("NetworkAttackWeight", 0);
   NetworkAttackChosen = new StepChosen("NetworkAttackChosen", 0);
-  ExploitWeight = new StepWeight("ExploitWeight", 0);
-  ExploitChosen = new StepChosen("ExploitChosen", 0);
-  PivotingWeight = new StepWeight("PivotingWeight", 0);
-  PivotingChosen = new StepChosen("PivotingChosen", 0);
   MalwareIntroductionWeight = new StepWeight("MalwareIntroductionWeight", 0);
   MalwareIntroductionChosen = new StepChosen("MalwareIntroductionChosen", 0);
-  PrivilegeEscalationWeight = new StepWeight("PrivilegeEscalationWeight", 0);
-  PrivilegeEscalationChosen = new StepChosen("PrivilegeEscalationChosen", 0);
+  PortScanWeight = new StepWeight("PortScanWeight", 0);
+  PortScanChosen = new StepChosen("PortScanChosen", 0);
 
   Goal* InitialGoals[3] = {
       DataBreach,
@@ -216,124 +250,146 @@ advise_treeADVISE::advise_treeADVISE() {
       DoS
   };
 
-  ADVISEStateVariable* InitialSVs[37] = {
-    CorporateNetworkAccess, // 0
-    VehicleServerRootAccess, // 1
-    vehicleServerUnprivAccess, // 2
-    PhysicalAccess, // 3
-    HandshakeProtocol, // 4
+  ADVISEStateVariable* InitialSVs[43] = {
+    VehicleServerRootAccess, // 0
+    vehicleServerUnprivAccess, // 1
+    PhysicalAccess, // 2
+    CorporateNetworkAccess, // 3
+    SocketAddress, // 4
     VulnerabilityAwareness, // 5
-    SocketAddress, // 6
-    BinaryDump, // 7
-    CorporateServerLocation, // 8
-    ReverseEngineering, // 9
-    Script, // 10
-    DataBreach, // 11
-    VehicleUndesideredBehaviour, // 12
-    DoS, // 13
-    QueryFloodingChosen, // 14
-    FirmwareReversingChosen, // 15
-    DoNothingChosen, // 16
-    PortScanChosen, // 17
-    DatabaseDumpChosen, // 18
-    TamperingChosen, // 19
-    NetworkAttackChosen, // 20
-    ExploitChosen, // 21
-    PivotingChosen, // 22
-    MalwareIntroductionChosen, // 23
-    PrivilegeEscalationChosen, // 24
-    QueryFloodingWeight, // 25
-    FirmwareReversingWeight, // 26
-    DoNothingWeight, // 27
-    PortScanWeight, // 28
-    DatabaseDumpWeight, // 29
-    TamperingWeight, // 30
-    NetworkAttackWeight, // 31
-    ExploitWeight, // 32
+    BinaryDump, // 6
+    EmoployeePersonalInfo, // 7
+    HandshakeProtocol, // 8
+    CorporateServerLocation, // 9
+    CorporateInternetAddress, // 10
+    ReverseEngineering, // 11
+    Script, // 12
+    DataBreach, // 13
+    VehicleUndesideredBehaviour, // 14
+    DoS, // 15
+    ExploitChosen, // 16
+    UnauthorizedRemoteLoginChosen, // 17
+    TamperingChosen, // 18
+    WebIntrusionChosen, // 19
+    PivotingChosen, // 20
+    PrivilegeEscalationChosen, // 21
+    DatabaseDumpChosen, // 22
+    QueryFloodingChosen, // 23
+    FirmwareReversingChosen, // 24
+    DoNothingChosen, // 25
+    NetworkAttackChosen, // 26
+    MalwareIntroductionChosen, // 27
+    PortScanChosen, // 28
+    ExploitWeight, // 29
+    UnauthorizedRemoteLoginWeight, // 30
+    TamperingWeight, // 31
+    WebIntrusionWeight, // 32
     PivotingWeight, // 33
-    MalwareIntroductionWeight, // 34
-    PrivilegeEscalationWeight, // 35
-    MakeDecision // 36
+    PrivilegeEscalationWeight, // 34
+    DatabaseDumpWeight, // 35
+    QueryFloodingWeight, // 36
+    FirmwareReversingWeight, // 37
+    DoNothingWeight, // 38
+    NetworkAttackWeight, // 39
+    MalwareIntroductionWeight, // 40
+    PortScanWeight, // 41
+    MakeDecision // 42
 };
 
-  int outCounts[11] = { 2, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2 };
+  int outCounts[13] = { 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 2 };
 
-  commonInit("advise_tree", 37, InitialSVs, 33, InitialActions, 12, InitialGroups, 11, outCounts, InitialSteps, 3, InitialGoals);
+  commonInit("advise_tree", 43, InitialSVs, 39, InitialActions, 14, InitialGroups, 13, outCounts, InitialSteps, 3, InitialGoals);
 
   advCostPref = 0;
   advDetectPref = 0.1;
   advPayPref = 0.9;
 
-  planningHorizon = 6;
+  planningHorizon = 4;
   costDiscount = 1.0;
   detectionDiscount = 1.0;
   payoffDiscount = 1.0;
 
   assignSVsToAttackSteps();
 
-  int AffectArcs[366][2] = {
-    {36,0}, {14,0}, {25,0}, {36,1}, {15,1}, {26,1}, {36,2}, {16,2}, 
-    {27,2}, {36,3}, {17,3}, {28,3}, {36,4}, {18,4}, {29,4}, {36,5}, 
-    {19,5}, {30,5}, {36,6}, {20,6}, {31,6}, {36,7}, {21,7}, {32,7}, 
-    {36,8}, {22,8}, {33,8}, {36,9}, {23,9}, {34,9}, {36,10}, {24,10}, 
-    {35,10}, {36,11}, {14,11}, {25,11}, {26,11}, {27,11}, {28,11}, {29,11}, 
-    {30,11}, {31,11}, {32,11}, {33,11}, {34,11}, {35,11}, {13,11}, {4,11}, 
-    {6,11}, {36,12}, {14,12}, {25,12}, {26,12}, {27,12}, {28,12}, {29,12}, 
-    {30,12}, {31,12}, {32,12}, {33,12}, {34,12}, {35,12}, {13,12}, {4,12}, 
-    {6,12}, {36,13}, {15,13}, {25,13}, {26,13}, {27,13}, {28,13}, {29,13}, 
-    {30,13}, {31,13}, {32,13}, {33,13}, {34,13}, {35,13}, {4,13}, {6,13}, 
-    {7,13}, {36,14}, {15,14}, {25,14}, {26,14}, {27,14}, {28,14}, {29,14}, 
-    {30,14}, {31,14}, {32,14}, {33,14}, {34,14}, {35,14}, {4,14}, {6,14}, 
-    {7,14}, {36,15}, {15,15}, {25,15}, {26,15}, {27,15}, {28,15}, {29,15}, 
-    {30,15}, {31,15}, {32,15}, {33,15}, {34,15}, {35,15}, {4,15}, {6,15}, 
-    {7,15}, {36,16}, {16,16}, {25,16}, {26,16}, {27,16}, {28,16}, {29,16}, 
-    {30,16}, {31,16}, {32,16}, {33,16}, {34,16}, {35,16}, {36,17}, {17,17}, 
-    {25,17}, {26,17}, {27,17}, {28,17}, {29,17}, {30,17}, {31,17}, {32,17}, 
-    {33,17}, {34,17}, {35,17}, {5,17}, {6,17}, {36,18}, {17,18}, {25,18}, 
-    {26,18}, {27,18}, {28,18}, {29,18}, {30,18}, {31,18}, {32,18}, {33,18}, 
-    {34,18}, {35,18}, {5,18}, {6,18}, {36,19}, {18,19}, {25,19}, {26,19}, 
-    {27,19}, {28,19}, {29,19}, {30,19}, {31,19}, {32,19}, {33,19}, {34,19}, 
-    {35,19}, {11,19}, {1,19}, {36,20}, {18,20}, {25,20}, {26,20}, {27,20}, 
-    {28,20}, {29,20}, {30,20}, {31,20}, {32,20}, {33,20}, {34,20}, {35,20}, 
-    {11,20}, {1,20}, {36,21}, {19,21}, {25,21}, {26,21}, {27,21}, {28,21}, 
-    {29,21}, {30,21}, {31,21}, {32,21}, {33,21}, {34,21}, {35,21}, {12,21}, 
-    {1,21}, {36,22}, {19,22}, {25,22}, {26,22}, {27,22}, {28,22}, {29,22}, 
-    {30,22}, {31,22}, {32,22}, {33,22}, {34,22}, {35,22}, {12,22}, {1,22}, 
-    {36,23}, {20,23}, {25,23}, {26,23}, {27,23}, {28,23}, {29,23}, {30,23}, 
-    {31,23}, {32,23}, {33,23}, {34,23}, {35,23}, {0,23}, {8,23}, {36,24}, 
-    {20,24}, {25,24}, {26,24}, {27,24}, {28,24}, {29,24}, {30,24}, {31,24}, 
-    {32,24}, {33,24}, {34,24}, {35,24}, {0,24}, {8,24}, {36,25}, {21,25}, 
-    {25,25}, {26,25}, {27,25}, {28,25}, {29,25}, {30,25}, {31,25}, {32,25}, 
-    {33,25}, {34,25}, {35,25}, {1,25}, {5,25}, {36,26}, {21,26}, {25,26}, 
-    {26,26}, {27,26}, {28,26}, {29,26}, {30,26}, {31,26}, {32,26}, {33,26}, 
-    {34,26}, {35,26}, {1,26}, {5,26}, {36,27}, {22,27}, {25,27}, {26,27}, 
-    {27,27}, {28,27}, {29,27}, {30,27}, {31,27}, {32,27}, {33,27}, {34,27}, 
-    {35,27}, {2,27}, {0,27}, {36,28}, {22,28}, {25,28}, {26,28}, {27,28}, 
-    {28,28}, {29,28}, {30,28}, {31,28}, {32,28}, {33,28}, {34,28}, {35,28}, 
-    {2,28}, {0,28}, {36,29}, {23,29}, {25,29}, {26,29}, {27,29}, {28,29}, 
-    {29,29}, {30,29}, {31,29}, {32,29}, {33,29}, {34,29}, {35,29}, {2,29}, 
-    {3,29}, {36,30}, {23,30}, {25,30}, {26,30}, {27,30}, {28,30}, {29,30}, 
-    {30,30}, {31,30}, {32,30}, {33,30}, {34,30}, {35,30}, {2,30}, {3,30}, 
-    {36,31}, {24,31}, {25,31}, {26,31}, {27,31}, {28,31}, {29,31}, {30,31}, 
-    {31,31}, {32,31}, {33,31}, {34,31}, {35,31}, {1,31}, {2,31}, {36,32}, 
-    {24,32}, {25,32}, {26,32}, {27,32}, {28,32}, {29,32}, {30,32}, {31,32}, 
-    {32,32}, {33,32}, {34,32}, {35,32}, {1,32}, {2,32}
+  int AffectArcs[484][2] = {
+    {42,0}, {16,0}, {29,0}, {42,1}, {17,1}, {30,1}, {42,2}, {18,2}, 
+    {31,2}, {42,3}, {19,3}, {32,3}, {42,4}, {20,4}, {33,4}, {42,5}, 
+    {21,5}, {34,5}, {42,6}, {22,6}, {35,6}, {42,7}, {23,7}, {36,7}, 
+    {42,8}, {24,8}, {37,8}, {42,9}, {25,9}, {38,9}, {42,10}, {26,10}, 
+    {39,10}, {42,11}, {27,11}, {40,11}, {42,12}, {28,12}, {41,12}, {42,13}, 
+    {16,13}, {29,13}, {30,13}, {31,13}, {32,13}, {33,13}, {34,13}, {35,13}, 
+    {36,13}, {37,13}, {38,13}, {39,13}, {40,13}, {41,13}, {0,13}, {5,13}, 
+    {42,14}, {16,14}, {29,14}, {30,14}, {31,14}, {32,14}, {33,14}, {34,14}, 
+    {35,14}, {36,14}, {37,14}, {38,14}, {39,14}, {40,14}, {41,14}, {0,14}, 
+    {5,14}, {42,15}, {17,15}, {29,15}, {30,15}, {31,15}, {32,15}, {33,15}, 
+    {34,15}, {35,15}, {36,15}, {37,15}, {38,15}, {39,15}, {40,15}, {41,15}, 
+    {3,15}, {7,15}, {42,16}, {17,16}, {29,16}, {30,16}, {31,16}, {32,16}, 
+    {33,16}, {34,16}, {35,16}, {36,16}, {37,16}, {38,16}, {39,16}, {40,16}, 
+    {41,16}, {3,16}, {7,16}, {42,17}, {18,17}, {29,17}, {30,17}, {31,17}, 
+    {32,17}, {33,17}, {34,17}, {35,17}, {36,17}, {37,17}, {38,17}, {39,17}, 
+    {40,17}, {41,17}, {14,17}, {0,17}, {42,18}, {18,18}, {29,18}, {30,18}, 
+    {31,18}, {32,18}, {33,18}, {34,18}, {35,18}, {36,18}, {37,18}, {38,18}, 
+    {39,18}, {40,18}, {41,18}, {14,18}, {0,18}, {42,19}, {19,19}, {29,19}, 
+    {30,19}, {31,19}, {32,19}, {33,19}, {34,19}, {35,19}, {36,19}, {37,19}, 
+    {38,19}, {39,19}, {40,19}, {41,19}, {3,19}, {10,19}, {42,20}, {19,20}, 
+    {29,20}, {30,20}, {31,20}, {32,20}, {33,20}, {34,20}, {35,20}, {36,20}, 
+    {37,20}, {38,20}, {39,20}, {40,20}, {41,20}, {3,20}, {10,20}, {42,21}, 
+    {20,21}, {29,21}, {30,21}, {31,21}, {32,21}, {33,21}, {34,21}, {35,21}, 
+    {36,21}, {37,21}, {38,21}, {39,21}, {40,21}, {41,21}, {1,21}, {3,21}, 
+    {42,22}, {20,22}, {29,22}, {30,22}, {31,22}, {32,22}, {33,22}, {34,22}, 
+    {35,22}, {36,22}, {37,22}, {38,22}, {39,22}, {40,22}, {41,22}, {1,22}, 
+    {3,22}, {42,23}, {21,23}, {29,23}, {30,23}, {31,23}, {32,23}, {33,23}, 
+    {34,23}, {35,23}, {36,23}, {37,23}, {38,23}, {39,23}, {40,23}, {41,23}, 
+    {0,23}, {1,23}, {42,24}, {21,24}, {29,24}, {30,24}, {31,24}, {32,24}, 
+    {33,24}, {34,24}, {35,24}, {36,24}, {37,24}, {38,24}, {39,24}, {40,24}, 
+    {41,24}, {0,24}, {1,24}, {42,25}, {22,25}, {29,25}, {30,25}, {31,25}, 
+    {32,25}, {33,25}, {34,25}, {35,25}, {36,25}, {37,25}, {38,25}, {39,25}, 
+    {40,25}, {41,25}, {13,25}, {0,25}, {42,26}, {22,26}, {29,26}, {30,26}, 
+    {31,26}, {32,26}, {33,26}, {34,26}, {35,26}, {36,26}, {37,26}, {38,26}, 
+    {39,26}, {40,26}, {41,26}, {13,26}, {0,26}, {42,27}, {23,27}, {29,27}, 
+    {30,27}, {31,27}, {32,27}, {33,27}, {34,27}, {35,27}, {36,27}, {37,27}, 
+    {38,27}, {39,27}, {40,27}, {41,27}, {15,27}, {8,27}, {4,27}, {42,28}, 
+    {23,28}, {29,28}, {30,28}, {31,28}, {32,28}, {33,28}, {34,28}, {35,28}, 
+    {36,28}, {37,28}, {38,28}, {39,28}, {40,28}, {41,28}, {15,28}, {8,28}, 
+    {4,28}, {42,29}, {24,29}, {29,29}, {30,29}, {31,29}, {32,29}, {33,29}, 
+    {34,29}, {35,29}, {36,29}, {37,29}, {38,29}, {39,29}, {40,29}, {41,29}, 
+    {8,29}, {4,29}, {6,29}, {42,30}, {24,30}, {29,30}, {30,30}, {31,30}, 
+    {32,30}, {33,30}, {34,30}, {35,30}, {36,30}, {37,30}, {38,30}, {39,30}, 
+    {40,30}, {41,30}, {8,30}, {4,30}, {6,30}, {42,31}, {24,31}, {29,31}, 
+    {30,31}, {31,31}, {32,31}, {33,31}, {34,31}, {35,31}, {36,31}, {37,31}, 
+    {38,31}, {39,31}, {40,31}, {41,31}, {8,31}, {4,31}, {6,31}, {42,32}, 
+    {25,32}, {29,32}, {30,32}, {31,32}, {32,32}, {33,32}, {34,32}, {35,32}, 
+    {36,32}, {37,32}, {38,32}, {39,32}, {40,32}, {41,32}, {42,33}, {26,33}, 
+    {29,33}, {30,33}, {31,33}, {32,33}, {33,33}, {34,33}, {35,33}, {36,33}, 
+    {37,33}, {38,33}, {39,33}, {40,33}, {41,33}, {3,33}, {9,33}, {42,34}, 
+    {26,34}, {29,34}, {30,34}, {31,34}, {32,34}, {33,34}, {34,34}, {35,34}, 
+    {36,34}, {37,34}, {38,34}, {39,34}, {40,34}, {41,34}, {3,34}, {9,34}, 
+    {42,35}, {27,35}, {29,35}, {30,35}, {31,35}, {32,35}, {33,35}, {34,35}, 
+    {35,35}, {36,35}, {37,35}, {38,35}, {39,35}, {40,35}, {41,35}, {1,35}, 
+    {2,35}, {42,36}, {27,36}, {29,36}, {30,36}, {31,36}, {32,36}, {33,36}, 
+    {34,36}, {35,36}, {36,36}, {37,36}, {38,36}, {39,36}, {40,36}, {41,36}, 
+    {1,36}, {2,36}, {42,37}, {28,37}, {29,37}, {30,37}, {31,37}, {32,37}, 
+    {33,37}, {34,37}, {35,37}, {36,37}, {37,37}, {38,37}, {39,37}, {40,37}, 
+    {41,37}, {5,37}, {4,37}, {42,38}, {28,38}, {29,38}, {30,38}, {31,38}, 
+    {32,38}, {33,38}, {34,38}, {35,38}, {36,38}, {37,38}, {38,38}, {39,38}, 
+    {40,38}, {41,38}, {5,38}, {4,38}
 };
-  for(int n = 0; n < 366;n++)
+  for(int n = 0; n < 484;n++)
     AddAffectArc(InitialSVs[AffectArcs[n][0]], InitialActions[AffectArcs[n][1]]);
-  int EnableArcs[57][2] = {
-    {36,0}, {36,1}, {36,2}, {36,3}, {36,4}, {36,5}, {36,6}, {36,7}, 
-    {36,8}, {36,9}, {36,10}, {14,11}, {13,11}, {14,12}, {13,12}, {15,13}, 
-    {4,13}, {6,13}, {15,14}, {4,14}, {6,14}, {15,15}, {4,15}, {6,15}, 
-    {16,16}, {17,17}, {5,17}, {17,18}, {5,18}, {18,19}, {11,19}, {18,20}, 
-    {11,20}, {19,21}, {12,21}, {19,22}, {12,22}, {20,23}, {0,23}, {20,24}, 
-    {0,24}, {21,25}, {1,25}, {21,26}, {1,26}, {22,27}, {2,27}, {22,28}, 
-    {2,28}, {23,29}, {2,29}, {23,30}, {2,30}, {24,31}, {1,31}, {24,32}, 
-    {1,32}
+  int EnableArcs[67][2] = {
+    {42,0}, {42,1}, {42,2}, {42,3}, {42,4}, {42,5}, {42,6}, {42,7}, 
+    {42,8}, {42,9}, {42,10}, {42,11}, {42,12}, {16,13}, {0,13}, {16,14}, 
+    {0,14}, {17,15}, {3,15}, {17,16}, {3,16}, {18,17}, {14,17}, {18,18}, 
+    {14,18}, {19,19}, {3,19}, {19,20}, {3,20}, {20,21}, {1,21}, {20,22}, 
+    {1,22}, {21,23}, {0,23}, {21,24}, {0,24}, {22,25}, {13,25}, {22,26}, 
+    {13,26}, {23,27}, {15,27}, {23,28}, {15,28}, {24,29}, {8,29}, {4,29}, 
+    {24,30}, {8,30}, {4,30}, {24,31}, {8,31}, {4,31}, {25,32}, {26,33}, 
+    {3,33}, {26,34}, {3,34}, {27,35}, {1,35}, {27,36}, {1,36}, {28,37}, 
+    {5,37}, {28,38}, {5,38}
 };
-  for(int n = 0; n < 57;n++)
+  for(int n = 0; n < 67;n++)
     AddEnableArc(InitialSVs[EnableArcs[n][0]], InitialActions[EnableArcs[n][1]]);
-  for(int x = 0; x < 33; x++) {
+  for(int x = 0; x < 39; x++) {
     InitialActions[x]->LinkVariables();
   }
 
@@ -347,22 +403,276 @@ advise_treeADVISE::~advise_treeADVISE() {
 }
 
 void advise_treeADVISE::assignSVsToAttackSteps() {
+  ExploitFailure.VehicleServerRootAccess = VehicleServerRootAccess;
+  ExploitFailure.VulnerabilityAwareness = VulnerabilityAwareness;
+  ExploitFailure.ExploitChosen = ExploitChosen;
+  ExploitFailure.ExploitWeight = ExploitWeight;
+  ExploitFailure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  ExploitFailure.TamperingWeight = TamperingWeight;
+  ExploitFailure.WebIntrusionWeight = WebIntrusionWeight;
+  ExploitFailure.PivotingWeight = PivotingWeight;
+  ExploitFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  ExploitFailure.DatabaseDumpWeight = DatabaseDumpWeight;
+  ExploitFailure.QueryFloodingWeight = QueryFloodingWeight;
+  ExploitFailure.FirmwareReversingWeight = FirmwareReversingWeight;
+  ExploitFailure.DoNothingWeight = DoNothingWeight;
+  ExploitFailure.NetworkAttackWeight = NetworkAttackWeight;
+  ExploitFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  ExploitFailure.PortScanWeight = PortScanWeight;
+  ExploitFailure.MakeDecision = MakeDecision;
+  ExploitFailure.setSVs(ExploitChosen, ExploitWeight);
+  ExploitSuccess.VehicleServerRootAccess = VehicleServerRootAccess;
+  ExploitSuccess.VulnerabilityAwareness = VulnerabilityAwareness;
+  ExploitSuccess.ExploitChosen = ExploitChosen;
+  ExploitSuccess.ExploitWeight = ExploitWeight;
+  ExploitSuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  ExploitSuccess.TamperingWeight = TamperingWeight;
+  ExploitSuccess.WebIntrusionWeight = WebIntrusionWeight;
+  ExploitSuccess.PivotingWeight = PivotingWeight;
+  ExploitSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  ExploitSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  ExploitSuccess.QueryFloodingWeight = QueryFloodingWeight;
+  ExploitSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  ExploitSuccess.DoNothingWeight = DoNothingWeight;
+  ExploitSuccess.NetworkAttackWeight = NetworkAttackWeight;
+  ExploitSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  ExploitSuccess.PortScanWeight = PortScanWeight;
+  ExploitSuccess.MakeDecision = MakeDecision;
+  ExploitSuccess.setSVs(ExploitChosen, ExploitWeight);
+  UnauthorizedRemoteLoginFaliure.CorporateNetworkAccess = CorporateNetworkAccess;
+  UnauthorizedRemoteLoginFaliure.EmoployeePersonalInfo = EmoployeePersonalInfo;
+  UnauthorizedRemoteLoginFaliure.UnauthorizedRemoteLoginChosen = UnauthorizedRemoteLoginChosen;
+  UnauthorizedRemoteLoginFaliure.ExploitWeight = ExploitWeight;
+  UnauthorizedRemoteLoginFaliure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  UnauthorizedRemoteLoginFaliure.TamperingWeight = TamperingWeight;
+  UnauthorizedRemoteLoginFaliure.WebIntrusionWeight = WebIntrusionWeight;
+  UnauthorizedRemoteLoginFaliure.PivotingWeight = PivotingWeight;
+  UnauthorizedRemoteLoginFaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  UnauthorizedRemoteLoginFaliure.DatabaseDumpWeight = DatabaseDumpWeight;
+  UnauthorizedRemoteLoginFaliure.QueryFloodingWeight = QueryFloodingWeight;
+  UnauthorizedRemoteLoginFaliure.FirmwareReversingWeight = FirmwareReversingWeight;
+  UnauthorizedRemoteLoginFaliure.DoNothingWeight = DoNothingWeight;
+  UnauthorizedRemoteLoginFaliure.NetworkAttackWeight = NetworkAttackWeight;
+  UnauthorizedRemoteLoginFaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  UnauthorizedRemoteLoginFaliure.PortScanWeight = PortScanWeight;
+  UnauthorizedRemoteLoginFaliure.MakeDecision = MakeDecision;
+  UnauthorizedRemoteLoginFaliure.setSVs(UnauthorizedRemoteLoginChosen, UnauthorizedRemoteLoginWeight);
+  UnauthorizedRemoteLoginSuccess.CorporateNetworkAccess = CorporateNetworkAccess;
+  UnauthorizedRemoteLoginSuccess.EmoployeePersonalInfo = EmoployeePersonalInfo;
+  UnauthorizedRemoteLoginSuccess.UnauthorizedRemoteLoginChosen = UnauthorizedRemoteLoginChosen;
+  UnauthorizedRemoteLoginSuccess.ExploitWeight = ExploitWeight;
+  UnauthorizedRemoteLoginSuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  UnauthorizedRemoteLoginSuccess.TamperingWeight = TamperingWeight;
+  UnauthorizedRemoteLoginSuccess.WebIntrusionWeight = WebIntrusionWeight;
+  UnauthorizedRemoteLoginSuccess.PivotingWeight = PivotingWeight;
+  UnauthorizedRemoteLoginSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  UnauthorizedRemoteLoginSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  UnauthorizedRemoteLoginSuccess.QueryFloodingWeight = QueryFloodingWeight;
+  UnauthorizedRemoteLoginSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  UnauthorizedRemoteLoginSuccess.DoNothingWeight = DoNothingWeight;
+  UnauthorizedRemoteLoginSuccess.NetworkAttackWeight = NetworkAttackWeight;
+  UnauthorizedRemoteLoginSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  UnauthorizedRemoteLoginSuccess.PortScanWeight = PortScanWeight;
+  UnauthorizedRemoteLoginSuccess.MakeDecision = MakeDecision;
+  UnauthorizedRemoteLoginSuccess.setSVs(UnauthorizedRemoteLoginChosen, UnauthorizedRemoteLoginWeight);
+  TamperingFailure.VehicleUndesideredBehaviour = VehicleUndesideredBehaviour;
+  TamperingFailure.VehicleServerRootAccess = VehicleServerRootAccess;
+  TamperingFailure.TamperingChosen = TamperingChosen;
+  TamperingFailure.ExploitWeight = ExploitWeight;
+  TamperingFailure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  TamperingFailure.TamperingWeight = TamperingWeight;
+  TamperingFailure.WebIntrusionWeight = WebIntrusionWeight;
+  TamperingFailure.PivotingWeight = PivotingWeight;
+  TamperingFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  TamperingFailure.DatabaseDumpWeight = DatabaseDumpWeight;
+  TamperingFailure.QueryFloodingWeight = QueryFloodingWeight;
+  TamperingFailure.FirmwareReversingWeight = FirmwareReversingWeight;
+  TamperingFailure.DoNothingWeight = DoNothingWeight;
+  TamperingFailure.NetworkAttackWeight = NetworkAttackWeight;
+  TamperingFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  TamperingFailure.PortScanWeight = PortScanWeight;
+  TamperingFailure.MakeDecision = MakeDecision;
+  TamperingFailure.setSVs(TamperingChosen, TamperingWeight);
+  TamperingSuccess.VehicleUndesideredBehaviour = VehicleUndesideredBehaviour;
+  TamperingSuccess.VehicleServerRootAccess = VehicleServerRootAccess;
+  TamperingSuccess.TamperingChosen = TamperingChosen;
+  TamperingSuccess.ExploitWeight = ExploitWeight;
+  TamperingSuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  TamperingSuccess.TamperingWeight = TamperingWeight;
+  TamperingSuccess.WebIntrusionWeight = WebIntrusionWeight;
+  TamperingSuccess.PivotingWeight = PivotingWeight;
+  TamperingSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  TamperingSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  TamperingSuccess.QueryFloodingWeight = QueryFloodingWeight;
+  TamperingSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  TamperingSuccess.DoNothingWeight = DoNothingWeight;
+  TamperingSuccess.NetworkAttackWeight = NetworkAttackWeight;
+  TamperingSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  TamperingSuccess.PortScanWeight = PortScanWeight;
+  TamperingSuccess.MakeDecision = MakeDecision;
+  TamperingSuccess.setSVs(TamperingChosen, TamperingWeight);
+  WebIntrusionFaliure.CorporateNetworkAccess = CorporateNetworkAccess;
+  WebIntrusionFaliure.CorporateInternetAddress = CorporateInternetAddress;
+  WebIntrusionFaliure.WebIntrusionChosen = WebIntrusionChosen;
+  WebIntrusionFaliure.ExploitWeight = ExploitWeight;
+  WebIntrusionFaliure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  WebIntrusionFaliure.TamperingWeight = TamperingWeight;
+  WebIntrusionFaliure.WebIntrusionWeight = WebIntrusionWeight;
+  WebIntrusionFaliure.PivotingWeight = PivotingWeight;
+  WebIntrusionFaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  WebIntrusionFaliure.DatabaseDumpWeight = DatabaseDumpWeight;
+  WebIntrusionFaliure.QueryFloodingWeight = QueryFloodingWeight;
+  WebIntrusionFaliure.FirmwareReversingWeight = FirmwareReversingWeight;
+  WebIntrusionFaliure.DoNothingWeight = DoNothingWeight;
+  WebIntrusionFaliure.NetworkAttackWeight = NetworkAttackWeight;
+  WebIntrusionFaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  WebIntrusionFaliure.PortScanWeight = PortScanWeight;
+  WebIntrusionFaliure.MakeDecision = MakeDecision;
+  WebIntrusionFaliure.setSVs(WebIntrusionChosen, WebIntrusionWeight);
+  WebIntrusionSuccess.CorporateNetworkAccess = CorporateNetworkAccess;
+  WebIntrusionSuccess.CorporateInternetAddress = CorporateInternetAddress;
+  WebIntrusionSuccess.WebIntrusionChosen = WebIntrusionChosen;
+  WebIntrusionSuccess.ExploitWeight = ExploitWeight;
+  WebIntrusionSuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  WebIntrusionSuccess.TamperingWeight = TamperingWeight;
+  WebIntrusionSuccess.WebIntrusionWeight = WebIntrusionWeight;
+  WebIntrusionSuccess.PivotingWeight = PivotingWeight;
+  WebIntrusionSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  WebIntrusionSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  WebIntrusionSuccess.QueryFloodingWeight = QueryFloodingWeight;
+  WebIntrusionSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  WebIntrusionSuccess.DoNothingWeight = DoNothingWeight;
+  WebIntrusionSuccess.NetworkAttackWeight = NetworkAttackWeight;
+  WebIntrusionSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  WebIntrusionSuccess.PortScanWeight = PortScanWeight;
+  WebIntrusionSuccess.MakeDecision = MakeDecision;
+  WebIntrusionSuccess.setSVs(WebIntrusionChosen, WebIntrusionWeight);
+  Pivotingfaliure.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
+  Pivotingfaliure.CorporateNetworkAccess = CorporateNetworkAccess;
+  Pivotingfaliure.PivotingChosen = PivotingChosen;
+  Pivotingfaliure.ExploitWeight = ExploitWeight;
+  Pivotingfaliure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  Pivotingfaliure.TamperingWeight = TamperingWeight;
+  Pivotingfaliure.WebIntrusionWeight = WebIntrusionWeight;
+  Pivotingfaliure.PivotingWeight = PivotingWeight;
+  Pivotingfaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  Pivotingfaliure.DatabaseDumpWeight = DatabaseDumpWeight;
+  Pivotingfaliure.QueryFloodingWeight = QueryFloodingWeight;
+  Pivotingfaliure.FirmwareReversingWeight = FirmwareReversingWeight;
+  Pivotingfaliure.DoNothingWeight = DoNothingWeight;
+  Pivotingfaliure.NetworkAttackWeight = NetworkAttackWeight;
+  Pivotingfaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  Pivotingfaliure.PortScanWeight = PortScanWeight;
+  Pivotingfaliure.MakeDecision = MakeDecision;
+  Pivotingfaliure.setSVs(PivotingChosen, PivotingWeight);
+  Pivotingsuccess.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
+  Pivotingsuccess.CorporateNetworkAccess = CorporateNetworkAccess;
+  Pivotingsuccess.PivotingChosen = PivotingChosen;
+  Pivotingsuccess.ExploitWeight = ExploitWeight;
+  Pivotingsuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  Pivotingsuccess.TamperingWeight = TamperingWeight;
+  Pivotingsuccess.WebIntrusionWeight = WebIntrusionWeight;
+  Pivotingsuccess.PivotingWeight = PivotingWeight;
+  Pivotingsuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  Pivotingsuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  Pivotingsuccess.QueryFloodingWeight = QueryFloodingWeight;
+  Pivotingsuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  Pivotingsuccess.DoNothingWeight = DoNothingWeight;
+  Pivotingsuccess.NetworkAttackWeight = NetworkAttackWeight;
+  Pivotingsuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  Pivotingsuccess.PortScanWeight = PortScanWeight;
+  Pivotingsuccess.MakeDecision = MakeDecision;
+  Pivotingsuccess.setSVs(PivotingChosen, PivotingWeight);
+  PrivilegeEscalationfaliure.VehicleServerRootAccess = VehicleServerRootAccess;
+  PrivilegeEscalationfaliure.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
+  PrivilegeEscalationfaliure.PrivilegeEscalationChosen = PrivilegeEscalationChosen;
+  PrivilegeEscalationfaliure.ExploitWeight = ExploitWeight;
+  PrivilegeEscalationfaliure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  PrivilegeEscalationfaliure.TamperingWeight = TamperingWeight;
+  PrivilegeEscalationfaliure.WebIntrusionWeight = WebIntrusionWeight;
+  PrivilegeEscalationfaliure.PivotingWeight = PivotingWeight;
+  PrivilegeEscalationfaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  PrivilegeEscalationfaliure.DatabaseDumpWeight = DatabaseDumpWeight;
+  PrivilegeEscalationfaliure.QueryFloodingWeight = QueryFloodingWeight;
+  PrivilegeEscalationfaliure.FirmwareReversingWeight = FirmwareReversingWeight;
+  PrivilegeEscalationfaliure.DoNothingWeight = DoNothingWeight;
+  PrivilegeEscalationfaliure.NetworkAttackWeight = NetworkAttackWeight;
+  PrivilegeEscalationfaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  PrivilegeEscalationfaliure.PortScanWeight = PortScanWeight;
+  PrivilegeEscalationfaliure.MakeDecision = MakeDecision;
+  PrivilegeEscalationfaliure.setSVs(PrivilegeEscalationChosen, PrivilegeEscalationWeight);
+  PrivilegeEscalationsuccess.VehicleServerRootAccess = VehicleServerRootAccess;
+  PrivilegeEscalationsuccess.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
+  PrivilegeEscalationsuccess.PrivilegeEscalationChosen = PrivilegeEscalationChosen;
+  PrivilegeEscalationsuccess.ExploitWeight = ExploitWeight;
+  PrivilegeEscalationsuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  PrivilegeEscalationsuccess.TamperingWeight = TamperingWeight;
+  PrivilegeEscalationsuccess.WebIntrusionWeight = WebIntrusionWeight;
+  PrivilegeEscalationsuccess.PivotingWeight = PivotingWeight;
+  PrivilegeEscalationsuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  PrivilegeEscalationsuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  PrivilegeEscalationsuccess.QueryFloodingWeight = QueryFloodingWeight;
+  PrivilegeEscalationsuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  PrivilegeEscalationsuccess.DoNothingWeight = DoNothingWeight;
+  PrivilegeEscalationsuccess.NetworkAttackWeight = NetworkAttackWeight;
+  PrivilegeEscalationsuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  PrivilegeEscalationsuccess.PortScanWeight = PortScanWeight;
+  PrivilegeEscalationsuccess.MakeDecision = MakeDecision;
+  PrivilegeEscalationsuccess.setSVs(PrivilegeEscalationChosen, PrivilegeEscalationWeight);
+  DatabaseDumpFailure.DataBreach = DataBreach;
+  DatabaseDumpFailure.VehicleServerRootAccess = VehicleServerRootAccess;
+  DatabaseDumpFailure.DatabaseDumpChosen = DatabaseDumpChosen;
+  DatabaseDumpFailure.ExploitWeight = ExploitWeight;
+  DatabaseDumpFailure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  DatabaseDumpFailure.TamperingWeight = TamperingWeight;
+  DatabaseDumpFailure.WebIntrusionWeight = WebIntrusionWeight;
+  DatabaseDumpFailure.PivotingWeight = PivotingWeight;
+  DatabaseDumpFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  DatabaseDumpFailure.DatabaseDumpWeight = DatabaseDumpWeight;
+  DatabaseDumpFailure.QueryFloodingWeight = QueryFloodingWeight;
+  DatabaseDumpFailure.FirmwareReversingWeight = FirmwareReversingWeight;
+  DatabaseDumpFailure.DoNothingWeight = DoNothingWeight;
+  DatabaseDumpFailure.NetworkAttackWeight = NetworkAttackWeight;
+  DatabaseDumpFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  DatabaseDumpFailure.PortScanWeight = PortScanWeight;
+  DatabaseDumpFailure.MakeDecision = MakeDecision;
+  DatabaseDumpFailure.setSVs(DatabaseDumpChosen, DatabaseDumpWeight);
+  DatabaseDumpSuccess.DataBreach = DataBreach;
+  DatabaseDumpSuccess.VehicleServerRootAccess = VehicleServerRootAccess;
+  DatabaseDumpSuccess.DatabaseDumpChosen = DatabaseDumpChosen;
+  DatabaseDumpSuccess.ExploitWeight = ExploitWeight;
+  DatabaseDumpSuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  DatabaseDumpSuccess.TamperingWeight = TamperingWeight;
+  DatabaseDumpSuccess.WebIntrusionWeight = WebIntrusionWeight;
+  DatabaseDumpSuccess.PivotingWeight = PivotingWeight;
+  DatabaseDumpSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  DatabaseDumpSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  DatabaseDumpSuccess.QueryFloodingWeight = QueryFloodingWeight;
+  DatabaseDumpSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  DatabaseDumpSuccess.DoNothingWeight = DoNothingWeight;
+  DatabaseDumpSuccess.NetworkAttackWeight = NetworkAttackWeight;
+  DatabaseDumpSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  DatabaseDumpSuccess.PortScanWeight = PortScanWeight;
+  DatabaseDumpSuccess.MakeDecision = MakeDecision;
+  DatabaseDumpSuccess.setSVs(DatabaseDumpChosen, DatabaseDumpWeight);
   QueryFloodingFailure.DoS = DoS;
   QueryFloodingFailure.Script = Script;
   QueryFloodingFailure.HandshakeProtocol = HandshakeProtocol;
   QueryFloodingFailure.SocketAddress = SocketAddress;
   QueryFloodingFailure.QueryFloodingChosen = QueryFloodingChosen;
+  QueryFloodingFailure.ExploitWeight = ExploitWeight;
+  QueryFloodingFailure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  QueryFloodingFailure.TamperingWeight = TamperingWeight;
+  QueryFloodingFailure.WebIntrusionWeight = WebIntrusionWeight;
+  QueryFloodingFailure.PivotingWeight = PivotingWeight;
+  QueryFloodingFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  QueryFloodingFailure.DatabaseDumpWeight = DatabaseDumpWeight;
   QueryFloodingFailure.QueryFloodingWeight = QueryFloodingWeight;
   QueryFloodingFailure.FirmwareReversingWeight = FirmwareReversingWeight;
   QueryFloodingFailure.DoNothingWeight = DoNothingWeight;
-  QueryFloodingFailure.PortScanWeight = PortScanWeight;
-  QueryFloodingFailure.DatabaseDumpWeight = DatabaseDumpWeight;
-  QueryFloodingFailure.TamperingWeight = TamperingWeight;
   QueryFloodingFailure.NetworkAttackWeight = NetworkAttackWeight;
-  QueryFloodingFailure.ExploitWeight = ExploitWeight;
-  QueryFloodingFailure.PivotingWeight = PivotingWeight;
   QueryFloodingFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  QueryFloodingFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  QueryFloodingFailure.PortScanWeight = PortScanWeight;
   QueryFloodingFailure.MakeDecision = MakeDecision;
   QueryFloodingFailure.setSVs(QueryFloodingChosen, QueryFloodingWeight);
   QueryFloodingSuccess.DoS = DoS;
@@ -370,17 +680,19 @@ void advise_treeADVISE::assignSVsToAttackSteps() {
   QueryFloodingSuccess.HandshakeProtocol = HandshakeProtocol;
   QueryFloodingSuccess.SocketAddress = SocketAddress;
   QueryFloodingSuccess.QueryFloodingChosen = QueryFloodingChosen;
+  QueryFloodingSuccess.ExploitWeight = ExploitWeight;
+  QueryFloodingSuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  QueryFloodingSuccess.TamperingWeight = TamperingWeight;
+  QueryFloodingSuccess.WebIntrusionWeight = WebIntrusionWeight;
+  QueryFloodingSuccess.PivotingWeight = PivotingWeight;
+  QueryFloodingSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  QueryFloodingSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
   QueryFloodingSuccess.QueryFloodingWeight = QueryFloodingWeight;
   QueryFloodingSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
   QueryFloodingSuccess.DoNothingWeight = DoNothingWeight;
-  QueryFloodingSuccess.PortScanWeight = PortScanWeight;
-  QueryFloodingSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  QueryFloodingSuccess.TamperingWeight = TamperingWeight;
   QueryFloodingSuccess.NetworkAttackWeight = NetworkAttackWeight;
-  QueryFloodingSuccess.ExploitWeight = ExploitWeight;
-  QueryFloodingSuccess.PivotingWeight = PivotingWeight;
   QueryFloodingSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  QueryFloodingSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  QueryFloodingSuccess.PortScanWeight = PortScanWeight;
   QueryFloodingSuccess.MakeDecision = MakeDecision;
   QueryFloodingSuccess.setSVs(QueryFloodingChosen, QueryFloodingWeight);
   FirmwareReversingFailure.HandshakeProtocol = HandshakeProtocol;
@@ -388,17 +700,19 @@ void advise_treeADVISE::assignSVsToAttackSteps() {
   FirmwareReversingFailure.BinaryDump = BinaryDump;
   FirmwareReversingFailure.ReverseEngineering = ReverseEngineering;
   FirmwareReversingFailure.FirmwareReversingChosen = FirmwareReversingChosen;
+  FirmwareReversingFailure.ExploitWeight = ExploitWeight;
+  FirmwareReversingFailure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  FirmwareReversingFailure.TamperingWeight = TamperingWeight;
+  FirmwareReversingFailure.WebIntrusionWeight = WebIntrusionWeight;
+  FirmwareReversingFailure.PivotingWeight = PivotingWeight;
+  FirmwareReversingFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  FirmwareReversingFailure.DatabaseDumpWeight = DatabaseDumpWeight;
   FirmwareReversingFailure.QueryFloodingWeight = QueryFloodingWeight;
   FirmwareReversingFailure.FirmwareReversingWeight = FirmwareReversingWeight;
   FirmwareReversingFailure.DoNothingWeight = DoNothingWeight;
-  FirmwareReversingFailure.PortScanWeight = PortScanWeight;
-  FirmwareReversingFailure.DatabaseDumpWeight = DatabaseDumpWeight;
-  FirmwareReversingFailure.TamperingWeight = TamperingWeight;
   FirmwareReversingFailure.NetworkAttackWeight = NetworkAttackWeight;
-  FirmwareReversingFailure.ExploitWeight = ExploitWeight;
-  FirmwareReversingFailure.PivotingWeight = PivotingWeight;
   FirmwareReversingFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  FirmwareReversingFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  FirmwareReversingFailure.PortScanWeight = PortScanWeight;
   FirmwareReversingFailure.MakeDecision = MakeDecision;
   FirmwareReversingFailure.setSVs(FirmwareReversingChosen, FirmwareReversingWeight);
   FirmwareReversingObtainall.HandshakeProtocol = HandshakeProtocol;
@@ -406,17 +720,19 @@ void advise_treeADVISE::assignSVsToAttackSteps() {
   FirmwareReversingObtainall.BinaryDump = BinaryDump;
   FirmwareReversingObtainall.ReverseEngineering = ReverseEngineering;
   FirmwareReversingObtainall.FirmwareReversingChosen = FirmwareReversingChosen;
+  FirmwareReversingObtainall.ExploitWeight = ExploitWeight;
+  FirmwareReversingObtainall.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  FirmwareReversingObtainall.TamperingWeight = TamperingWeight;
+  FirmwareReversingObtainall.WebIntrusionWeight = WebIntrusionWeight;
+  FirmwareReversingObtainall.PivotingWeight = PivotingWeight;
+  FirmwareReversingObtainall.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  FirmwareReversingObtainall.DatabaseDumpWeight = DatabaseDumpWeight;
   FirmwareReversingObtainall.QueryFloodingWeight = QueryFloodingWeight;
   FirmwareReversingObtainall.FirmwareReversingWeight = FirmwareReversingWeight;
   FirmwareReversingObtainall.DoNothingWeight = DoNothingWeight;
-  FirmwareReversingObtainall.PortScanWeight = PortScanWeight;
-  FirmwareReversingObtainall.DatabaseDumpWeight = DatabaseDumpWeight;
-  FirmwareReversingObtainall.TamperingWeight = TamperingWeight;
   FirmwareReversingObtainall.NetworkAttackWeight = NetworkAttackWeight;
-  FirmwareReversingObtainall.ExploitWeight = ExploitWeight;
-  FirmwareReversingObtainall.PivotingWeight = PivotingWeight;
   FirmwareReversingObtainall.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  FirmwareReversingObtainall.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  FirmwareReversingObtainall.PortScanWeight = PortScanWeight;
   FirmwareReversingObtainall.MakeDecision = MakeDecision;
   FirmwareReversingObtainall.setSVs(FirmwareReversingChosen, FirmwareReversingWeight);
   FirmwareReversingObtainaddressonly.HandshakeProtocol = HandshakeProtocol;
@@ -424,290 +740,167 @@ void advise_treeADVISE::assignSVsToAttackSteps() {
   FirmwareReversingObtainaddressonly.BinaryDump = BinaryDump;
   FirmwareReversingObtainaddressonly.ReverseEngineering = ReverseEngineering;
   FirmwareReversingObtainaddressonly.FirmwareReversingChosen = FirmwareReversingChosen;
+  FirmwareReversingObtainaddressonly.ExploitWeight = ExploitWeight;
+  FirmwareReversingObtainaddressonly.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  FirmwareReversingObtainaddressonly.TamperingWeight = TamperingWeight;
+  FirmwareReversingObtainaddressonly.WebIntrusionWeight = WebIntrusionWeight;
+  FirmwareReversingObtainaddressonly.PivotingWeight = PivotingWeight;
+  FirmwareReversingObtainaddressonly.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  FirmwareReversingObtainaddressonly.DatabaseDumpWeight = DatabaseDumpWeight;
   FirmwareReversingObtainaddressonly.QueryFloodingWeight = QueryFloodingWeight;
   FirmwareReversingObtainaddressonly.FirmwareReversingWeight = FirmwareReversingWeight;
   FirmwareReversingObtainaddressonly.DoNothingWeight = DoNothingWeight;
-  FirmwareReversingObtainaddressonly.PortScanWeight = PortScanWeight;
-  FirmwareReversingObtainaddressonly.DatabaseDumpWeight = DatabaseDumpWeight;
-  FirmwareReversingObtainaddressonly.TamperingWeight = TamperingWeight;
   FirmwareReversingObtainaddressonly.NetworkAttackWeight = NetworkAttackWeight;
-  FirmwareReversingObtainaddressonly.ExploitWeight = ExploitWeight;
-  FirmwareReversingObtainaddressonly.PivotingWeight = PivotingWeight;
   FirmwareReversingObtainaddressonly.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  FirmwareReversingObtainaddressonly.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  FirmwareReversingObtainaddressonly.PortScanWeight = PortScanWeight;
   FirmwareReversingObtainaddressonly.MakeDecision = MakeDecision;
   FirmwareReversingObtainaddressonly.setSVs(FirmwareReversingChosen, FirmwareReversingWeight);
   DoNothingOutcome1.DoNothingChosen = DoNothingChosen;
+  DoNothingOutcome1.ExploitWeight = ExploitWeight;
+  DoNothingOutcome1.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  DoNothingOutcome1.TamperingWeight = TamperingWeight;
+  DoNothingOutcome1.WebIntrusionWeight = WebIntrusionWeight;
+  DoNothingOutcome1.PivotingWeight = PivotingWeight;
+  DoNothingOutcome1.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  DoNothingOutcome1.DatabaseDumpWeight = DatabaseDumpWeight;
   DoNothingOutcome1.QueryFloodingWeight = QueryFloodingWeight;
   DoNothingOutcome1.FirmwareReversingWeight = FirmwareReversingWeight;
   DoNothingOutcome1.DoNothingWeight = DoNothingWeight;
-  DoNothingOutcome1.PortScanWeight = PortScanWeight;
-  DoNothingOutcome1.DatabaseDumpWeight = DatabaseDumpWeight;
-  DoNothingOutcome1.TamperingWeight = TamperingWeight;
   DoNothingOutcome1.NetworkAttackWeight = NetworkAttackWeight;
-  DoNothingOutcome1.ExploitWeight = ExploitWeight;
-  DoNothingOutcome1.PivotingWeight = PivotingWeight;
   DoNothingOutcome1.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  DoNothingOutcome1.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  DoNothingOutcome1.PortScanWeight = PortScanWeight;
   DoNothingOutcome1.MakeDecision = MakeDecision;
   DoNothingOutcome1.setSVs(DoNothingChosen, DoNothingWeight);
+  NetworkAttackfaliure.CorporateNetworkAccess = CorporateNetworkAccess;
+  NetworkAttackfaliure.CorporateServerLocation = CorporateServerLocation;
+  NetworkAttackfaliure.NetworkAttackChosen = NetworkAttackChosen;
+  NetworkAttackfaliure.ExploitWeight = ExploitWeight;
+  NetworkAttackfaliure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  NetworkAttackfaliure.TamperingWeight = TamperingWeight;
+  NetworkAttackfaliure.WebIntrusionWeight = WebIntrusionWeight;
+  NetworkAttackfaliure.PivotingWeight = PivotingWeight;
+  NetworkAttackfaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  NetworkAttackfaliure.DatabaseDumpWeight = DatabaseDumpWeight;
+  NetworkAttackfaliure.QueryFloodingWeight = QueryFloodingWeight;
+  NetworkAttackfaliure.FirmwareReversingWeight = FirmwareReversingWeight;
+  NetworkAttackfaliure.DoNothingWeight = DoNothingWeight;
+  NetworkAttackfaliure.NetworkAttackWeight = NetworkAttackWeight;
+  NetworkAttackfaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  NetworkAttackfaliure.PortScanWeight = PortScanWeight;
+  NetworkAttackfaliure.MakeDecision = MakeDecision;
+  NetworkAttackfaliure.setSVs(NetworkAttackChosen, NetworkAttackWeight);
+  NetworkAttacksuccess.CorporateNetworkAccess = CorporateNetworkAccess;
+  NetworkAttacksuccess.CorporateServerLocation = CorporateServerLocation;
+  NetworkAttacksuccess.NetworkAttackChosen = NetworkAttackChosen;
+  NetworkAttacksuccess.ExploitWeight = ExploitWeight;
+  NetworkAttacksuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  NetworkAttacksuccess.TamperingWeight = TamperingWeight;
+  NetworkAttacksuccess.WebIntrusionWeight = WebIntrusionWeight;
+  NetworkAttacksuccess.PivotingWeight = PivotingWeight;
+  NetworkAttacksuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  NetworkAttacksuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  NetworkAttacksuccess.QueryFloodingWeight = QueryFloodingWeight;
+  NetworkAttacksuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  NetworkAttacksuccess.DoNothingWeight = DoNothingWeight;
+  NetworkAttacksuccess.NetworkAttackWeight = NetworkAttackWeight;
+  NetworkAttacksuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  NetworkAttacksuccess.PortScanWeight = PortScanWeight;
+  NetworkAttacksuccess.MakeDecision = MakeDecision;
+  NetworkAttacksuccess.setSVs(NetworkAttackChosen, NetworkAttackWeight);
+  MalwareIntroductionfaliure.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
+  MalwareIntroductionfaliure.PhysicalAccess = PhysicalAccess;
+  MalwareIntroductionfaliure.MalwareIntroductionChosen = MalwareIntroductionChosen;
+  MalwareIntroductionfaliure.ExploitWeight = ExploitWeight;
+  MalwareIntroductionfaliure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  MalwareIntroductionfaliure.TamperingWeight = TamperingWeight;
+  MalwareIntroductionfaliure.WebIntrusionWeight = WebIntrusionWeight;
+  MalwareIntroductionfaliure.PivotingWeight = PivotingWeight;
+  MalwareIntroductionfaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  MalwareIntroductionfaliure.DatabaseDumpWeight = DatabaseDumpWeight;
+  MalwareIntroductionfaliure.QueryFloodingWeight = QueryFloodingWeight;
+  MalwareIntroductionfaliure.FirmwareReversingWeight = FirmwareReversingWeight;
+  MalwareIntroductionfaliure.DoNothingWeight = DoNothingWeight;
+  MalwareIntroductionfaliure.NetworkAttackWeight = NetworkAttackWeight;
+  MalwareIntroductionfaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  MalwareIntroductionfaliure.PortScanWeight = PortScanWeight;
+  MalwareIntroductionfaliure.MakeDecision = MakeDecision;
+  MalwareIntroductionfaliure.setSVs(MalwareIntroductionChosen, MalwareIntroductionWeight);
+  MalwareIntroductionsuccess.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
+  MalwareIntroductionsuccess.PhysicalAccess = PhysicalAccess;
+  MalwareIntroductionsuccess.MalwareIntroductionChosen = MalwareIntroductionChosen;
+  MalwareIntroductionsuccess.ExploitWeight = ExploitWeight;
+  MalwareIntroductionsuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  MalwareIntroductionsuccess.TamperingWeight = TamperingWeight;
+  MalwareIntroductionsuccess.WebIntrusionWeight = WebIntrusionWeight;
+  MalwareIntroductionsuccess.PivotingWeight = PivotingWeight;
+  MalwareIntroductionsuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  MalwareIntroductionsuccess.DatabaseDumpWeight = DatabaseDumpWeight;
+  MalwareIntroductionsuccess.QueryFloodingWeight = QueryFloodingWeight;
+  MalwareIntroductionsuccess.FirmwareReversingWeight = FirmwareReversingWeight;
+  MalwareIntroductionsuccess.DoNothingWeight = DoNothingWeight;
+  MalwareIntroductionsuccess.NetworkAttackWeight = NetworkAttackWeight;
+  MalwareIntroductionsuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
+  MalwareIntroductionsuccess.PortScanWeight = PortScanWeight;
+  MalwareIntroductionsuccess.MakeDecision = MakeDecision;
+  MalwareIntroductionsuccess.setSVs(MalwareIntroductionChosen, MalwareIntroductionWeight);
   PortScanFailure.VulnerabilityAwareness = VulnerabilityAwareness;
   PortScanFailure.SocketAddress = SocketAddress;
   PortScanFailure.PortScanChosen = PortScanChosen;
+  PortScanFailure.ExploitWeight = ExploitWeight;
+  PortScanFailure.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  PortScanFailure.TamperingWeight = TamperingWeight;
+  PortScanFailure.WebIntrusionWeight = WebIntrusionWeight;
+  PortScanFailure.PivotingWeight = PivotingWeight;
+  PortScanFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  PortScanFailure.DatabaseDumpWeight = DatabaseDumpWeight;
   PortScanFailure.QueryFloodingWeight = QueryFloodingWeight;
   PortScanFailure.FirmwareReversingWeight = FirmwareReversingWeight;
   PortScanFailure.DoNothingWeight = DoNothingWeight;
-  PortScanFailure.PortScanWeight = PortScanWeight;
-  PortScanFailure.DatabaseDumpWeight = DatabaseDumpWeight;
-  PortScanFailure.TamperingWeight = TamperingWeight;
   PortScanFailure.NetworkAttackWeight = NetworkAttackWeight;
-  PortScanFailure.ExploitWeight = ExploitWeight;
-  PortScanFailure.PivotingWeight = PivotingWeight;
   PortScanFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  PortScanFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  PortScanFailure.PortScanWeight = PortScanWeight;
   PortScanFailure.MakeDecision = MakeDecision;
   PortScanFailure.setSVs(PortScanChosen, PortScanWeight);
   PortScanSuccess.VulnerabilityAwareness = VulnerabilityAwareness;
   PortScanSuccess.SocketAddress = SocketAddress;
   PortScanSuccess.PortScanChosen = PortScanChosen;
+  PortScanSuccess.ExploitWeight = ExploitWeight;
+  PortScanSuccess.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  PortScanSuccess.TamperingWeight = TamperingWeight;
+  PortScanSuccess.WebIntrusionWeight = WebIntrusionWeight;
+  PortScanSuccess.PivotingWeight = PivotingWeight;
+  PortScanSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  PortScanSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
   PortScanSuccess.QueryFloodingWeight = QueryFloodingWeight;
   PortScanSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
   PortScanSuccess.DoNothingWeight = DoNothingWeight;
-  PortScanSuccess.PortScanWeight = PortScanWeight;
-  PortScanSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  PortScanSuccess.TamperingWeight = TamperingWeight;
   PortScanSuccess.NetworkAttackWeight = NetworkAttackWeight;
-  PortScanSuccess.ExploitWeight = ExploitWeight;
-  PortScanSuccess.PivotingWeight = PivotingWeight;
   PortScanSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  PortScanSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  PortScanSuccess.PortScanWeight = PortScanWeight;
   PortScanSuccess.MakeDecision = MakeDecision;
   PortScanSuccess.setSVs(PortScanChosen, PortScanWeight);
-  DatabaseDumpFailure.DataBreach = DataBreach;
-  DatabaseDumpFailure.VehicleServerRootAccess = VehicleServerRootAccess;
-  DatabaseDumpFailure.DatabaseDumpChosen = DatabaseDumpChosen;
-  DatabaseDumpFailure.QueryFloodingWeight = QueryFloodingWeight;
-  DatabaseDumpFailure.FirmwareReversingWeight = FirmwareReversingWeight;
-  DatabaseDumpFailure.DoNothingWeight = DoNothingWeight;
-  DatabaseDumpFailure.PortScanWeight = PortScanWeight;
-  DatabaseDumpFailure.DatabaseDumpWeight = DatabaseDumpWeight;
-  DatabaseDumpFailure.TamperingWeight = TamperingWeight;
-  DatabaseDumpFailure.NetworkAttackWeight = NetworkAttackWeight;
-  DatabaseDumpFailure.ExploitWeight = ExploitWeight;
-  DatabaseDumpFailure.PivotingWeight = PivotingWeight;
-  DatabaseDumpFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  DatabaseDumpFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  DatabaseDumpFailure.MakeDecision = MakeDecision;
-  DatabaseDumpFailure.setSVs(DatabaseDumpChosen, DatabaseDumpWeight);
-  DatabaseDumpSuccess.DataBreach = DataBreach;
-  DatabaseDumpSuccess.VehicleServerRootAccess = VehicleServerRootAccess;
-  DatabaseDumpSuccess.DatabaseDumpChosen = DatabaseDumpChosen;
-  DatabaseDumpSuccess.QueryFloodingWeight = QueryFloodingWeight;
-  DatabaseDumpSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
-  DatabaseDumpSuccess.DoNothingWeight = DoNothingWeight;
-  DatabaseDumpSuccess.PortScanWeight = PortScanWeight;
-  DatabaseDumpSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  DatabaseDumpSuccess.TamperingWeight = TamperingWeight;
-  DatabaseDumpSuccess.NetworkAttackWeight = NetworkAttackWeight;
-  DatabaseDumpSuccess.ExploitWeight = ExploitWeight;
-  DatabaseDumpSuccess.PivotingWeight = PivotingWeight;
-  DatabaseDumpSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  DatabaseDumpSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  DatabaseDumpSuccess.MakeDecision = MakeDecision;
-  DatabaseDumpSuccess.setSVs(DatabaseDumpChosen, DatabaseDumpWeight);
-  TamperingFailure.VehicleUndesideredBehaviour = VehicleUndesideredBehaviour;
-  TamperingFailure.VehicleServerRootAccess = VehicleServerRootAccess;
-  TamperingFailure.TamperingChosen = TamperingChosen;
-  TamperingFailure.QueryFloodingWeight = QueryFloodingWeight;
-  TamperingFailure.FirmwareReversingWeight = FirmwareReversingWeight;
-  TamperingFailure.DoNothingWeight = DoNothingWeight;
-  TamperingFailure.PortScanWeight = PortScanWeight;
-  TamperingFailure.DatabaseDumpWeight = DatabaseDumpWeight;
-  TamperingFailure.TamperingWeight = TamperingWeight;
-  TamperingFailure.NetworkAttackWeight = NetworkAttackWeight;
-  TamperingFailure.ExploitWeight = ExploitWeight;
-  TamperingFailure.PivotingWeight = PivotingWeight;
-  TamperingFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  TamperingFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  TamperingFailure.MakeDecision = MakeDecision;
-  TamperingFailure.setSVs(TamperingChosen, TamperingWeight);
-  TamperingSuccess.VehicleUndesideredBehaviour = VehicleUndesideredBehaviour;
-  TamperingSuccess.VehicleServerRootAccess = VehicleServerRootAccess;
-  TamperingSuccess.TamperingChosen = TamperingChosen;
-  TamperingSuccess.QueryFloodingWeight = QueryFloodingWeight;
-  TamperingSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
-  TamperingSuccess.DoNothingWeight = DoNothingWeight;
-  TamperingSuccess.PortScanWeight = PortScanWeight;
-  TamperingSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  TamperingSuccess.TamperingWeight = TamperingWeight;
-  TamperingSuccess.NetworkAttackWeight = NetworkAttackWeight;
-  TamperingSuccess.ExploitWeight = ExploitWeight;
-  TamperingSuccess.PivotingWeight = PivotingWeight;
-  TamperingSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  TamperingSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  TamperingSuccess.MakeDecision = MakeDecision;
-  TamperingSuccess.setSVs(TamperingChosen, TamperingWeight);
-  NetworkAttacksuccess.CorporateNetworkAccess = CorporateNetworkAccess;
-  NetworkAttacksuccess.CorporateServerLocation = CorporateServerLocation;
-  NetworkAttacksuccess.NetworkAttackChosen = NetworkAttackChosen;
-  NetworkAttacksuccess.QueryFloodingWeight = QueryFloodingWeight;
-  NetworkAttacksuccess.FirmwareReversingWeight = FirmwareReversingWeight;
-  NetworkAttacksuccess.DoNothingWeight = DoNothingWeight;
-  NetworkAttacksuccess.PortScanWeight = PortScanWeight;
-  NetworkAttacksuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  NetworkAttacksuccess.TamperingWeight = TamperingWeight;
-  NetworkAttacksuccess.NetworkAttackWeight = NetworkAttackWeight;
-  NetworkAttacksuccess.ExploitWeight = ExploitWeight;
-  NetworkAttacksuccess.PivotingWeight = PivotingWeight;
-  NetworkAttacksuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  NetworkAttacksuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  NetworkAttacksuccess.MakeDecision = MakeDecision;
-  NetworkAttacksuccess.setSVs(NetworkAttackChosen, NetworkAttackWeight);
-  NetworkAttackfaliure.CorporateNetworkAccess = CorporateNetworkAccess;
-  NetworkAttackfaliure.CorporateServerLocation = CorporateServerLocation;
-  NetworkAttackfaliure.NetworkAttackChosen = NetworkAttackChosen;
-  NetworkAttackfaliure.QueryFloodingWeight = QueryFloodingWeight;
-  NetworkAttackfaliure.FirmwareReversingWeight = FirmwareReversingWeight;
-  NetworkAttackfaliure.DoNothingWeight = DoNothingWeight;
-  NetworkAttackfaliure.PortScanWeight = PortScanWeight;
-  NetworkAttackfaliure.DatabaseDumpWeight = DatabaseDumpWeight;
-  NetworkAttackfaliure.TamperingWeight = TamperingWeight;
-  NetworkAttackfaliure.NetworkAttackWeight = NetworkAttackWeight;
-  NetworkAttackfaliure.ExploitWeight = ExploitWeight;
-  NetworkAttackfaliure.PivotingWeight = PivotingWeight;
-  NetworkAttackfaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  NetworkAttackfaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  NetworkAttackfaliure.MakeDecision = MakeDecision;
-  NetworkAttackfaliure.setSVs(NetworkAttackChosen, NetworkAttackWeight);
-  ExploitFailure.VehicleServerRootAccess = VehicleServerRootAccess;
-  ExploitFailure.VulnerabilityAwareness = VulnerabilityAwareness;
-  ExploitFailure.ExploitChosen = ExploitChosen;
-  ExploitFailure.QueryFloodingWeight = QueryFloodingWeight;
-  ExploitFailure.FirmwareReversingWeight = FirmwareReversingWeight;
-  ExploitFailure.DoNothingWeight = DoNothingWeight;
-  ExploitFailure.PortScanWeight = PortScanWeight;
-  ExploitFailure.DatabaseDumpWeight = DatabaseDumpWeight;
-  ExploitFailure.TamperingWeight = TamperingWeight;
-  ExploitFailure.NetworkAttackWeight = NetworkAttackWeight;
-  ExploitFailure.ExploitWeight = ExploitWeight;
-  ExploitFailure.PivotingWeight = PivotingWeight;
-  ExploitFailure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  ExploitFailure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  ExploitFailure.MakeDecision = MakeDecision;
-  ExploitFailure.setSVs(ExploitChosen, ExploitWeight);
-  ExploitSuccess.VehicleServerRootAccess = VehicleServerRootAccess;
-  ExploitSuccess.VulnerabilityAwareness = VulnerabilityAwareness;
-  ExploitSuccess.ExploitChosen = ExploitChosen;
-  ExploitSuccess.QueryFloodingWeight = QueryFloodingWeight;
-  ExploitSuccess.FirmwareReversingWeight = FirmwareReversingWeight;
-  ExploitSuccess.DoNothingWeight = DoNothingWeight;
-  ExploitSuccess.PortScanWeight = PortScanWeight;
-  ExploitSuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  ExploitSuccess.TamperingWeight = TamperingWeight;
-  ExploitSuccess.NetworkAttackWeight = NetworkAttackWeight;
-  ExploitSuccess.ExploitWeight = ExploitWeight;
-  ExploitSuccess.PivotingWeight = PivotingWeight;
-  ExploitSuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  ExploitSuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  ExploitSuccess.MakeDecision = MakeDecision;
-  ExploitSuccess.setSVs(ExploitChosen, ExploitWeight);
-  Pivotingsuccess.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
-  Pivotingsuccess.CorporateNetworkAccess = CorporateNetworkAccess;
-  Pivotingsuccess.PivotingChosen = PivotingChosen;
-  Pivotingsuccess.QueryFloodingWeight = QueryFloodingWeight;
-  Pivotingsuccess.FirmwareReversingWeight = FirmwareReversingWeight;
-  Pivotingsuccess.DoNothingWeight = DoNothingWeight;
-  Pivotingsuccess.PortScanWeight = PortScanWeight;
-  Pivotingsuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  Pivotingsuccess.TamperingWeight = TamperingWeight;
-  Pivotingsuccess.NetworkAttackWeight = NetworkAttackWeight;
-  Pivotingsuccess.ExploitWeight = ExploitWeight;
-  Pivotingsuccess.PivotingWeight = PivotingWeight;
-  Pivotingsuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  Pivotingsuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  Pivotingsuccess.MakeDecision = MakeDecision;
-  Pivotingsuccess.setSVs(PivotingChosen, PivotingWeight);
-  Pivotingfaliure.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
-  Pivotingfaliure.CorporateNetworkAccess = CorporateNetworkAccess;
-  Pivotingfaliure.PivotingChosen = PivotingChosen;
-  Pivotingfaliure.QueryFloodingWeight = QueryFloodingWeight;
-  Pivotingfaliure.FirmwareReversingWeight = FirmwareReversingWeight;
-  Pivotingfaliure.DoNothingWeight = DoNothingWeight;
-  Pivotingfaliure.PortScanWeight = PortScanWeight;
-  Pivotingfaliure.DatabaseDumpWeight = DatabaseDumpWeight;
-  Pivotingfaliure.TamperingWeight = TamperingWeight;
-  Pivotingfaliure.NetworkAttackWeight = NetworkAttackWeight;
-  Pivotingfaliure.ExploitWeight = ExploitWeight;
-  Pivotingfaliure.PivotingWeight = PivotingWeight;
-  Pivotingfaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  Pivotingfaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  Pivotingfaliure.MakeDecision = MakeDecision;
-  Pivotingfaliure.setSVs(PivotingChosen, PivotingWeight);
-  MalwareIntroductionsuccess.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
-  MalwareIntroductionsuccess.PhysicalAccess = PhysicalAccess;
-  MalwareIntroductionsuccess.MalwareIntroductionChosen = MalwareIntroductionChosen;
-  MalwareIntroductionsuccess.QueryFloodingWeight = QueryFloodingWeight;
-  MalwareIntroductionsuccess.FirmwareReversingWeight = FirmwareReversingWeight;
-  MalwareIntroductionsuccess.DoNothingWeight = DoNothingWeight;
-  MalwareIntroductionsuccess.PortScanWeight = PortScanWeight;
-  MalwareIntroductionsuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  MalwareIntroductionsuccess.TamperingWeight = TamperingWeight;
-  MalwareIntroductionsuccess.NetworkAttackWeight = NetworkAttackWeight;
-  MalwareIntroductionsuccess.ExploitWeight = ExploitWeight;
-  MalwareIntroductionsuccess.PivotingWeight = PivotingWeight;
-  MalwareIntroductionsuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  MalwareIntroductionsuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  MalwareIntroductionsuccess.MakeDecision = MakeDecision;
-  MalwareIntroductionsuccess.setSVs(MalwareIntroductionChosen, MalwareIntroductionWeight);
-  MalwareIntroductionfaliure.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
-  MalwareIntroductionfaliure.PhysicalAccess = PhysicalAccess;
-  MalwareIntroductionfaliure.MalwareIntroductionChosen = MalwareIntroductionChosen;
-  MalwareIntroductionfaliure.QueryFloodingWeight = QueryFloodingWeight;
-  MalwareIntroductionfaliure.FirmwareReversingWeight = FirmwareReversingWeight;
-  MalwareIntroductionfaliure.DoNothingWeight = DoNothingWeight;
-  MalwareIntroductionfaliure.PortScanWeight = PortScanWeight;
-  MalwareIntroductionfaliure.DatabaseDumpWeight = DatabaseDumpWeight;
-  MalwareIntroductionfaliure.TamperingWeight = TamperingWeight;
-  MalwareIntroductionfaliure.NetworkAttackWeight = NetworkAttackWeight;
-  MalwareIntroductionfaliure.ExploitWeight = ExploitWeight;
-  MalwareIntroductionfaliure.PivotingWeight = PivotingWeight;
-  MalwareIntroductionfaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  MalwareIntroductionfaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  MalwareIntroductionfaliure.MakeDecision = MakeDecision;
-  MalwareIntroductionfaliure.setSVs(MalwareIntroductionChosen, MalwareIntroductionWeight);
-  PrivilegeEscalationsuccess.VehicleServerRootAccess = VehicleServerRootAccess;
-  PrivilegeEscalationsuccess.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
-  PrivilegeEscalationsuccess.PrivilegeEscalationChosen = PrivilegeEscalationChosen;
-  PrivilegeEscalationsuccess.QueryFloodingWeight = QueryFloodingWeight;
-  PrivilegeEscalationsuccess.FirmwareReversingWeight = FirmwareReversingWeight;
-  PrivilegeEscalationsuccess.DoNothingWeight = DoNothingWeight;
-  PrivilegeEscalationsuccess.PortScanWeight = PortScanWeight;
-  PrivilegeEscalationsuccess.DatabaseDumpWeight = DatabaseDumpWeight;
-  PrivilegeEscalationsuccess.TamperingWeight = TamperingWeight;
-  PrivilegeEscalationsuccess.NetworkAttackWeight = NetworkAttackWeight;
-  PrivilegeEscalationsuccess.ExploitWeight = ExploitWeight;
-  PrivilegeEscalationsuccess.PivotingWeight = PivotingWeight;
-  PrivilegeEscalationsuccess.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  PrivilegeEscalationsuccess.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  PrivilegeEscalationsuccess.MakeDecision = MakeDecision;
-  PrivilegeEscalationsuccess.setSVs(PrivilegeEscalationChosen, PrivilegeEscalationWeight);
-  PrivilegeEscalationfaliure.VehicleServerRootAccess = VehicleServerRootAccess;
-  PrivilegeEscalationfaliure.vehicleServerUnprivAccess = vehicleServerUnprivAccess;
-  PrivilegeEscalationfaliure.PrivilegeEscalationChosen = PrivilegeEscalationChosen;
-  PrivilegeEscalationfaliure.QueryFloodingWeight = QueryFloodingWeight;
-  PrivilegeEscalationfaliure.FirmwareReversingWeight = FirmwareReversingWeight;
-  PrivilegeEscalationfaliure.DoNothingWeight = DoNothingWeight;
-  PrivilegeEscalationfaliure.PortScanWeight = PortScanWeight;
-  PrivilegeEscalationfaliure.DatabaseDumpWeight = DatabaseDumpWeight;
-  PrivilegeEscalationfaliure.TamperingWeight = TamperingWeight;
-  PrivilegeEscalationfaliure.NetworkAttackWeight = NetworkAttackWeight;
-  PrivilegeEscalationfaliure.ExploitWeight = ExploitWeight;
-  PrivilegeEscalationfaliure.PivotingWeight = PivotingWeight;
-  PrivilegeEscalationfaliure.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  PrivilegeEscalationfaliure.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
-  PrivilegeEscalationfaliure.MakeDecision = MakeDecision;
-  PrivilegeEscalationfaliure.setSVs(PrivilegeEscalationChosen, PrivilegeEscalationWeight);
 
+  ExploitAD.MakeDecision = MakeDecision;
+  ExploitAD.ExploitChosen = ExploitChosen;
+  ExploitAD.ExploitWeight = ExploitWeight;
+  UnauthorizedRemoteLoginAD.MakeDecision = MakeDecision;
+  UnauthorizedRemoteLoginAD.UnauthorizedRemoteLoginChosen = UnauthorizedRemoteLoginChosen;
+  UnauthorizedRemoteLoginAD.UnauthorizedRemoteLoginWeight = UnauthorizedRemoteLoginWeight;
+  TamperingAD.MakeDecision = MakeDecision;
+  TamperingAD.TamperingChosen = TamperingChosen;
+  TamperingAD.TamperingWeight = TamperingWeight;
+  WebIntrusionAD.MakeDecision = MakeDecision;
+  WebIntrusionAD.WebIntrusionChosen = WebIntrusionChosen;
+  WebIntrusionAD.WebIntrusionWeight = WebIntrusionWeight;
+  PivotingAD.MakeDecision = MakeDecision;
+  PivotingAD.PivotingChosen = PivotingChosen;
+  PivotingAD.PivotingWeight = PivotingWeight;
+  PrivilegeEscalationAD.MakeDecision = MakeDecision;
+  PrivilegeEscalationAD.PrivilegeEscalationChosen = PrivilegeEscalationChosen;
+  PrivilegeEscalationAD.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  DatabaseDumpAD.MakeDecision = MakeDecision;
+  DatabaseDumpAD.DatabaseDumpChosen = DatabaseDumpChosen;
+  DatabaseDumpAD.DatabaseDumpWeight = DatabaseDumpWeight;
   QueryFloodingAD.MakeDecision = MakeDecision;
   QueryFloodingAD.QueryFloodingChosen = QueryFloodingChosen;
   QueryFloodingAD.QueryFloodingWeight = QueryFloodingWeight;
@@ -717,30 +910,15 @@ void advise_treeADVISE::assignSVsToAttackSteps() {
   DoNothingAD.MakeDecision = MakeDecision;
   DoNothingAD.DoNothingChosen = DoNothingChosen;
   DoNothingAD.DoNothingWeight = DoNothingWeight;
-  PortScanAD.MakeDecision = MakeDecision;
-  PortScanAD.PortScanChosen = PortScanChosen;
-  PortScanAD.PortScanWeight = PortScanWeight;
-  DatabaseDumpAD.MakeDecision = MakeDecision;
-  DatabaseDumpAD.DatabaseDumpChosen = DatabaseDumpChosen;
-  DatabaseDumpAD.DatabaseDumpWeight = DatabaseDumpWeight;
-  TamperingAD.MakeDecision = MakeDecision;
-  TamperingAD.TamperingChosen = TamperingChosen;
-  TamperingAD.TamperingWeight = TamperingWeight;
   NetworkAttackAD.MakeDecision = MakeDecision;
   NetworkAttackAD.NetworkAttackChosen = NetworkAttackChosen;
   NetworkAttackAD.NetworkAttackWeight = NetworkAttackWeight;
-  ExploitAD.MakeDecision = MakeDecision;
-  ExploitAD.ExploitChosen = ExploitChosen;
-  ExploitAD.ExploitWeight = ExploitWeight;
-  PivotingAD.MakeDecision = MakeDecision;
-  PivotingAD.PivotingChosen = PivotingChosen;
-  PivotingAD.PivotingWeight = PivotingWeight;
   MalwareIntroductionAD.MakeDecision = MakeDecision;
   MalwareIntroductionAD.MalwareIntroductionChosen = MalwareIntroductionChosen;
   MalwareIntroductionAD.MalwareIntroductionWeight = MalwareIntroductionWeight;
-  PrivilegeEscalationAD.MakeDecision = MakeDecision;
-  PrivilegeEscalationAD.PrivilegeEscalationChosen = PrivilegeEscalationChosen;
-  PrivilegeEscalationAD.PrivilegeEscalationWeight = PrivilegeEscalationWeight;
+  PortScanAD.MakeDecision = MakeDecision;
+  PortScanAD.PortScanChosen = PortScanChosen;
+  PortScanAD.PortScanWeight = PortScanWeight;
 }
 
 double advise_treeADVISE::convertCostToUtility(double cost) {
@@ -784,11 +962,1229 @@ void advise_treeADVISE::customInitialization() {
 /*                   Attack Step Definitions                     */
 /*****************************************************************/
 
+/*====================== ExploitFailureStep ========================*/
+
+advise_treeADVISE::ExploitFailureStep::ExploitFailureStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("ExploitFailureStep", 0, Exponential, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::ExploitFailureStep::~ExploitFailureStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::ExploitFailureStep::LinkVariables() {
+  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+  VulnerabilityAwareness->Register(&VulnerabilityAwareness_Mobius_Mark);
+  ExploitChosen->Register(&ExploitChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::ExploitFailureStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(ExploitChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::ExploitFailureStep::timeDistributionParameter0() {
+return 0.2;
+}
+
+double advise_treeADVISE::ExploitFailureStep::Weight() {
+return 0.8;
+}
+
+bool advise_treeADVISE::ExploitFailureStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::ExploitFailureStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::ExploitFailureStep::SampleDistribution() {
+  return TheDistribution->Exponential(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::ExploitFailureStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::ExploitFailureStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::ExploitFailureStep::preconditionsMet() {
+return (VulnerabilityAwareness->Mark() && !VehicleServerRootAccess->Mark());
+  return true;
+}
+
+void advise_treeADVISE::ExploitFailureStep::executeEffects() {
+
+}
+
+double advise_treeADVISE::ExploitFailureStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::ExploitFailureStep::getOutcomeProbability() {
+return 0.8;
+}
+
+double advise_treeADVISE::ExploitFailureStep::getDetection() {
+return 0.6;
+}
+
+/*====================== ExploitSuccessStep ========================*/
+
+advise_treeADVISE::ExploitSuccessStep::ExploitSuccessStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("ExploitSuccessStep", 0, Exponential, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::ExploitSuccessStep::~ExploitSuccessStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::ExploitSuccessStep::LinkVariables() {
+  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+  VulnerabilityAwareness->Register(&VulnerabilityAwareness_Mobius_Mark);
+  ExploitChosen->Register(&ExploitChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::ExploitSuccessStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(ExploitChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::ExploitSuccessStep::timeDistributionParameter0() {
+return 0.2;
+}
+
+double advise_treeADVISE::ExploitSuccessStep::Weight() {
+return 0.2;
+}
+
+bool advise_treeADVISE::ExploitSuccessStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::ExploitSuccessStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::ExploitSuccessStep::SampleDistribution() {
+  return TheDistribution->Exponential(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::ExploitSuccessStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::ExploitSuccessStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::ExploitSuccessStep::preconditionsMet() {
+return (VulnerabilityAwareness->Mark() && !VehicleServerRootAccess->Mark());
+  return true;
+}
+
+void advise_treeADVISE::ExploitSuccessStep::executeEffects() {
+VehicleServerRootAccess->Mark()=1;
+}
+
+double advise_treeADVISE::ExploitSuccessStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::ExploitSuccessStep::getOutcomeProbability() {
+return 0.2;
+}
+
+double advise_treeADVISE::ExploitSuccessStep::getDetection() {
+return 0.2;
+}
+
+/*====================== UnauthorizedRemoteLoginFaliureStep ========================*/
+
+advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::UnauthorizedRemoteLoginFaliureStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("UnauthorizedRemoteLoginFaliureStep", 1, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::~UnauthorizedRemoteLoginFaliureStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::LinkVariables() {
+  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
+  EmoployeePersonalInfo->Register(&EmoployeePersonalInfo_Mobius_Mark);
+  UnauthorizedRemoteLoginChosen->Register(&UnauthorizedRemoteLoginChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(UnauthorizedRemoteLoginChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::timeDistributionParameter0() {
+return 4;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::Weight() {
+return 0.5;
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::preconditionsMet() {
+return (EmoployeePersonalInfo->Mark()&& !CorporateNetworkAccess->Mark());
+  return true;
+}
+
+void advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::executeEffects() {
+
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::getOutcomeProbability() {
+return 0.5;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginFaliureStep::getDetection() {
+return 0.5;
+}
+
+/*====================== UnauthorizedRemoteLoginSuccessStep ========================*/
+
+advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::UnauthorizedRemoteLoginSuccessStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("UnauthorizedRemoteLoginSuccessStep", 1, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::~UnauthorizedRemoteLoginSuccessStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::LinkVariables() {
+  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
+  EmoployeePersonalInfo->Register(&EmoployeePersonalInfo_Mobius_Mark);
+  UnauthorizedRemoteLoginChosen->Register(&UnauthorizedRemoteLoginChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(UnauthorizedRemoteLoginChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::timeDistributionParameter0() {
+return 4;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::Weight() {
+return 0.5;
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::preconditionsMet() {
+return (EmoployeePersonalInfo->Mark()&& !CorporateNetworkAccess->Mark());
+  return true;
+}
+
+void advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::executeEffects() {
+CorporateNetworkAccess->Mark()=1;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::getOutcomeProbability() {
+return 0.5;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginSuccessStep::getDetection() {
+return 0.2;
+}
+
+/*====================== TamperingFailureStep ========================*/
+
+advise_treeADVISE::TamperingFailureStep::TamperingFailureStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("TamperingFailureStep", 2, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::TamperingFailureStep::~TamperingFailureStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::TamperingFailureStep::LinkVariables() {
+  VehicleUndesideredBehaviour->Register(&VehicleUndesideredBehaviour_Mobius_Mark);
+  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+  TamperingChosen->Register(&TamperingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::TamperingFailureStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(TamperingChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::TamperingFailureStep::timeDistributionParameter0() {
+return 5;
+}
+
+double advise_treeADVISE::TamperingFailureStep::Weight() {
+return 0.1;
+}
+
+bool advise_treeADVISE::TamperingFailureStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::TamperingFailureStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::TamperingFailureStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::TamperingFailureStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::TamperingFailureStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::TamperingFailureStep::preconditionsMet() {
+return (VehicleServerRootAccess->Mark() && !VehicleUndesideredBehaviour->Mark());
+  return true;
+}
+
+void advise_treeADVISE::TamperingFailureStep::executeEffects() {
+
+}
+
+double advise_treeADVISE::TamperingFailureStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::TamperingFailureStep::getOutcomeProbability() {
+return 0.1;
+}
+
+double advise_treeADVISE::TamperingFailureStep::getDetection() {
+return 0.3;
+}
+
+/*====================== TamperingSuccessStep ========================*/
+
+advise_treeADVISE::TamperingSuccessStep::TamperingSuccessStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("TamperingSuccessStep", 2, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::TamperingSuccessStep::~TamperingSuccessStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::TamperingSuccessStep::LinkVariables() {
+  VehicleUndesideredBehaviour->Register(&VehicleUndesideredBehaviour_Mobius_Mark);
+  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+  TamperingChosen->Register(&TamperingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::TamperingSuccessStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(TamperingChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::TamperingSuccessStep::timeDistributionParameter0() {
+return 5;
+}
+
+double advise_treeADVISE::TamperingSuccessStep::Weight() {
+return 0.9;
+}
+
+bool advise_treeADVISE::TamperingSuccessStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::TamperingSuccessStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::TamperingSuccessStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::TamperingSuccessStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::TamperingSuccessStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::TamperingSuccessStep::preconditionsMet() {
+return (VehicleServerRootAccess->Mark() && !VehicleUndesideredBehaviour->Mark());
+  return true;
+}
+
+void advise_treeADVISE::TamperingSuccessStep::executeEffects() {
+VehicleUndesideredBehaviour->Mark()=1;
+}
+
+double advise_treeADVISE::TamperingSuccessStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::TamperingSuccessStep::getOutcomeProbability() {
+return 0.9;
+}
+
+double advise_treeADVISE::TamperingSuccessStep::getDetection() {
+return 0.2;
+}
+
+/*====================== WebIntrusionFaliureStep ========================*/
+
+advise_treeADVISE::WebIntrusionFaliureStep::WebIntrusionFaliureStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("WebIntrusionFaliureStep", 3, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::WebIntrusionFaliureStep::~WebIntrusionFaliureStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::WebIntrusionFaliureStep::LinkVariables() {
+  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
+  CorporateInternetAddress->Register(&CorporateInternetAddress_Mobius_Mark);
+  WebIntrusionChosen->Register(&WebIntrusionChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::WebIntrusionFaliureStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(WebIntrusionChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::WebIntrusionFaliureStep::timeDistributionParameter0() {
+return 4;
+}
+
+double advise_treeADVISE::WebIntrusionFaliureStep::Weight() {
+return 0.5;
+}
+
+bool advise_treeADVISE::WebIntrusionFaliureStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::WebIntrusionFaliureStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::WebIntrusionFaliureStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::WebIntrusionFaliureStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::WebIntrusionFaliureStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::WebIntrusionFaliureStep::preconditionsMet() {
+return CorporateInternetAddress->Mark() && !CorporateNetworkAccess->Mark();
+  return true;
+}
+
+void advise_treeADVISE::WebIntrusionFaliureStep::executeEffects() {
+
+}
+
+double advise_treeADVISE::WebIntrusionFaliureStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::WebIntrusionFaliureStep::getOutcomeProbability() {
+return 0.5;
+}
+
+double advise_treeADVISE::WebIntrusionFaliureStep::getDetection() {
+return 0;
+}
+
+/*====================== WebIntrusionSuccessStep ========================*/
+
+advise_treeADVISE::WebIntrusionSuccessStep::WebIntrusionSuccessStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("WebIntrusionSuccessStep", 3, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::WebIntrusionSuccessStep::~WebIntrusionSuccessStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::WebIntrusionSuccessStep::LinkVariables() {
+  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
+  CorporateInternetAddress->Register(&CorporateInternetAddress_Mobius_Mark);
+  WebIntrusionChosen->Register(&WebIntrusionChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::WebIntrusionSuccessStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(WebIntrusionChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::WebIntrusionSuccessStep::timeDistributionParameter0() {
+return 4;
+}
+
+double advise_treeADVISE::WebIntrusionSuccessStep::Weight() {
+return 0.5;
+}
+
+bool advise_treeADVISE::WebIntrusionSuccessStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::WebIntrusionSuccessStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::WebIntrusionSuccessStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::WebIntrusionSuccessStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::WebIntrusionSuccessStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::WebIntrusionSuccessStep::preconditionsMet() {
+return CorporateInternetAddress->Mark() && !CorporateNetworkAccess->Mark();
+  return true;
+}
+
+void advise_treeADVISE::WebIntrusionSuccessStep::executeEffects() {
+CorporateNetworkAccess->Mark()=1;
+}
+
+double advise_treeADVISE::WebIntrusionSuccessStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::WebIntrusionSuccessStep::getOutcomeProbability() {
+return 0.5;
+}
+
+double advise_treeADVISE::WebIntrusionSuccessStep::getDetection() {
+return 0;
+}
+
+/*====================== PivotingfaliureStep ========================*/
+
+advise_treeADVISE::PivotingfaliureStep::PivotingfaliureStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("PivotingfaliureStep", 4, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::PivotingfaliureStep::~PivotingfaliureStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::PivotingfaliureStep::LinkVariables() {
+  vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
+  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
+  PivotingChosen->Register(&PivotingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::PivotingfaliureStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(PivotingChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::PivotingfaliureStep::timeDistributionParameter0() {
+return 3;
+}
+
+double advise_treeADVISE::PivotingfaliureStep::Weight() {
+return 0.3;
+}
+
+bool advise_treeADVISE::PivotingfaliureStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::PivotingfaliureStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::PivotingfaliureStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::PivotingfaliureStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::PivotingfaliureStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::PivotingfaliureStep::preconditionsMet() {
+return (CorporateNetworkAccess->Mark() && !vehicleServerUnprivAccess->Mark());
+  return true;
+}
+
+void advise_treeADVISE::PivotingfaliureStep::executeEffects() {
+
+}
+
+double advise_treeADVISE::PivotingfaliureStep::getCost() {
+
+}
+
+double advise_treeADVISE::PivotingfaliureStep::getOutcomeProbability() {
+return 0.3;
+}
+
+double advise_treeADVISE::PivotingfaliureStep::getDetection() {
+return 0.5;
+}
+
+/*====================== PivotingsuccessStep ========================*/
+
+advise_treeADVISE::PivotingsuccessStep::PivotingsuccessStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("PivotingsuccessStep", 4, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::PivotingsuccessStep::~PivotingsuccessStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::PivotingsuccessStep::LinkVariables() {
+  vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
+  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
+  PivotingChosen->Register(&PivotingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::PivotingsuccessStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(PivotingChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::PivotingsuccessStep::timeDistributionParameter0() {
+return 3;
+}
+
+double advise_treeADVISE::PivotingsuccessStep::Weight() {
+return 0.7;
+}
+
+bool advise_treeADVISE::PivotingsuccessStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::PivotingsuccessStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::PivotingsuccessStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::PivotingsuccessStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::PivotingsuccessStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::PivotingsuccessStep::preconditionsMet() {
+return (CorporateNetworkAccess->Mark() && !vehicleServerUnprivAccess->Mark());
+  return true;
+}
+
+void advise_treeADVISE::PivotingsuccessStep::executeEffects() {
+vehicleServerUnprivAccess->Mark()=1;
+}
+
+double advise_treeADVISE::PivotingsuccessStep::getCost() {
+
+}
+
+double advise_treeADVISE::PivotingsuccessStep::getOutcomeProbability() {
+return 0.7;
+}
+
+double advise_treeADVISE::PivotingsuccessStep::getDetection() {
+return 0.5;
+}
+
+/*====================== PrivilegeEscalationfaliureStep ========================*/
+
+advise_treeADVISE::PrivilegeEscalationfaliureStep::PrivilegeEscalationfaliureStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("PrivilegeEscalationfaliureStep", 5, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::PrivilegeEscalationfaliureStep::~PrivilegeEscalationfaliureStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::PrivilegeEscalationfaliureStep::LinkVariables() {
+  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+  vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
+  PrivilegeEscalationChosen->Register(&PrivilegeEscalationChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::PrivilegeEscalationfaliureStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(PrivilegeEscalationChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::PrivilegeEscalationfaliureStep::timeDistributionParameter0() {
+return 5;
+}
+
+double advise_treeADVISE::PrivilegeEscalationfaliureStep::Weight() {
+return 0.5;
+}
+
+bool advise_treeADVISE::PrivilegeEscalationfaliureStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::PrivilegeEscalationfaliureStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::PrivilegeEscalationfaliureStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::PrivilegeEscalationfaliureStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::PrivilegeEscalationfaliureStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::PrivilegeEscalationfaliureStep::preconditionsMet() {
+return(vehicleServerUnprivAccess->Mark() && !VehicleServerRootAccess->Mark());
+  return true;
+}
+
+void advise_treeADVISE::PrivilegeEscalationfaliureStep::executeEffects() {
+
+}
+
+double advise_treeADVISE::PrivilegeEscalationfaliureStep::getCost() {
+
+}
+
+double advise_treeADVISE::PrivilegeEscalationfaliureStep::getOutcomeProbability() {
+return 0.5;
+}
+
+double advise_treeADVISE::PrivilegeEscalationfaliureStep::getDetection() {
+return 0.5;
+}
+
+/*====================== PrivilegeEscalationsuccessStep ========================*/
+
+advise_treeADVISE::PrivilegeEscalationsuccessStep::PrivilegeEscalationsuccessStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("PrivilegeEscalationsuccessStep", 5, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::PrivilegeEscalationsuccessStep::~PrivilegeEscalationsuccessStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::PrivilegeEscalationsuccessStep::LinkVariables() {
+  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+  vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
+  PrivilegeEscalationChosen->Register(&PrivilegeEscalationChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::PrivilegeEscalationsuccessStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(PrivilegeEscalationChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::PrivilegeEscalationsuccessStep::timeDistributionParameter0() {
+return 5;
+}
+
+double advise_treeADVISE::PrivilegeEscalationsuccessStep::Weight() {
+return 0.5;
+}
+
+bool advise_treeADVISE::PrivilegeEscalationsuccessStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::PrivilegeEscalationsuccessStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::PrivilegeEscalationsuccessStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::PrivilegeEscalationsuccessStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::PrivilegeEscalationsuccessStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::PrivilegeEscalationsuccessStep::preconditionsMet() {
+return(vehicleServerUnprivAccess->Mark() && !VehicleServerRootAccess->Mark());
+  return true;
+}
+
+void advise_treeADVISE::PrivilegeEscalationsuccessStep::executeEffects() {
+VehicleServerRootAccess->Mark()=1;
+}
+
+double advise_treeADVISE::PrivilegeEscalationsuccessStep::getCost() {
+
+}
+
+double advise_treeADVISE::PrivilegeEscalationsuccessStep::getOutcomeProbability() {
+return 0.5;
+}
+
+double advise_treeADVISE::PrivilegeEscalationsuccessStep::getDetection() {
+return 0.5;
+}
+
+/*====================== DatabaseDumpFailureStep ========================*/
+
+advise_treeADVISE::DatabaseDumpFailureStep::DatabaseDumpFailureStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("DatabaseDumpFailureStep", 6, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::DatabaseDumpFailureStep::~DatabaseDumpFailureStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::DatabaseDumpFailureStep::LinkVariables() {
+  DataBreach->Register(&DataBreach_Mobius_Mark);
+  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+  DatabaseDumpChosen->Register(&DatabaseDumpChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::DatabaseDumpFailureStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(DatabaseDumpChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::DatabaseDumpFailureStep::timeDistributionParameter0() {
+return 5;
+}
+
+double advise_treeADVISE::DatabaseDumpFailureStep::Weight() {
+return 0.1;
+}
+
+bool advise_treeADVISE::DatabaseDumpFailureStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::DatabaseDumpFailureStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::DatabaseDumpFailureStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::DatabaseDumpFailureStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::DatabaseDumpFailureStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::DatabaseDumpFailureStep::preconditionsMet() {
+return (VehicleServerRootAccess->Mark() && !DataBreach->Mark());
+  return true;
+}
+
+void advise_treeADVISE::DatabaseDumpFailureStep::executeEffects() {
+
+}
+
+double advise_treeADVISE::DatabaseDumpFailureStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::DatabaseDumpFailureStep::getOutcomeProbability() {
+return 0.1;
+}
+
+double advise_treeADVISE::DatabaseDumpFailureStep::getDetection() {
+return 0.1;
+}
+
+/*====================== DatabaseDumpSuccessStep ========================*/
+
+advise_treeADVISE::DatabaseDumpSuccessStep::DatabaseDumpSuccessStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("DatabaseDumpSuccessStep", 6, Deterministic, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::DatabaseDumpSuccessStep::~DatabaseDumpSuccessStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::DatabaseDumpSuccessStep::LinkVariables() {
+  DataBreach->Register(&DataBreach_Mobius_Mark);
+  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+  DatabaseDumpChosen->Register(&DatabaseDumpChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+
+}
+
+bool advise_treeADVISE::DatabaseDumpSuccessStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(DatabaseDumpChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::DatabaseDumpSuccessStep::timeDistributionParameter0() {
+return 5;
+}
+
+double advise_treeADVISE::DatabaseDumpSuccessStep::Weight() {
+return 0.9;
+}
+
+bool advise_treeADVISE::DatabaseDumpSuccessStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::DatabaseDumpSuccessStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::DatabaseDumpSuccessStep::SampleDistribution() {
+  return TheDistribution->Deterministic(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::DatabaseDumpSuccessStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::DatabaseDumpSuccessStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::DatabaseDumpSuccessStep::preconditionsMet() {
+return (VehicleServerRootAccess->Mark() && !DataBreach->Mark());
+  return true;
+}
+
+void advise_treeADVISE::DatabaseDumpSuccessStep::executeEffects() {
+DataBreach->Mark()=1;
+}
+
+double advise_treeADVISE::DatabaseDumpSuccessStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::DatabaseDumpSuccessStep::getOutcomeProbability() {
+return 0.9;
+}
+
+double advise_treeADVISE::DatabaseDumpSuccessStep::getDetection() {
+return 0.2;
+}
+
 /*====================== QueryFloodingFailureStep ========================*/
 
 advise_treeADVISE::QueryFloodingFailureStep::QueryFloodingFailureStep() {
   TheDistributionParameters = new double[1];
-  commonInit("QueryFloodingFailureStep", 0, Deterministic, RaceEnabled, 17, 1, false);}
+  commonInit("QueryFloodingFailureStep", 7, Exponential, RaceEnabled, 19, 1, false);}
 
 advise_treeADVISE::QueryFloodingFailureStep::~QueryFloodingFailureStep() {
   delete[] TheDistributionParameters;
@@ -800,17 +2196,19 @@ void advise_treeADVISE::QueryFloodingFailureStep::LinkVariables() {
   HandshakeProtocol->Register(&HandshakeProtocol_Mobius_Mark);
   SocketAddress->Register(&SocketAddress_Mobius_Mark);
   QueryFloodingChosen->Register(&QueryFloodingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
@@ -822,7 +2220,7 @@ bool advise_treeADVISE::QueryFloodingFailureStep::Enabled() {
 }
 
 double advise_treeADVISE::QueryFloodingFailureStep::timeDistributionParameter0() {
-return 3;
+return 5;
 }
 
 double advise_treeADVISE::QueryFloodingFailureStep::Weight() {
@@ -839,7 +2237,7 @@ bool advise_treeADVISE::QueryFloodingFailureStep::ReactivationFunction() {
 }
 
 double advise_treeADVISE::QueryFloodingFailureStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
+  return TheDistribution->Exponential(timeDistributionParameter0());
 }
 
 double *advise_treeADVISE::QueryFloodingFailureStep::ReturnDistributionParameters() {
@@ -877,7 +2275,7 @@ return 0.6;
 
 advise_treeADVISE::QueryFloodingSuccessStep::QueryFloodingSuccessStep() {
   TheDistributionParameters = new double[1];
-  commonInit("QueryFloodingSuccessStep", 0, Deterministic, RaceEnabled, 17, 1, false);}
+  commonInit("QueryFloodingSuccessStep", 7, Exponential, RaceEnabled, 19, 1, false);}
 
 advise_treeADVISE::QueryFloodingSuccessStep::~QueryFloodingSuccessStep() {
   delete[] TheDistributionParameters;
@@ -889,17 +2287,19 @@ void advise_treeADVISE::QueryFloodingSuccessStep::LinkVariables() {
   HandshakeProtocol->Register(&HandshakeProtocol_Mobius_Mark);
   SocketAddress->Register(&SocketAddress_Mobius_Mark);
   QueryFloodingChosen->Register(&QueryFloodingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
@@ -911,7 +2311,7 @@ bool advise_treeADVISE::QueryFloodingSuccessStep::Enabled() {
 }
 
 double advise_treeADVISE::QueryFloodingSuccessStep::timeDistributionParameter0() {
-return 3;
+return 5;
 }
 
 double advise_treeADVISE::QueryFloodingSuccessStep::Weight() {
@@ -928,7 +2328,7 @@ bool advise_treeADVISE::QueryFloodingSuccessStep::ReactivationFunction() {
 }
 
 double advise_treeADVISE::QueryFloodingSuccessStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
+  return TheDistribution->Exponential(timeDistributionParameter0());
 }
 
 double *advise_treeADVISE::QueryFloodingSuccessStep::ReturnDistributionParameters() {
@@ -966,7 +2366,7 @@ return 0.5;
 
 advise_treeADVISE::FirmwareReversingFailureStep::FirmwareReversingFailureStep() {
   TheDistributionParameters = new double[1];
-  commonInit("FirmwareReversingFailureStep", 1, Deterministic, RaceEnabled, 17, 2, false);}
+  commonInit("FirmwareReversingFailureStep", 8, Deterministic, RaceEnabled, 19, 2, false);}
 
 advise_treeADVISE::FirmwareReversingFailureStep::~FirmwareReversingFailureStep() {
   delete[] TheDistributionParameters;
@@ -978,17 +2378,19 @@ void advise_treeADVISE::FirmwareReversingFailureStep::LinkVariables() {
   BinaryDump->Register(&BinaryDump_Mobius_Mark);
   ReverseEngineering->Register(&ReverseEngineering_Mobius_Mark);
   FirmwareReversingChosen->Register(&FirmwareReversingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
@@ -1054,7 +2456,7 @@ return 0;
 
 advise_treeADVISE::FirmwareReversingObtainallStep::FirmwareReversingObtainallStep() {
   TheDistributionParameters = new double[1];
-  commonInit("FirmwareReversingObtainallStep", 1, Deterministic, RaceEnabled, 17, 2, false);}
+  commonInit("FirmwareReversingObtainallStep", 8, Deterministic, RaceEnabled, 19, 2, false);}
 
 advise_treeADVISE::FirmwareReversingObtainallStep::~FirmwareReversingObtainallStep() {
   delete[] TheDistributionParameters;
@@ -1066,17 +2468,19 @@ void advise_treeADVISE::FirmwareReversingObtainallStep::LinkVariables() {
   BinaryDump->Register(&BinaryDump_Mobius_Mark);
   ReverseEngineering->Register(&ReverseEngineering_Mobius_Mark);
   FirmwareReversingChosen->Register(&FirmwareReversingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
@@ -1143,7 +2547,7 @@ return 0;
 
 advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::FirmwareReversingObtainaddressonlyStep() {
   TheDistributionParameters = new double[1];
-  commonInit("FirmwareReversingObtainaddressonlyStep", 1, Deterministic, RaceEnabled, 17, 2, false);}
+  commonInit("FirmwareReversingObtainaddressonlyStep", 8, Deterministic, RaceEnabled, 19, 2, false);}
 
 advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::~FirmwareReversingObtainaddressonlyStep() {
   delete[] TheDistributionParameters;
@@ -1155,17 +2559,19 @@ void advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::LinkVariables() 
   BinaryDump->Register(&BinaryDump_Mobius_Mark);
   ReverseEngineering->Register(&ReverseEngineering_Mobius_Mark);
   FirmwareReversingChosen->Register(&FirmwareReversingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
@@ -1231,7 +2637,7 @@ return 0;
 
 advise_treeADVISE::DoNothingOutcome1Step::DoNothingOutcome1Step() {
   TheDistributionParameters = new double[1];
-  commonInit("DoNothingOutcome1Step", 2, Deterministic, RaceEnabled, 13, 0, false);}
+  commonInit("DoNothingOutcome1Step", 9, Deterministic, RaceEnabled, 15, 0, false);}
 
 advise_treeADVISE::DoNothingOutcome1Step::~DoNothingOutcome1Step() {
   delete[] TheDistributionParameters;
@@ -1239,17 +2645,19 @@ advise_treeADVISE::DoNothingOutcome1Step::~DoNothingOutcome1Step() {
 
 void advise_treeADVISE::DoNothingOutcome1Step::LinkVariables() {
   DoNothingChosen->Register(&DoNothingChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
@@ -1310,606 +2718,11 @@ double advise_treeADVISE::DoNothingOutcome1Step::getDetection() {
 return 0;
 }
 
-/*====================== PortScanFailureStep ========================*/
-
-advise_treeADVISE::PortScanFailureStep::PortScanFailureStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("PortScanFailureStep", 3, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::PortScanFailureStep::~PortScanFailureStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::PortScanFailureStep::LinkVariables() {
-  VulnerabilityAwareness->Register(&VulnerabilityAwareness_Mobius_Mark);
-  SocketAddress->Register(&SocketAddress_Mobius_Mark);
-  PortScanChosen->Register(&PortScanChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::PortScanFailureStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(PortScanChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::PortScanFailureStep::timeDistributionParameter0() {
-return 5;
-}
-
-double advise_treeADVISE::PortScanFailureStep::Weight() {
-return 0.3;
-}
-
-bool advise_treeADVISE::PortScanFailureStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::PortScanFailureStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::PortScanFailureStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::PortScanFailureStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::PortScanFailureStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::PortScanFailureStep::preconditionsMet() {
-return (SocketAddress->Mark() && !VulnerabilityAwareness->Mark());
-  return true;
-}
-
-void advise_treeADVISE::PortScanFailureStep::executeEffects() {
-
-}
-
-double advise_treeADVISE::PortScanFailureStep::getCost() {
-return 0;
-}
-
-double advise_treeADVISE::PortScanFailureStep::getOutcomeProbability() {
-return 0.3;
-}
-
-double advise_treeADVISE::PortScanFailureStep::getDetection() {
-return 0.1;
-}
-
-/*====================== PortScanSuccessStep ========================*/
-
-advise_treeADVISE::PortScanSuccessStep::PortScanSuccessStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("PortScanSuccessStep", 3, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::PortScanSuccessStep::~PortScanSuccessStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::PortScanSuccessStep::LinkVariables() {
-  VulnerabilityAwareness->Register(&VulnerabilityAwareness_Mobius_Mark);
-  SocketAddress->Register(&SocketAddress_Mobius_Mark);
-  PortScanChosen->Register(&PortScanChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::PortScanSuccessStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(PortScanChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::PortScanSuccessStep::timeDistributionParameter0() {
-return 5;
-}
-
-double advise_treeADVISE::PortScanSuccessStep::Weight() {
-return 0.7;
-}
-
-bool advise_treeADVISE::PortScanSuccessStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::PortScanSuccessStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::PortScanSuccessStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::PortScanSuccessStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::PortScanSuccessStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::PortScanSuccessStep::preconditionsMet() {
-return (SocketAddress->Mark() && !VulnerabilityAwareness->Mark());
-  return true;
-}
-
-void advise_treeADVISE::PortScanSuccessStep::executeEffects() {
-VulnerabilityAwareness->Mark()=1;
-}
-
-double advise_treeADVISE::PortScanSuccessStep::getCost() {
-return 0;
-}
-
-double advise_treeADVISE::PortScanSuccessStep::getOutcomeProbability() {
-return 0.7;
-}
-
-double advise_treeADVISE::PortScanSuccessStep::getDetection() {
-return 0.1;
-}
-
-/*====================== DatabaseDumpFailureStep ========================*/
-
-advise_treeADVISE::DatabaseDumpFailureStep::DatabaseDumpFailureStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("DatabaseDumpFailureStep", 4, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::DatabaseDumpFailureStep::~DatabaseDumpFailureStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::DatabaseDumpFailureStep::LinkVariables() {
-  DataBreach->Register(&DataBreach_Mobius_Mark);
-  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
-  DatabaseDumpChosen->Register(&DatabaseDumpChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::DatabaseDumpFailureStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(DatabaseDumpChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::DatabaseDumpFailureStep::timeDistributionParameter0() {
-return 5;
-}
-
-double advise_treeADVISE::DatabaseDumpFailureStep::Weight() {
-return 0.1;
-}
-
-bool advise_treeADVISE::DatabaseDumpFailureStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::DatabaseDumpFailureStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::DatabaseDumpFailureStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::DatabaseDumpFailureStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::DatabaseDumpFailureStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::DatabaseDumpFailureStep::preconditionsMet() {
-return (VehicleServerRootAccess->Mark() && !DataBreach->Mark());
-  return true;
-}
-
-void advise_treeADVISE::DatabaseDumpFailureStep::executeEffects() {
-
-}
-
-double advise_treeADVISE::DatabaseDumpFailureStep::getCost() {
-return 0;
-}
-
-double advise_treeADVISE::DatabaseDumpFailureStep::getOutcomeProbability() {
-return 0.1;
-}
-
-double advise_treeADVISE::DatabaseDumpFailureStep::getDetection() {
-return 0.1;
-}
-
-/*====================== DatabaseDumpSuccessStep ========================*/
-
-advise_treeADVISE::DatabaseDumpSuccessStep::DatabaseDumpSuccessStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("DatabaseDumpSuccessStep", 4, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::DatabaseDumpSuccessStep::~DatabaseDumpSuccessStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::DatabaseDumpSuccessStep::LinkVariables() {
-  DataBreach->Register(&DataBreach_Mobius_Mark);
-  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
-  DatabaseDumpChosen->Register(&DatabaseDumpChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::DatabaseDumpSuccessStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(DatabaseDumpChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::DatabaseDumpSuccessStep::timeDistributionParameter0() {
-return 5;
-}
-
-double advise_treeADVISE::DatabaseDumpSuccessStep::Weight() {
-return 0.9;
-}
-
-bool advise_treeADVISE::DatabaseDumpSuccessStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::DatabaseDumpSuccessStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::DatabaseDumpSuccessStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::DatabaseDumpSuccessStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::DatabaseDumpSuccessStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::DatabaseDumpSuccessStep::preconditionsMet() {
-return (VehicleServerRootAccess->Mark() && !DataBreach->Mark());
-  return true;
-}
-
-void advise_treeADVISE::DatabaseDumpSuccessStep::executeEffects() {
-DataBreach->Mark()=1;
-}
-
-double advise_treeADVISE::DatabaseDumpSuccessStep::getCost() {
-return 0;
-}
-
-double advise_treeADVISE::DatabaseDumpSuccessStep::getOutcomeProbability() {
-return 0.9;
-}
-
-double advise_treeADVISE::DatabaseDumpSuccessStep::getDetection() {
-return 0.2;
-}
-
-/*====================== TamperingFailureStep ========================*/
-
-advise_treeADVISE::TamperingFailureStep::TamperingFailureStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("TamperingFailureStep", 5, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::TamperingFailureStep::~TamperingFailureStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::TamperingFailureStep::LinkVariables() {
-  VehicleUndesideredBehaviour->Register(&VehicleUndesideredBehaviour_Mobius_Mark);
-  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
-  TamperingChosen->Register(&TamperingChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::TamperingFailureStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(TamperingChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::TamperingFailureStep::timeDistributionParameter0() {
-return 5;
-}
-
-double advise_treeADVISE::TamperingFailureStep::Weight() {
-return 0.1;
-}
-
-bool advise_treeADVISE::TamperingFailureStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::TamperingFailureStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::TamperingFailureStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::TamperingFailureStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::TamperingFailureStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::TamperingFailureStep::preconditionsMet() {
-return (VehicleServerRootAccess->Mark() && !VehicleUndesideredBehaviour->Mark());
-  return true;
-}
-
-void advise_treeADVISE::TamperingFailureStep::executeEffects() {
-
-}
-
-double advise_treeADVISE::TamperingFailureStep::getCost() {
-return 0;
-}
-
-double advise_treeADVISE::TamperingFailureStep::getOutcomeProbability() {
-return 0.1;
-}
-
-double advise_treeADVISE::TamperingFailureStep::getDetection() {
-return 0.3;
-}
-
-/*====================== TamperingSuccessStep ========================*/
-
-advise_treeADVISE::TamperingSuccessStep::TamperingSuccessStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("TamperingSuccessStep", 5, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::TamperingSuccessStep::~TamperingSuccessStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::TamperingSuccessStep::LinkVariables() {
-  VehicleUndesideredBehaviour->Register(&VehicleUndesideredBehaviour_Mobius_Mark);
-  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
-  TamperingChosen->Register(&TamperingChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::TamperingSuccessStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(TamperingChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::TamperingSuccessStep::timeDistributionParameter0() {
-return 5;
-}
-
-double advise_treeADVISE::TamperingSuccessStep::Weight() {
-return 0.9;
-}
-
-bool advise_treeADVISE::TamperingSuccessStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::TamperingSuccessStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::TamperingSuccessStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::TamperingSuccessStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::TamperingSuccessStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::TamperingSuccessStep::preconditionsMet() {
-return (VehicleServerRootAccess->Mark() && !VehicleUndesideredBehaviour->Mark());
-  return true;
-}
-
-void advise_treeADVISE::TamperingSuccessStep::executeEffects() {
-VehicleUndesideredBehaviour->Mark()=1;
-}
-
-double advise_treeADVISE::TamperingSuccessStep::getCost() {
-return 0;
-}
-
-double advise_treeADVISE::TamperingSuccessStep::getOutcomeProbability() {
-return 0.9;
-}
-
-double advise_treeADVISE::TamperingSuccessStep::getDetection() {
-return 0.2;
-}
-
-/*====================== NetworkAttacksuccessStep ========================*/
-
-advise_treeADVISE::NetworkAttacksuccessStep::NetworkAttacksuccessStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("NetworkAttacksuccessStep", 6, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::NetworkAttacksuccessStep::~NetworkAttacksuccessStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::NetworkAttacksuccessStep::LinkVariables() {
-  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
-  CorporateServerLocation->Register(&CorporateServerLocation_Mobius_Mark);
-  NetworkAttackChosen->Register(&NetworkAttackChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::NetworkAttacksuccessStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(NetworkAttackChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::NetworkAttacksuccessStep::timeDistributionParameter0() {
-return 3;
-}
-
-double advise_treeADVISE::NetworkAttacksuccessStep::Weight() {
-return 0.7;
-}
-
-bool advise_treeADVISE::NetworkAttacksuccessStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::NetworkAttacksuccessStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::NetworkAttacksuccessStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::NetworkAttacksuccessStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::NetworkAttacksuccessStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::NetworkAttacksuccessStep::preconditionsMet() {
-return (CorporateServerLocation->Mark() && !CorporateNetworkAccess->Mark());
-  return true;
-}
-
-void advise_treeADVISE::NetworkAttacksuccessStep::executeEffects() {
-CorporateNetworkAccess->Mark()=1;
-}
-
-double advise_treeADVISE::NetworkAttacksuccessStep::getCost() {
-
-}
-
-double advise_treeADVISE::NetworkAttacksuccessStep::getOutcomeProbability() {
-return 0.7;
-}
-
-double advise_treeADVISE::NetworkAttacksuccessStep::getDetection() {
-return 0.6;
-}
-
 /*====================== NetworkAttackfaliureStep ========================*/
 
 advise_treeADVISE::NetworkAttackfaliureStep::NetworkAttackfaliureStep() {
   TheDistributionParameters = new double[1];
-  commonInit("NetworkAttackfaliureStep", 6, Deterministic, RaceEnabled, 15, 1, false);}
+  commonInit("NetworkAttackfaliureStep", 10, Deterministic, RaceEnabled, 17, 1, false);}
 
 advise_treeADVISE::NetworkAttackfaliureStep::~NetworkAttackfaliureStep() {
   delete[] TheDistributionParameters;
@@ -1919,17 +2732,19 @@ void advise_treeADVISE::NetworkAttackfaliureStep::LinkVariables() {
   CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
   CorporateServerLocation->Register(&CorporateServerLocation_Mobius_Mark);
   NetworkAttackChosen->Register(&NetworkAttackChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
@@ -1990,436 +2805,98 @@ double advise_treeADVISE::NetworkAttackfaliureStep::getDetection() {
 return 0.4;
 }
 
-/*====================== ExploitFailureStep ========================*/
+/*====================== NetworkAttacksuccessStep ========================*/
 
-advise_treeADVISE::ExploitFailureStep::ExploitFailureStep() {
+advise_treeADVISE::NetworkAttacksuccessStep::NetworkAttacksuccessStep() {
   TheDistributionParameters = new double[1];
-  commonInit("ExploitFailureStep", 7, Deterministic, RaceEnabled, 15, 1, false);}
+  commonInit("NetworkAttacksuccessStep", 10, Deterministic, RaceEnabled, 17, 1, false);}
 
-advise_treeADVISE::ExploitFailureStep::~ExploitFailureStep() {
+advise_treeADVISE::NetworkAttacksuccessStep::~NetworkAttacksuccessStep() {
   delete[] TheDistributionParameters;
 }
 
-void advise_treeADVISE::ExploitFailureStep::LinkVariables() {
-  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
-  VulnerabilityAwareness->Register(&VulnerabilityAwareness_Mobius_Mark);
-  ExploitChosen->Register(&ExploitChosen_Mobius_Mark);
+void advise_treeADVISE::NetworkAttacksuccessStep::LinkVariables() {
+  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
+  CorporateServerLocation->Register(&CorporateServerLocation_Mobius_Mark);
+  NetworkAttackChosen->Register(&NetworkAttackChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
 
-bool advise_treeADVISE::ExploitFailureStep::Enabled() {
+bool advise_treeADVISE::NetworkAttacksuccessStep::Enabled() {
   OldEnabled = NewEnabled;
-  NewEnabled = (((*(ExploitChosen_Mobius_Mark)) >= 1));
+  NewEnabled = (((*(NetworkAttackChosen_Mobius_Mark)) >= 1));
   return NewEnabled;
 }
 
-double advise_treeADVISE::ExploitFailureStep::timeDistributionParameter0() {
-return 5;
+double advise_treeADVISE::NetworkAttacksuccessStep::timeDistributionParameter0() {
+return 3;
 }
 
-double advise_treeADVISE::ExploitFailureStep::Weight() {
-return 0.8;
+double advise_treeADVISE::NetworkAttacksuccessStep::Weight() {
+return 0.7;
 }
 
-bool advise_treeADVISE::ExploitFailureStep::ReactivationPredicate() {
+bool advise_treeADVISE::NetworkAttacksuccessStep::ReactivationPredicate() {
   return false;
 }
 
-bool advise_treeADVISE::ExploitFailureStep::ReactivationFunction() {
+bool advise_treeADVISE::NetworkAttacksuccessStep::ReactivationFunction() {
   return false;
 }
 
-double advise_treeADVISE::ExploitFailureStep::SampleDistribution() {
+double advise_treeADVISE::NetworkAttacksuccessStep::SampleDistribution() {
   return TheDistribution->Deterministic(timeDistributionParameter0());
 }
 
-double *advise_treeADVISE::ExploitFailureStep::ReturnDistributionParameters() {
+double *advise_treeADVISE::NetworkAttacksuccessStep::ReturnDistributionParameters() {
   TheDistributionParameters[0] = timeDistributionParameter0();
   return TheDistributionParameters;
 }
 
-int advise_treeADVISE::ExploitFailureStep::Rank() {
+int advise_treeADVISE::NetworkAttacksuccessStep::Rank() {
   return 1;
 }
 
-bool advise_treeADVISE::ExploitFailureStep::preconditionsMet() {
-return (VulnerabilityAwareness->Mark() && !VehicleServerRootAccess->Mark());
+bool advise_treeADVISE::NetworkAttacksuccessStep::preconditionsMet() {
+return (CorporateServerLocation->Mark() && !CorporateNetworkAccess->Mark());
   return true;
 }
 
-void advise_treeADVISE::ExploitFailureStep::executeEffects() {
+void advise_treeADVISE::NetworkAttacksuccessStep::executeEffects() {
+CorporateNetworkAccess->Mark()=1;
+}
+
+double advise_treeADVISE::NetworkAttacksuccessStep::getCost() {
 
 }
 
-double advise_treeADVISE::ExploitFailureStep::getCost() {
-return 0;
+double advise_treeADVISE::NetworkAttacksuccessStep::getOutcomeProbability() {
+return 0.7;
 }
 
-double advise_treeADVISE::ExploitFailureStep::getOutcomeProbability() {
-return 0.8;
-}
-
-double advise_treeADVISE::ExploitFailureStep::getDetection() {
+double advise_treeADVISE::NetworkAttacksuccessStep::getDetection() {
 return 0.6;
-}
-
-/*====================== ExploitSuccessStep ========================*/
-
-advise_treeADVISE::ExploitSuccessStep::ExploitSuccessStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("ExploitSuccessStep", 7, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::ExploitSuccessStep::~ExploitSuccessStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::ExploitSuccessStep::LinkVariables() {
-  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
-  VulnerabilityAwareness->Register(&VulnerabilityAwareness_Mobius_Mark);
-  ExploitChosen->Register(&ExploitChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::ExploitSuccessStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(ExploitChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::ExploitSuccessStep::timeDistributionParameter0() {
-return 5;
-}
-
-double advise_treeADVISE::ExploitSuccessStep::Weight() {
-return 0.2;
-}
-
-bool advise_treeADVISE::ExploitSuccessStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::ExploitSuccessStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::ExploitSuccessStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::ExploitSuccessStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::ExploitSuccessStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::ExploitSuccessStep::preconditionsMet() {
-return (VulnerabilityAwareness->Mark() && !VehicleServerRootAccess->Mark());
-  return true;
-}
-
-void advise_treeADVISE::ExploitSuccessStep::executeEffects() {
-VehicleServerRootAccess->Mark()=1;
-}
-
-double advise_treeADVISE::ExploitSuccessStep::getCost() {
-return 0;
-}
-
-double advise_treeADVISE::ExploitSuccessStep::getOutcomeProbability() {
-return 0.2;
-}
-
-double advise_treeADVISE::ExploitSuccessStep::getDetection() {
-return 0.2;
-}
-
-/*====================== PivotingsuccessStep ========================*/
-
-advise_treeADVISE::PivotingsuccessStep::PivotingsuccessStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("PivotingsuccessStep", 8, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::PivotingsuccessStep::~PivotingsuccessStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::PivotingsuccessStep::LinkVariables() {
-  vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
-  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
-  PivotingChosen->Register(&PivotingChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::PivotingsuccessStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(PivotingChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::PivotingsuccessStep::timeDistributionParameter0() {
-return 3;
-}
-
-double advise_treeADVISE::PivotingsuccessStep::Weight() {
-return 0.7;
-}
-
-bool advise_treeADVISE::PivotingsuccessStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::PivotingsuccessStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::PivotingsuccessStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::PivotingsuccessStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::PivotingsuccessStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::PivotingsuccessStep::preconditionsMet() {
-return (CorporateNetworkAccess->Mark() && !vehicleServerUnprivAccess->Mark());
-  return true;
-}
-
-void advise_treeADVISE::PivotingsuccessStep::executeEffects() {
-vehicleServerUnprivAccess->Mark()=1;
-}
-
-double advise_treeADVISE::PivotingsuccessStep::getCost() {
-
-}
-
-double advise_treeADVISE::PivotingsuccessStep::getOutcomeProbability() {
-return 0.7;
-}
-
-double advise_treeADVISE::PivotingsuccessStep::getDetection() {
-return 0.5;
-}
-
-/*====================== PivotingfaliureStep ========================*/
-
-advise_treeADVISE::PivotingfaliureStep::PivotingfaliureStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("PivotingfaliureStep", 8, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::PivotingfaliureStep::~PivotingfaliureStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::PivotingfaliureStep::LinkVariables() {
-  vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
-  CorporateNetworkAccess->Register(&CorporateNetworkAccess_Mobius_Mark);
-  PivotingChosen->Register(&PivotingChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::PivotingfaliureStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(PivotingChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::PivotingfaliureStep::timeDistributionParameter0() {
-return 3;
-}
-
-double advise_treeADVISE::PivotingfaliureStep::Weight() {
-return 0.3;
-}
-
-bool advise_treeADVISE::PivotingfaliureStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::PivotingfaliureStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::PivotingfaliureStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::PivotingfaliureStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::PivotingfaliureStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::PivotingfaliureStep::preconditionsMet() {
-return (CorporateNetworkAccess->Mark() && !vehicleServerUnprivAccess->Mark());
-  return true;
-}
-
-void advise_treeADVISE::PivotingfaliureStep::executeEffects() {
-
-}
-
-double advise_treeADVISE::PivotingfaliureStep::getCost() {
-
-}
-
-double advise_treeADVISE::PivotingfaliureStep::getOutcomeProbability() {
-return 0.3;
-}
-
-double advise_treeADVISE::PivotingfaliureStep::getDetection() {
-return 0.5;
-}
-
-/*====================== MalwareIntroductionsuccessStep ========================*/
-
-advise_treeADVISE::MalwareIntroductionsuccessStep::MalwareIntroductionsuccessStep() {
-  TheDistributionParameters = new double[1];
-  commonInit("MalwareIntroductionsuccessStep", 9, Deterministic, RaceEnabled, 15, 1, false);}
-
-advise_treeADVISE::MalwareIntroductionsuccessStep::~MalwareIntroductionsuccessStep() {
-  delete[] TheDistributionParameters;
-}
-
-void advise_treeADVISE::MalwareIntroductionsuccessStep::LinkVariables() {
-  vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
-  PhysicalAccess->Register(&PhysicalAccess_Mobius_Mark);
-  MalwareIntroductionChosen->Register(&MalwareIntroductionChosen_Mobius_Mark);
-  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
-  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
-  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-
-}
-
-bool advise_treeADVISE::MalwareIntroductionsuccessStep::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(MalwareIntroductionChosen_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::MalwareIntroductionsuccessStep::timeDistributionParameter0() {
-return 2;
-}
-
-double advise_treeADVISE::MalwareIntroductionsuccessStep::Weight() {
-return 0.1;
-}
-
-bool advise_treeADVISE::MalwareIntroductionsuccessStep::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::MalwareIntroductionsuccessStep::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::MalwareIntroductionsuccessStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
-}
-
-double *advise_treeADVISE::MalwareIntroductionsuccessStep::ReturnDistributionParameters() {
-  TheDistributionParameters[0] = timeDistributionParameter0();
-  return TheDistributionParameters;
-}
-
-int advise_treeADVISE::MalwareIntroductionsuccessStep::Rank() {
-  return 1;
-}
-
-bool advise_treeADVISE::MalwareIntroductionsuccessStep::preconditionsMet() {
-return(PhysicalAccess->Mark() && !vehicleServerUnprivAccess->Mark());
-  return true;
-}
-
-void advise_treeADVISE::MalwareIntroductionsuccessStep::executeEffects() {
-vehicleServerUnprivAccess->Mark()=1;
-}
-
-double advise_treeADVISE::MalwareIntroductionsuccessStep::getCost() {
-
-}
-
-double advise_treeADVISE::MalwareIntroductionsuccessStep::getOutcomeProbability() {
-return 0.1;
-}
-
-double advise_treeADVISE::MalwareIntroductionsuccessStep::getDetection() {
-return 0.5;
 }
 
 /*====================== MalwareIntroductionfaliureStep ========================*/
 
 advise_treeADVISE::MalwareIntroductionfaliureStep::MalwareIntroductionfaliureStep() {
   TheDistributionParameters = new double[1];
-  commonInit("MalwareIntroductionfaliureStep", 9, Deterministic, RaceEnabled, 15, 1, false);}
+  commonInit("MalwareIntroductionfaliureStep", 11, Deterministic, RaceEnabled, 17, 1, false);}
 
 advise_treeADVISE::MalwareIntroductionfaliureStep::~MalwareIntroductionfaliureStep() {
   delete[] TheDistributionParameters;
@@ -2429,17 +2906,19 @@ void advise_treeADVISE::MalwareIntroductionfaliureStep::LinkVariables() {
   vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
   PhysicalAccess->Register(&PhysicalAccess_Mobius_Mark);
   MalwareIntroductionChosen->Register(&MalwareIntroductionChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
@@ -2500,184 +2979,639 @@ double advise_treeADVISE::MalwareIntroductionfaliureStep::getDetection() {
 return 0.5;
 }
 
-/*====================== PrivilegeEscalationsuccessStep ========================*/
+/*====================== MalwareIntroductionsuccessStep ========================*/
 
-advise_treeADVISE::PrivilegeEscalationsuccessStep::PrivilegeEscalationsuccessStep() {
+advise_treeADVISE::MalwareIntroductionsuccessStep::MalwareIntroductionsuccessStep() {
   TheDistributionParameters = new double[1];
-  commonInit("PrivilegeEscalationsuccessStep", 10, Deterministic, RaceEnabled, 15, 1, false);}
+  commonInit("MalwareIntroductionsuccessStep", 11, Deterministic, RaceEnabled, 17, 1, false);}
 
-advise_treeADVISE::PrivilegeEscalationsuccessStep::~PrivilegeEscalationsuccessStep() {
+advise_treeADVISE::MalwareIntroductionsuccessStep::~MalwareIntroductionsuccessStep() {
   delete[] TheDistributionParameters;
 }
 
-void advise_treeADVISE::PrivilegeEscalationsuccessStep::LinkVariables() {
-  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
+void advise_treeADVISE::MalwareIntroductionsuccessStep::LinkVariables() {
   vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
-  PrivilegeEscalationChosen->Register(&PrivilegeEscalationChosen_Mobius_Mark);
+  PhysicalAccess->Register(&PhysicalAccess_Mobius_Mark);
+  MalwareIntroductionChosen->Register(&MalwareIntroductionChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
 
-bool advise_treeADVISE::PrivilegeEscalationsuccessStep::Enabled() {
+bool advise_treeADVISE::MalwareIntroductionsuccessStep::Enabled() {
   OldEnabled = NewEnabled;
-  NewEnabled = (((*(PrivilegeEscalationChosen_Mobius_Mark)) >= 1));
+  NewEnabled = (((*(MalwareIntroductionChosen_Mobius_Mark)) >= 1));
   return NewEnabled;
 }
 
-double advise_treeADVISE::PrivilegeEscalationsuccessStep::timeDistributionParameter0() {
-return 5;
+double advise_treeADVISE::MalwareIntroductionsuccessStep::timeDistributionParameter0() {
+return 2;
 }
 
-double advise_treeADVISE::PrivilegeEscalationsuccessStep::Weight() {
-return 0.5;
+double advise_treeADVISE::MalwareIntroductionsuccessStep::Weight() {
+return 0.1;
 }
 
-bool advise_treeADVISE::PrivilegeEscalationsuccessStep::ReactivationPredicate() {
+bool advise_treeADVISE::MalwareIntroductionsuccessStep::ReactivationPredicate() {
   return false;
 }
 
-bool advise_treeADVISE::PrivilegeEscalationsuccessStep::ReactivationFunction() {
+bool advise_treeADVISE::MalwareIntroductionsuccessStep::ReactivationFunction() {
   return false;
 }
 
-double advise_treeADVISE::PrivilegeEscalationsuccessStep::SampleDistribution() {
+double advise_treeADVISE::MalwareIntroductionsuccessStep::SampleDistribution() {
   return TheDistribution->Deterministic(timeDistributionParameter0());
 }
 
-double *advise_treeADVISE::PrivilegeEscalationsuccessStep::ReturnDistributionParameters() {
+double *advise_treeADVISE::MalwareIntroductionsuccessStep::ReturnDistributionParameters() {
   TheDistributionParameters[0] = timeDistributionParameter0();
   return TheDistributionParameters;
 }
 
-int advise_treeADVISE::PrivilegeEscalationsuccessStep::Rank() {
+int advise_treeADVISE::MalwareIntroductionsuccessStep::Rank() {
   return 1;
 }
 
-bool advise_treeADVISE::PrivilegeEscalationsuccessStep::preconditionsMet() {
-return(vehicleServerUnprivAccess->Mark() && !VehicleServerRootAccess->Mark());
+bool advise_treeADVISE::MalwareIntroductionsuccessStep::preconditionsMet() {
+return(PhysicalAccess->Mark() && !vehicleServerUnprivAccess->Mark());
   return true;
 }
 
-void advise_treeADVISE::PrivilegeEscalationsuccessStep::executeEffects() {
-VehicleServerRootAccess->Mark()=1;
+void advise_treeADVISE::MalwareIntroductionsuccessStep::executeEffects() {
+vehicleServerUnprivAccess->Mark()=1;
 }
 
-double advise_treeADVISE::PrivilegeEscalationsuccessStep::getCost() {
+double advise_treeADVISE::MalwareIntroductionsuccessStep::getCost() {
 
 }
 
-double advise_treeADVISE::PrivilegeEscalationsuccessStep::getOutcomeProbability() {
+double advise_treeADVISE::MalwareIntroductionsuccessStep::getOutcomeProbability() {
+return 0.1;
+}
+
+double advise_treeADVISE::MalwareIntroductionsuccessStep::getDetection() {
 return 0.5;
 }
 
-double advise_treeADVISE::PrivilegeEscalationsuccessStep::getDetection() {
-return 0.5;
-}
+/*====================== PortScanFailureStep ========================*/
 
-/*====================== PrivilegeEscalationfaliureStep ========================*/
-
-advise_treeADVISE::PrivilegeEscalationfaliureStep::PrivilegeEscalationfaliureStep() {
+advise_treeADVISE::PortScanFailureStep::PortScanFailureStep() {
   TheDistributionParameters = new double[1];
-  commonInit("PrivilegeEscalationfaliureStep", 10, Deterministic, RaceEnabled, 15, 1, false);}
+  commonInit("PortScanFailureStep", 12, Exponential, RaceEnabled, 17, 1, false);}
 
-advise_treeADVISE::PrivilegeEscalationfaliureStep::~PrivilegeEscalationfaliureStep() {
+advise_treeADVISE::PortScanFailureStep::~PortScanFailureStep() {
   delete[] TheDistributionParameters;
 }
 
-void advise_treeADVISE::PrivilegeEscalationfaliureStep::LinkVariables() {
-  VehicleServerRootAccess->Register(&VehicleServerRootAccess_Mobius_Mark);
-  vehicleServerUnprivAccess->Register(&vehicleServerUnprivAccess_Mobius_Mark);
-  PrivilegeEscalationChosen->Register(&PrivilegeEscalationChosen_Mobius_Mark);
+void advise_treeADVISE::PortScanFailureStep::LinkVariables() {
+  VulnerabilityAwareness->Register(&VulnerabilityAwareness_Mobius_Mark);
+  SocketAddress->Register(&SocketAddress_Mobius_Mark);
+  PortScanChosen->Register(&PortScanChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
   QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
   FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
   DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
   NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
   MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
 
-bool advise_treeADVISE::PrivilegeEscalationfaliureStep::Enabled() {
+bool advise_treeADVISE::PortScanFailureStep::Enabled() {
   OldEnabled = NewEnabled;
-  NewEnabled = (((*(PrivilegeEscalationChosen_Mobius_Mark)) >= 1));
+  NewEnabled = (((*(PortScanChosen_Mobius_Mark)) >= 1));
   return NewEnabled;
 }
 
-double advise_treeADVISE::PrivilegeEscalationfaliureStep::timeDistributionParameter0() {
-return 5;
+double advise_treeADVISE::PortScanFailureStep::timeDistributionParameter0() {
+return 3;
 }
 
-double advise_treeADVISE::PrivilegeEscalationfaliureStep::Weight() {
-return 0.5;
+double advise_treeADVISE::PortScanFailureStep::Weight() {
+return 0.1;
 }
 
-bool advise_treeADVISE::PrivilegeEscalationfaliureStep::ReactivationPredicate() {
+bool advise_treeADVISE::PortScanFailureStep::ReactivationPredicate() {
   return false;
 }
 
-bool advise_treeADVISE::PrivilegeEscalationfaliureStep::ReactivationFunction() {
+bool advise_treeADVISE::PortScanFailureStep::ReactivationFunction() {
   return false;
 }
 
-double advise_treeADVISE::PrivilegeEscalationfaliureStep::SampleDistribution() {
-  return TheDistribution->Deterministic(timeDistributionParameter0());
+double advise_treeADVISE::PortScanFailureStep::SampleDistribution() {
+  return TheDistribution->Exponential(timeDistributionParameter0());
 }
 
-double *advise_treeADVISE::PrivilegeEscalationfaliureStep::ReturnDistributionParameters() {
+double *advise_treeADVISE::PortScanFailureStep::ReturnDistributionParameters() {
   TheDistributionParameters[0] = timeDistributionParameter0();
   return TheDistributionParameters;
 }
 
-int advise_treeADVISE::PrivilegeEscalationfaliureStep::Rank() {
+int advise_treeADVISE::PortScanFailureStep::Rank() {
   return 1;
 }
 
-bool advise_treeADVISE::PrivilegeEscalationfaliureStep::preconditionsMet() {
-return(vehicleServerUnprivAccess->Mark() && !VehicleServerRootAccess->Mark());
+bool advise_treeADVISE::PortScanFailureStep::preconditionsMet() {
+return (SocketAddress->Mark() && !VulnerabilityAwareness->Mark());
   return true;
 }
 
-void advise_treeADVISE::PrivilegeEscalationfaliureStep::executeEffects() {
+void advise_treeADVISE::PortScanFailureStep::executeEffects() {
 
 }
 
-double advise_treeADVISE::PrivilegeEscalationfaliureStep::getCost() {
+double advise_treeADVISE::PortScanFailureStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::PortScanFailureStep::getOutcomeProbability() {
+return 0.1;
+}
+
+double advise_treeADVISE::PortScanFailureStep::getDetection() {
+return 0.1;
+}
+
+/*====================== PortScanSuccessStep ========================*/
+
+advise_treeADVISE::PortScanSuccessStep::PortScanSuccessStep() {
+  TheDistributionParameters = new double[1];
+  commonInit("PortScanSuccessStep", 12, Exponential, RaceEnabled, 17, 1, false);}
+
+advise_treeADVISE::PortScanSuccessStep::~PortScanSuccessStep() {
+  delete[] TheDistributionParameters;
+}
+
+void advise_treeADVISE::PortScanSuccessStep::LinkVariables() {
+  VulnerabilityAwareness->Register(&VulnerabilityAwareness_Mobius_Mark);
+  SocketAddress->Register(&SocketAddress_Mobius_Mark);
+  PortScanChosen->Register(&PortScanChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+  QueryFloodingWeight->Register(&QueryFloodingWeight_Mobius_Mark);
+  FirmwareReversingWeight->Register(&FirmwareReversingWeight_Mobius_Mark);
+  DoNothingWeight->Register(&DoNothingWeight_Mobius_Mark);
+  NetworkAttackWeight->Register(&NetworkAttackWeight_Mobius_Mark);
+  MalwareIntroductionWeight->Register(&MalwareIntroductionWeight_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
 
 }
 
-double advise_treeADVISE::PrivilegeEscalationfaliureStep::getOutcomeProbability() {
-return 0.5;
+bool advise_treeADVISE::PortScanSuccessStep::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(PortScanChosen_Mobius_Mark)) >= 1));
+  return NewEnabled;
 }
 
-double advise_treeADVISE::PrivilegeEscalationfaliureStep::getDetection() {
-return 0.5;
+double advise_treeADVISE::PortScanSuccessStep::timeDistributionParameter0() {
+return 3;
+}
+
+double advise_treeADVISE::PortScanSuccessStep::Weight() {
+return 0.9;
+}
+
+bool advise_treeADVISE::PortScanSuccessStep::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::PortScanSuccessStep::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::PortScanSuccessStep::SampleDistribution() {
+  return TheDistribution->Exponential(timeDistributionParameter0());
+}
+
+double *advise_treeADVISE::PortScanSuccessStep::ReturnDistributionParameters() {
+  TheDistributionParameters[0] = timeDistributionParameter0();
+  return TheDistributionParameters;
+}
+
+int advise_treeADVISE::PortScanSuccessStep::Rank() {
+  return 1;
+}
+
+bool advise_treeADVISE::PortScanSuccessStep::preconditionsMet() {
+return (SocketAddress->Mark() && !VulnerabilityAwareness->Mark());
+  return true;
+}
+
+void advise_treeADVISE::PortScanSuccessStep::executeEffects() {
+VulnerabilityAwareness->Mark()=1;
+}
+
+double advise_treeADVISE::PortScanSuccessStep::getCost() {
+return 0;
+}
+
+double advise_treeADVISE::PortScanSuccessStep::getOutcomeProbability() {
+return 0.9;
+}
+
+double advise_treeADVISE::PortScanSuccessStep::getDetection() {
+return 0.1;
 }
 
 /*****************************************************************/
 /*                   Adversary Decisions                         */
 /*****************************************************************/
 
+/*====================== ExploitAdversaryDecision ========================*/
+
+advise_treeADVISE::ExploitAdversaryDecision::ExploitAdversaryDecision() {
+  commonInit("ExploitAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
+}
+
+advise_treeADVISE::ExploitAdversaryDecision::~ExploitAdversaryDecision() {
+}
+
+void advise_treeADVISE::ExploitAdversaryDecision::LinkVariables() {
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+  ExploitChosen->Register(&ExploitChosen_Mobius_Mark);
+  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
+}
+
+bool advise_treeADVISE::ExploitAdversaryDecision::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::ExploitAdversaryDecision::Weight() {
+  return ExploitWeight->Mark();
+}
+
+bool advise_treeADVISE::ExploitAdversaryDecision::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::ExploitAdversaryDecision::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::ExploitAdversaryDecision::SampleDistribution() {
+  return 0;
+}
+
+double* advise_treeADVISE::ExploitAdversaryDecision::ReturnDistributionParameters() {
+  return NULL;
+}
+
+int advise_treeADVISE::ExploitAdversaryDecision::Rank() {
+  return 1;
+}
+
+BaseActionClass* advise_treeADVISE::ExploitAdversaryDecision::Fire() {
+  (*(MakeDecision_Mobius_Mark))--;
+  (*(ExploitWeight_Mobius_Mark))--;
+  (*(ExploitChosen_Mobius_Mark))++;
+  return this;
+}
+
+/*====================== UnauthorizedRemoteLoginAdversaryDecision ========================*/
+
+advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::UnauthorizedRemoteLoginAdversaryDecision() {
+  commonInit("UnauthorizedRemoteLoginAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
+}
+
+advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::~UnauthorizedRemoteLoginAdversaryDecision() {
+}
+
+void advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::LinkVariables() {
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+  UnauthorizedRemoteLoginChosen->Register(&UnauthorizedRemoteLoginChosen_Mobius_Mark);
+  UnauthorizedRemoteLoginWeight->Register(&UnauthorizedRemoteLoginWeight_Mobius_Mark);
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::Weight() {
+  return UnauthorizedRemoteLoginWeight->Mark();
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::SampleDistribution() {
+  return 0;
+}
+
+double* advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::ReturnDistributionParameters() {
+  return NULL;
+}
+
+int advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::Rank() {
+  return 1;
+}
+
+BaseActionClass* advise_treeADVISE::UnauthorizedRemoteLoginAdversaryDecision::Fire() {
+  (*(MakeDecision_Mobius_Mark))--;
+  (*(UnauthorizedRemoteLoginWeight_Mobius_Mark))--;
+  (*(UnauthorizedRemoteLoginChosen_Mobius_Mark))++;
+  return this;
+}
+
+/*====================== TamperingAdversaryDecision ========================*/
+
+advise_treeADVISE::TamperingAdversaryDecision::TamperingAdversaryDecision() {
+  commonInit("TamperingAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
+}
+
+advise_treeADVISE::TamperingAdversaryDecision::~TamperingAdversaryDecision() {
+}
+
+void advise_treeADVISE::TamperingAdversaryDecision::LinkVariables() {
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+  TamperingChosen->Register(&TamperingChosen_Mobius_Mark);
+  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
+}
+
+bool advise_treeADVISE::TamperingAdversaryDecision::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::TamperingAdversaryDecision::Weight() {
+  return TamperingWeight->Mark();
+}
+
+bool advise_treeADVISE::TamperingAdversaryDecision::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::TamperingAdversaryDecision::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::TamperingAdversaryDecision::SampleDistribution() {
+  return 0;
+}
+
+double* advise_treeADVISE::TamperingAdversaryDecision::ReturnDistributionParameters() {
+  return NULL;
+}
+
+int advise_treeADVISE::TamperingAdversaryDecision::Rank() {
+  return 1;
+}
+
+BaseActionClass* advise_treeADVISE::TamperingAdversaryDecision::Fire() {
+  (*(MakeDecision_Mobius_Mark))--;
+  (*(TamperingWeight_Mobius_Mark))--;
+  (*(TamperingChosen_Mobius_Mark))++;
+  return this;
+}
+
+/*====================== WebIntrusionAdversaryDecision ========================*/
+
+advise_treeADVISE::WebIntrusionAdversaryDecision::WebIntrusionAdversaryDecision() {
+  commonInit("WebIntrusionAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
+}
+
+advise_treeADVISE::WebIntrusionAdversaryDecision::~WebIntrusionAdversaryDecision() {
+}
+
+void advise_treeADVISE::WebIntrusionAdversaryDecision::LinkVariables() {
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+  WebIntrusionChosen->Register(&WebIntrusionChosen_Mobius_Mark);
+  WebIntrusionWeight->Register(&WebIntrusionWeight_Mobius_Mark);
+}
+
+bool advise_treeADVISE::WebIntrusionAdversaryDecision::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::WebIntrusionAdversaryDecision::Weight() {
+  return WebIntrusionWeight->Mark();
+}
+
+bool advise_treeADVISE::WebIntrusionAdversaryDecision::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::WebIntrusionAdversaryDecision::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::WebIntrusionAdversaryDecision::SampleDistribution() {
+  return 0;
+}
+
+double* advise_treeADVISE::WebIntrusionAdversaryDecision::ReturnDistributionParameters() {
+  return NULL;
+}
+
+int advise_treeADVISE::WebIntrusionAdversaryDecision::Rank() {
+  return 1;
+}
+
+BaseActionClass* advise_treeADVISE::WebIntrusionAdversaryDecision::Fire() {
+  (*(MakeDecision_Mobius_Mark))--;
+  (*(WebIntrusionWeight_Mobius_Mark))--;
+  (*(WebIntrusionChosen_Mobius_Mark))++;
+  return this;
+}
+
+/*====================== PivotingAdversaryDecision ========================*/
+
+advise_treeADVISE::PivotingAdversaryDecision::PivotingAdversaryDecision() {
+  commonInit("PivotingAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
+}
+
+advise_treeADVISE::PivotingAdversaryDecision::~PivotingAdversaryDecision() {
+}
+
+void advise_treeADVISE::PivotingAdversaryDecision::LinkVariables() {
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+  PivotingChosen->Register(&PivotingChosen_Mobius_Mark);
+  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
+}
+
+bool advise_treeADVISE::PivotingAdversaryDecision::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::PivotingAdversaryDecision::Weight() {
+  return PivotingWeight->Mark();
+}
+
+bool advise_treeADVISE::PivotingAdversaryDecision::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::PivotingAdversaryDecision::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::PivotingAdversaryDecision::SampleDistribution() {
+  return 0;
+}
+
+double* advise_treeADVISE::PivotingAdversaryDecision::ReturnDistributionParameters() {
+  return NULL;
+}
+
+int advise_treeADVISE::PivotingAdversaryDecision::Rank() {
+  return 1;
+}
+
+BaseActionClass* advise_treeADVISE::PivotingAdversaryDecision::Fire() {
+  (*(MakeDecision_Mobius_Mark))--;
+  (*(PivotingWeight_Mobius_Mark))--;
+  (*(PivotingChosen_Mobius_Mark))++;
+  return this;
+}
+
+/*====================== PrivilegeEscalationAdversaryDecision ========================*/
+
+advise_treeADVISE::PrivilegeEscalationAdversaryDecision::PrivilegeEscalationAdversaryDecision() {
+  commonInit("PrivilegeEscalationAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
+}
+
+advise_treeADVISE::PrivilegeEscalationAdversaryDecision::~PrivilegeEscalationAdversaryDecision() {
+}
+
+void advise_treeADVISE::PrivilegeEscalationAdversaryDecision::LinkVariables() {
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+  PrivilegeEscalationChosen->Register(&PrivilegeEscalationChosen_Mobius_Mark);
+  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+}
+
+bool advise_treeADVISE::PrivilegeEscalationAdversaryDecision::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::PrivilegeEscalationAdversaryDecision::Weight() {
+  return PrivilegeEscalationWeight->Mark();
+}
+
+bool advise_treeADVISE::PrivilegeEscalationAdversaryDecision::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::PrivilegeEscalationAdversaryDecision::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::PrivilegeEscalationAdversaryDecision::SampleDistribution() {
+  return 0;
+}
+
+double* advise_treeADVISE::PrivilegeEscalationAdversaryDecision::ReturnDistributionParameters() {
+  return NULL;
+}
+
+int advise_treeADVISE::PrivilegeEscalationAdversaryDecision::Rank() {
+  return 1;
+}
+
+BaseActionClass* advise_treeADVISE::PrivilegeEscalationAdversaryDecision::Fire() {
+  (*(MakeDecision_Mobius_Mark))--;
+  (*(PrivilegeEscalationWeight_Mobius_Mark))--;
+  (*(PrivilegeEscalationChosen_Mobius_Mark))++;
+  return this;
+}
+
+/*====================== DatabaseDumpAdversaryDecision ========================*/
+
+advise_treeADVISE::DatabaseDumpAdversaryDecision::DatabaseDumpAdversaryDecision() {
+  commonInit("DatabaseDumpAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
+}
+
+advise_treeADVISE::DatabaseDumpAdversaryDecision::~DatabaseDumpAdversaryDecision() {
+}
+
+void advise_treeADVISE::DatabaseDumpAdversaryDecision::LinkVariables() {
+  MakeDecision->Register(&MakeDecision_Mobius_Mark);
+  DatabaseDumpChosen->Register(&DatabaseDumpChosen_Mobius_Mark);
+  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
+}
+
+bool advise_treeADVISE::DatabaseDumpAdversaryDecision::Enabled() {
+  OldEnabled = NewEnabled;
+  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
+  return NewEnabled;
+}
+
+double advise_treeADVISE::DatabaseDumpAdversaryDecision::Weight() {
+  return DatabaseDumpWeight->Mark();
+}
+
+bool advise_treeADVISE::DatabaseDumpAdversaryDecision::ReactivationPredicate() {
+  return false;
+}
+
+bool advise_treeADVISE::DatabaseDumpAdversaryDecision::ReactivationFunction() {
+  return false;
+}
+
+double advise_treeADVISE::DatabaseDumpAdversaryDecision::SampleDistribution() {
+  return 0;
+}
+
+double* advise_treeADVISE::DatabaseDumpAdversaryDecision::ReturnDistributionParameters() {
+  return NULL;
+}
+
+int advise_treeADVISE::DatabaseDumpAdversaryDecision::Rank() {
+  return 1;
+}
+
+BaseActionClass* advise_treeADVISE::DatabaseDumpAdversaryDecision::Fire() {
+  (*(MakeDecision_Mobius_Mark))--;
+  (*(DatabaseDumpWeight_Mobius_Mark))--;
+  (*(DatabaseDumpChosen_Mobius_Mark))++;
+  return this;
+}
+
 /*====================== QueryFloodingAdversaryDecision ========================*/
 
 advise_treeADVISE::QueryFloodingAdversaryDecision::QueryFloodingAdversaryDecision() {
-  commonInit("QueryFloodingAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
+  commonInit("QueryFloodingAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
 }
 
 advise_treeADVISE::QueryFloodingAdversaryDecision::~QueryFloodingAdversaryDecision() {
@@ -2729,7 +3663,7 @@ BaseActionClass* advise_treeADVISE::QueryFloodingAdversaryDecision::Fire() {
 /*====================== FirmwareReversingAdversaryDecision ========================*/
 
 advise_treeADVISE::FirmwareReversingAdversaryDecision::FirmwareReversingAdversaryDecision() {
-  commonInit("FirmwareReversingAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
+  commonInit("FirmwareReversingAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
 }
 
 advise_treeADVISE::FirmwareReversingAdversaryDecision::~FirmwareReversingAdversaryDecision() {
@@ -2781,7 +3715,7 @@ BaseActionClass* advise_treeADVISE::FirmwareReversingAdversaryDecision::Fire() {
 /*====================== DoNothingAdversaryDecision ========================*/
 
 advise_treeADVISE::DoNothingAdversaryDecision::DoNothingAdversaryDecision() {
-  commonInit("DoNothingAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
+  commonInit("DoNothingAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
 }
 
 advise_treeADVISE::DoNothingAdversaryDecision::~DoNothingAdversaryDecision() {
@@ -2830,166 +3764,10 @@ BaseActionClass* advise_treeADVISE::DoNothingAdversaryDecision::Fire() {
   return this;
 }
 
-/*====================== PortScanAdversaryDecision ========================*/
-
-advise_treeADVISE::PortScanAdversaryDecision::PortScanAdversaryDecision() {
-  commonInit("PortScanAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
-}
-
-advise_treeADVISE::PortScanAdversaryDecision::~PortScanAdversaryDecision() {
-}
-
-void advise_treeADVISE::PortScanAdversaryDecision::LinkVariables() {
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-  PortScanChosen->Register(&PortScanChosen_Mobius_Mark);
-  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
-}
-
-bool advise_treeADVISE::PortScanAdversaryDecision::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::PortScanAdversaryDecision::Weight() {
-  return PortScanWeight->Mark();
-}
-
-bool advise_treeADVISE::PortScanAdversaryDecision::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::PortScanAdversaryDecision::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::PortScanAdversaryDecision::SampleDistribution() {
-  return 0;
-}
-
-double* advise_treeADVISE::PortScanAdversaryDecision::ReturnDistributionParameters() {
-  return NULL;
-}
-
-int advise_treeADVISE::PortScanAdversaryDecision::Rank() {
-  return 1;
-}
-
-BaseActionClass* advise_treeADVISE::PortScanAdversaryDecision::Fire() {
-  (*(MakeDecision_Mobius_Mark))--;
-  (*(PortScanWeight_Mobius_Mark))--;
-  (*(PortScanChosen_Mobius_Mark))++;
-  return this;
-}
-
-/*====================== DatabaseDumpAdversaryDecision ========================*/
-
-advise_treeADVISE::DatabaseDumpAdversaryDecision::DatabaseDumpAdversaryDecision() {
-  commonInit("DatabaseDumpAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
-}
-
-advise_treeADVISE::DatabaseDumpAdversaryDecision::~DatabaseDumpAdversaryDecision() {
-}
-
-void advise_treeADVISE::DatabaseDumpAdversaryDecision::LinkVariables() {
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-  DatabaseDumpChosen->Register(&DatabaseDumpChosen_Mobius_Mark);
-  DatabaseDumpWeight->Register(&DatabaseDumpWeight_Mobius_Mark);
-}
-
-bool advise_treeADVISE::DatabaseDumpAdversaryDecision::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::DatabaseDumpAdversaryDecision::Weight() {
-  return DatabaseDumpWeight->Mark();
-}
-
-bool advise_treeADVISE::DatabaseDumpAdversaryDecision::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::DatabaseDumpAdversaryDecision::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::DatabaseDumpAdversaryDecision::SampleDistribution() {
-  return 0;
-}
-
-double* advise_treeADVISE::DatabaseDumpAdversaryDecision::ReturnDistributionParameters() {
-  return NULL;
-}
-
-int advise_treeADVISE::DatabaseDumpAdversaryDecision::Rank() {
-  return 1;
-}
-
-BaseActionClass* advise_treeADVISE::DatabaseDumpAdversaryDecision::Fire() {
-  (*(MakeDecision_Mobius_Mark))--;
-  (*(DatabaseDumpWeight_Mobius_Mark))--;
-  (*(DatabaseDumpChosen_Mobius_Mark))++;
-  return this;
-}
-
-/*====================== TamperingAdversaryDecision ========================*/
-
-advise_treeADVISE::TamperingAdversaryDecision::TamperingAdversaryDecision() {
-  commonInit("TamperingAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
-}
-
-advise_treeADVISE::TamperingAdversaryDecision::~TamperingAdversaryDecision() {
-}
-
-void advise_treeADVISE::TamperingAdversaryDecision::LinkVariables() {
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-  TamperingChosen->Register(&TamperingChosen_Mobius_Mark);
-  TamperingWeight->Register(&TamperingWeight_Mobius_Mark);
-}
-
-bool advise_treeADVISE::TamperingAdversaryDecision::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::TamperingAdversaryDecision::Weight() {
-  return TamperingWeight->Mark();
-}
-
-bool advise_treeADVISE::TamperingAdversaryDecision::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::TamperingAdversaryDecision::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::TamperingAdversaryDecision::SampleDistribution() {
-  return 0;
-}
-
-double* advise_treeADVISE::TamperingAdversaryDecision::ReturnDistributionParameters() {
-  return NULL;
-}
-
-int advise_treeADVISE::TamperingAdversaryDecision::Rank() {
-  return 1;
-}
-
-BaseActionClass* advise_treeADVISE::TamperingAdversaryDecision::Fire() {
-  (*(MakeDecision_Mobius_Mark))--;
-  (*(TamperingWeight_Mobius_Mark))--;
-  (*(TamperingChosen_Mobius_Mark))++;
-  return this;
-}
-
 /*====================== NetworkAttackAdversaryDecision ========================*/
 
 advise_treeADVISE::NetworkAttackAdversaryDecision::NetworkAttackAdversaryDecision() {
-  commonInit("NetworkAttackAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
+  commonInit("NetworkAttackAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
 }
 
 advise_treeADVISE::NetworkAttackAdversaryDecision::~NetworkAttackAdversaryDecision() {
@@ -3038,114 +3816,10 @@ BaseActionClass* advise_treeADVISE::NetworkAttackAdversaryDecision::Fire() {
   return this;
 }
 
-/*====================== ExploitAdversaryDecision ========================*/
-
-advise_treeADVISE::ExploitAdversaryDecision::ExploitAdversaryDecision() {
-  commonInit("ExploitAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
-}
-
-advise_treeADVISE::ExploitAdversaryDecision::~ExploitAdversaryDecision() {
-}
-
-void advise_treeADVISE::ExploitAdversaryDecision::LinkVariables() {
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-  ExploitChosen->Register(&ExploitChosen_Mobius_Mark);
-  ExploitWeight->Register(&ExploitWeight_Mobius_Mark);
-}
-
-bool advise_treeADVISE::ExploitAdversaryDecision::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::ExploitAdversaryDecision::Weight() {
-  return ExploitWeight->Mark();
-}
-
-bool advise_treeADVISE::ExploitAdversaryDecision::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::ExploitAdversaryDecision::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::ExploitAdversaryDecision::SampleDistribution() {
-  return 0;
-}
-
-double* advise_treeADVISE::ExploitAdversaryDecision::ReturnDistributionParameters() {
-  return NULL;
-}
-
-int advise_treeADVISE::ExploitAdversaryDecision::Rank() {
-  return 1;
-}
-
-BaseActionClass* advise_treeADVISE::ExploitAdversaryDecision::Fire() {
-  (*(MakeDecision_Mobius_Mark))--;
-  (*(ExploitWeight_Mobius_Mark))--;
-  (*(ExploitChosen_Mobius_Mark))++;
-  return this;
-}
-
-/*====================== PivotingAdversaryDecision ========================*/
-
-advise_treeADVISE::PivotingAdversaryDecision::PivotingAdversaryDecision() {
-  commonInit("PivotingAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
-}
-
-advise_treeADVISE::PivotingAdversaryDecision::~PivotingAdversaryDecision() {
-}
-
-void advise_treeADVISE::PivotingAdversaryDecision::LinkVariables() {
-  MakeDecision->Register(&MakeDecision_Mobius_Mark);
-  PivotingChosen->Register(&PivotingChosen_Mobius_Mark);
-  PivotingWeight->Register(&PivotingWeight_Mobius_Mark);
-}
-
-bool advise_treeADVISE::PivotingAdversaryDecision::Enabled() {
-  OldEnabled = NewEnabled;
-  NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
-  return NewEnabled;
-}
-
-double advise_treeADVISE::PivotingAdversaryDecision::Weight() {
-  return PivotingWeight->Mark();
-}
-
-bool advise_treeADVISE::PivotingAdversaryDecision::ReactivationPredicate() {
-  return false;
-}
-
-bool advise_treeADVISE::PivotingAdversaryDecision::ReactivationFunction() {
-  return false;
-}
-
-double advise_treeADVISE::PivotingAdversaryDecision::SampleDistribution() {
-  return 0;
-}
-
-double* advise_treeADVISE::PivotingAdversaryDecision::ReturnDistributionParameters() {
-  return NULL;
-}
-
-int advise_treeADVISE::PivotingAdversaryDecision::Rank() {
-  return 1;
-}
-
-BaseActionClass* advise_treeADVISE::PivotingAdversaryDecision::Fire() {
-  (*(MakeDecision_Mobius_Mark))--;
-  (*(PivotingWeight_Mobius_Mark))--;
-  (*(PivotingChosen_Mobius_Mark))++;
-  return this;
-}
-
 /*====================== MalwareIntroductionAdversaryDecision ========================*/
 
 advise_treeADVISE::MalwareIntroductionAdversaryDecision::MalwareIntroductionAdversaryDecision() {
-  commonInit("MalwareIntroductionAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
+  commonInit("MalwareIntroductionAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
 }
 
 advise_treeADVISE::MalwareIntroductionAdversaryDecision::~MalwareIntroductionAdversaryDecision() {
@@ -3194,55 +3868,55 @@ BaseActionClass* advise_treeADVISE::MalwareIntroductionAdversaryDecision::Fire()
   return this;
 }
 
-/*====================== PrivilegeEscalationAdversaryDecision ========================*/
+/*====================== PortScanAdversaryDecision ========================*/
 
-advise_treeADVISE::PrivilegeEscalationAdversaryDecision::PrivilegeEscalationAdversaryDecision() {
-  commonInit("PrivilegeEscalationAdversaryDecision", 11, Instantaneous, RaceEnabled, 2, 1, false);
+advise_treeADVISE::PortScanAdversaryDecision::PortScanAdversaryDecision() {
+  commonInit("PortScanAdversaryDecision", 13, Instantaneous, RaceEnabled, 2, 1, false);
 }
 
-advise_treeADVISE::PrivilegeEscalationAdversaryDecision::~PrivilegeEscalationAdversaryDecision() {
+advise_treeADVISE::PortScanAdversaryDecision::~PortScanAdversaryDecision() {
 }
 
-void advise_treeADVISE::PrivilegeEscalationAdversaryDecision::LinkVariables() {
+void advise_treeADVISE::PortScanAdversaryDecision::LinkVariables() {
   MakeDecision->Register(&MakeDecision_Mobius_Mark);
-  PrivilegeEscalationChosen->Register(&PrivilegeEscalationChosen_Mobius_Mark);
-  PrivilegeEscalationWeight->Register(&PrivilegeEscalationWeight_Mobius_Mark);
+  PortScanChosen->Register(&PortScanChosen_Mobius_Mark);
+  PortScanWeight->Register(&PortScanWeight_Mobius_Mark);
 }
 
-bool advise_treeADVISE::PrivilegeEscalationAdversaryDecision::Enabled() {
+bool advise_treeADVISE::PortScanAdversaryDecision::Enabled() {
   OldEnabled = NewEnabled;
   NewEnabled = (((*(MakeDecision_Mobius_Mark)) >= 1));
   return NewEnabled;
 }
 
-double advise_treeADVISE::PrivilegeEscalationAdversaryDecision::Weight() {
-  return PrivilegeEscalationWeight->Mark();
+double advise_treeADVISE::PortScanAdversaryDecision::Weight() {
+  return PortScanWeight->Mark();
 }
 
-bool advise_treeADVISE::PrivilegeEscalationAdversaryDecision::ReactivationPredicate() {
+bool advise_treeADVISE::PortScanAdversaryDecision::ReactivationPredicate() {
   return false;
 }
 
-bool advise_treeADVISE::PrivilegeEscalationAdversaryDecision::ReactivationFunction() {
+bool advise_treeADVISE::PortScanAdversaryDecision::ReactivationFunction() {
   return false;
 }
 
-double advise_treeADVISE::PrivilegeEscalationAdversaryDecision::SampleDistribution() {
+double advise_treeADVISE::PortScanAdversaryDecision::SampleDistribution() {
   return 0;
 }
 
-double* advise_treeADVISE::PrivilegeEscalationAdversaryDecision::ReturnDistributionParameters() {
+double* advise_treeADVISE::PortScanAdversaryDecision::ReturnDistributionParameters() {
   return NULL;
 }
 
-int advise_treeADVISE::PrivilegeEscalationAdversaryDecision::Rank() {
+int advise_treeADVISE::PortScanAdversaryDecision::Rank() {
   return 1;
 }
 
-BaseActionClass* advise_treeADVISE::PrivilegeEscalationAdversaryDecision::Fire() {
+BaseActionClass* advise_treeADVISE::PortScanAdversaryDecision::Fire() {
   (*(MakeDecision_Mobius_Mark))--;
-  (*(PrivilegeEscalationWeight_Mobius_Mark))--;
-  (*(PrivilegeEscalationChosen_Mobius_Mark))++;
+  (*(PortScanWeight_Mobius_Mark))--;
+  (*(PortScanChosen_Mobius_Mark))++;
   return this;
 }
 
