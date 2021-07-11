@@ -12,4 +12,6 @@
   <solver key="sim">
     <value name="sim" category="Solver" type="Simulator"/>
   </solver>
+  <globalVariable name="attacker" type="Char"/>
+  <globalVariable name="costWeight" type="Float"/>
 </models:Project>

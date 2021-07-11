@@ -61,34 +61,35 @@
         <outcomes key="Obtain all">
           <value name="Obtain all" probability="return 0.1;" detection="return 0;" effects="HandshakeProtocol->Mark() = 1;&#xA;SocketAddress->Mark() = 1;"/>
         </outcomes>
-        <timing distributionType="Deterministic">
-          <parameters>return 5;</parameters>
+        <timing distributionType="Normal">
+          <parameters>return 3;</parameters>
+          <parameters>return 1;</parameters>
         </timing>
       </value>
     </stepElements>
     <stepElements key="QueryFlooding">
-      <value name="QueryFlooding" codename="QueryFlooding" xpos="130" ypos="427" sourceArcs="//@aeg/@arcElements.7" targetArcs="//@aeg/@arcElements.4 //@aeg/@arcElements.5 //@aeg/@arcElements.6" attackExecutionGraph="//@aeg" width="150" preconditions="return ((Script->Mark()>2) &amp;&amp; SocketAddress->Mark() &amp;&amp; !DoS->Mark());" cost="return 0;">
+      <value name="QueryFlooding" codename="QueryFlooding" xpos="130" ypos="427" sourceArcs="//@aeg/@arcElements.7" targetArcs="//@aeg/@arcElements.4 //@aeg/@arcElements.5 //@aeg/@arcElements.6" attackExecutionGraph="//@aeg" width="150" preconditions="return ((Script->Mark()>2) &amp;&amp; SocketAddress->Mark() &amp;&amp; !DoS->Mark());" cost="return 10;">
         <outcomes key="Success">
-          <value name="Success" probability="if( HandshakeProtocol->Mark()) return 0.6;&#xA;else return 0.1;" detection="return 0.5;" effects="DoS->Mark() = 1;"/>
+          <value name="Success" probability="if( HandshakeProtocol->Mark()) return 0.6;&#xA;else return 0.1;" detection="return 0.1;" effects="DoS->Mark() = 1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="if( HandshakeProtocol->Mark()) return 0.4;&#xA;else return 0.9;" detection="return 0.6;" effects=""/>
+          <value name="Failure" probability="if( HandshakeProtocol->Mark()) return 0.4;&#xA;else return 0.9;" detection="return 0.1;" effects=""/>
         </outcomes>
         <timing distributionType="Exponential">
-          <parameters>return 5;</parameters>
+          <parameters>return 0.1;</parameters>
         </timing>
       </value>
     </stepElements>
     <stepElements key="PortScan">
       <value name="PortScan" codename="PortScan" xpos="331" ypos="321" sourceArcs="//@aeg/@arcElements.9" targetArcs="//@aeg/@arcElements.8" attackExecutionGraph="//@aeg" width="150" preconditions="return (SocketAddress->Mark() &amp;&amp; !VulnerabilityAwareness->Mark());" cost="return 0;">
         <outcomes key="Success">
-          <value name="Success" probability="return 0.9;" detection="return 0.1;" effects="VulnerabilityAwareness->Mark()=1;"/>
+          <value name="Success" probability="return 0.9;" detection="return 0.2;" effects="VulnerabilityAwareness->Mark()=1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="return 0.1;" detection="return 0.1;" effects=""/>
+          <value name="Failure" probability="return 0.1;" detection="return 0.2;" effects=""/>
         </outcomes>
-        <timing distributionType="Exponential">
-          <parameters>return 3;</parameters>
+        <timing distributionType="Deterministic">
+          <parameters>return 4;</parameters>
         </timing>
       </value>
     </stepElements>
@@ -145,12 +146,12 @@
       </value>
     </stepElements>
     <stepElements key="MalwareIntroduction">
-      <value name="MalwareIntroduction" codename="MalwareIntroduction" xpos="542" ypos="365" sourceArcs="//@aeg/@arcElements.19" targetArcs="//@aeg/@arcElements.18" attackExecutionGraph="//@aeg" width="150" preconditions="return(PhysicalAccess->Mark() &amp;&amp; !vehicleServerUnprivAccess->Mark());">
+      <value name="MalwareIntroduction" codename="MalwareIntroduction" xpos="542" ypos="365" sourceArcs="//@aeg/@arcElements.19" targetArcs="//@aeg/@arcElements.18" attackExecutionGraph="//@aeg" width="150" preconditions="return(PhysicalAccess->Mark() &amp;&amp; !vehicleServerUnprivAccess->Mark());" cost="10;">
         <outcomes key="faliure">
-          <value name="faliure" probability="return 0.9;" detection="return 0.5;" effects=""/>
+          <value name="failure" probability="return 0.9;" detection="return 0.1;" effects=""/>
         </outcomes>
         <outcomes key="success">
-          <value name="success" probability="return 0.1;" detection="return 0.5;" effects="vehicleServerUnprivAccess->Mark()=1;"/>
+          <value name="success" probability="return 0.1;" detection="return 0.2;" effects="vehicleServerUnprivAccess->Mark()=1;"/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 2;</parameters>
@@ -160,10 +161,10 @@
     <stepElements key="NetworkAttack">
       <value name="NetworkAttack" codename="NetworkAttack" xpos="716" ypos="232" sourceArcs="//@aeg/@arcElements.21" targetArcs="//@aeg/@arcElements.20" attackExecutionGraph="//@aeg" width="150" preconditions="return (CorporateServerLocation->Mark() &amp;&amp; !CorporateNetworkAccess->Mark());">
         <outcomes key="success">
-          <value name="success" probability="return 0.7;" detection="return 0.6;" effects="CorporateNetworkAccess->Mark()=1;"/>
+          <value name="success" probability="return 0.7;" detection="return 0.3;" effects="CorporateNetworkAccess->Mark()=1;"/>
         </outcomes>
         <outcomes key="faliure">
-          <value name="faliure" probability="return 0.3;" detection="return 0.4;" effects=""/>
+          <value name="failure" probability="return 0.3;" detection="return 0;" effects=""/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 3;</parameters>
@@ -248,7 +249,7 @@
     <arcElements sourceName="WebIntrusion" targetName="CorporateNetworkAccess" sourceType="Step"/>
   </aeg>
   <adversary name="Hacker" codename="Hacker" horizon="4" costSW="0" payoffSW="0.9">
-    <accessInit key="PhysicalAccess" value="0"/>
+    <accessInit key="PhysicalAccess" value="attacker=='P'"/>
     <goalInit key="VehicleUndesideredBehaviour" value="0"/>
     <goalInit key="DataBreach" value="0"/>
     <goalInit key="DoS" value="0"/>

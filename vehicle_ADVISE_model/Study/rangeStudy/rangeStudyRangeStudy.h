@@ -7,6 +7,8 @@
 #include "Cpp/BaseClasses/GlobalVariables.h"
 #include "Cpp/Study/BaseStudyClass.hpp"
 
+extern Char attacker;
+extern Float costWeight;
 
 class rangeStudyRangeStudy : public BaseStudyClass {
 public:
@@ -16,7 +18,11 @@ rangeStudyRangeStudy();
 
 private:
 
+char *attackerValues;
+float *costWeightValues;
 
+void SetValues_attacker();
+void SetValues_costWeight();
 
 void PrintGlobalValues(int);
 void *GetGVValue(char *TheGVName);
