@@ -26,40 +26,25 @@ Therefore they might have access to a bigger number of facilities and spaces (e.
 \subsection*{Hacker}
 A hacker is an external actor with no prior knowledge of the company's systems and no access to its facilities.
 On the other hand, they have advanced security and penetration skills, in-depth knowledge of the most important and widespread technologies and attacks, as well as the tools needed to perform these attacks on the target systems.
-\hfill
-\hfill
 
-%TODO improve table formatting?
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Actor}    & \textbf{Skills}                                                                                                                & \textbf{Knowledges}                                                                                                                                         & \textbf{Accesses}                                                                                            \\ \hline
+		Insider           & \begin{tabular}[c]{@{}c@{}}Basic/medium IT\\ skills, social\\ engineering\end{tabular}                                         & \begin{tabular}[c]{@{}c@{}}Login credentials\\ (website, LAN,\\ VPN, DB),\\ employees info,\\ vulnerabilities in\\ company's security\\ system\end{tabular} & \begin{tabular}[c]{@{}c@{}}LAN, VPN, DB,\\ facilities, PCs,\\ workstations,\\ routers, switches\end{tabular} \\ \hline
+		Physical intruder & Lockpicking, ???                                                                                                               & \begin{tabular}[c]{@{}c@{}}Facilities location,\\ personnel timetables\end{tabular}                                                                         & \begin{tabular}[c]{@{}c@{}}Company's ex-\\ ternal premises\end{tabular}                                      \\ \hline
+		Hacker            & \begin{tabular}[c]{@{}c@{}}Reverse engineering,\\ social engineering,\\ advanced attack and\\ penetration testing\end{tabular} & -                                                                                                                                                           & \begin{tabular}[c]{@{}c@{}}Vehicle\\ (i.e. firmware)\end{tabular}                                            \\ \hline
+	\end{tabular}
+	\caption{Attackers' skills, knowledges and accesses}
+	\label{tab:profiles}
+\end{table}
 
 \section{Attacker's Profile}
-\noindent As we have seen each actor has its own set of knowledges, accesses and skills in table \ref{tab: profiles} it is possible to see the arrangment of them among the attackers.
+\noindent As we have seen each actor has its own set of knowledges, accesses and skills in table \ref{tab:profiles} it is possible to see the arrangement of them among the attackers.
 
-\begin{center}
-    \begin{tabular}{ | p{1.5 cm} | p{3.5cm} | p{3.5cm} | p{3.5cm} |}
-    \hline
-    \begin{center}
-    	\textbf{Actor}
-    \end{center} & 
-    \begin{center}
-    	\textbf{Skills}
-  	\end{center} & 
-    \begin{center}
-    	\textbf{Knowledges}
-   	\end{center} &
-    \begin{center}
-    	\textbf{Accesses} 
-    \end{center} \\ \hline
-    Insider & basic/medium IT skills, social engineering & login credentials (website, LAN, VPN, DB), employees info, vulns in company security & LAN, VPN, DB, facilities, PCs, workstations, routers, switches \\ \hline
-    Physical intruder & Lockpicking, ??? & Facilities location, personnel timetables & company's external premises \\ \hline
-    Hacker & Reverse engineering, social engineering, advanced attack and penetration testing & - & vehicle (i.e. firmware) \\
-    \hline
- 
-    \end{tabular}
-	%\label{tab: profiles}
-	%\caption{Attacker's knowledge, skills and accesses}
-\end{center}
 
-\noindent For what concern the attention of the actors about the probability of detection, the cost of the attacks and the expected payoff, the weights for each of these factors are shown in the table \ref{tab: weights}.
+\noindent For what concern the attention of the actors about the probability of detection, the cost of the attacks and the expected payoff, the weights for each of these factors are shown in the table \ref{tab:weights}.
 
 \begin{table}[htpb]
 	\centering
@@ -71,7 +56,7 @@ On the other hand, they have advanced security and penetration skills, in-depth 
 		Insider                & 0.1                  & 0.5                       & 0.4                    \\ \hline
 	\end{tabular}
 	\caption{Weights of Attacker Profile}
-	\label{tab: weights}
+	\label{tab:weights}
 \end{table}
 
 \noindent  Thus we can see that the choices that attackers done are guided by different things, for instance an insider will prefer to avoid an attack with an high probability of detection, as well as a physical intruder, instead an hacker has not this preoccupation and he will choice the attack with the higher payoff.

@@ -10,9 +10,27 @@
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.3]{img/attackTree.pdf}
+        \includegraphics[scale=0.4]{img/attackTree.pdf}
         \caption{Attack tree}
         \label{fig:attackTree}
     \end{center}
     \vspace*{-0.4cm}
 \end{figure}
+
+
+\section{Attacks}
+Below is a brief description of every attack in the tree:
+
+\begin{itemize}
+	\item \textbf{Firmware reversing}: a hacker in possession of a vehicle and with reverse engineering skills can dump the vehicle firmware, reverse engineer it and acquire information about the IP/port of the server, as well as the protocol used for the communication and/or the structure of the messages sent.
+	\item \textbf{Query flooding}: a hacker can perform a (D)Dos attack by sending a large number of queries on the server (possibly by means of a botnet) and overwhelming it so that it stops being responsive.
+	\item \textbf{Port scan} with the knowledge of the server's IP, a hacker can scan the server for open ports and possibly find out the OS, which services are running and their versions.
+	\item \textbf{Network attack} An insider supposedly already has access to the corporate network but, in case they don't, they can either discover the password in a variety of ways (dictionary attack, password re-use, unattended workstations or laptops) or exploit some vulnerabilities in the Wi-Fi protocol.
+	\item \textbf{Unauthorized remote login}: an attacker could access the corporate VPN by either discovering some employee's login credentials (e.g. phishing, typosquatting, OSINT, social engineering), exploiting some vulnerabilities  in the login procedure itself or by directly having access to credentials (i.e. password dumps found or bought online).
+	\item \textbf{Web application attack}: an attacker could gain unauthorized access to a reserved area of the company's website by means of some web-application attacks (SQLi, XSS, XXE, etc.) or backdoors.
+	\item \textbf{Lateral movement/pivoting}: an attacker who has already gained access to a part of the network which is not directly the vehicle server, can exploit further vulnerabilities and ``move laterally" i.e. move deeper inside the network to find more vulnerabilities and entry points that could lead them to the final target server.
+	\item \textbf{Malware deployment}: an attacker can deploy a malware in different ways e.g. dropping an infected USB drive and wait for some employee to plug it in a corporate machine. The malware can guarantee them the access to a server with a varying level of privilege.
+	\item \textbf{Privilege escalation}: once an attacker has gained the so-called ``foothold" into the target server, they will try to increase their privilege level on the system as to access to a greater number of resources.
+	\item \textbf{Database dump}: once the attacker has gained access to the database, the latter can be dumped and the \textit{Data Breach} goal is reached. For the sake of simplicity the \texttt{database dump} attack in the tree is considered to have constant time duration and probability of detection. In reality this is not the case as there are different ways to perform data exfiltration, which can be more or less stealthy (simple \texttt{scp} or \texttt{wget} commands -- or their equivalent on non-Unix systems -- will be faster but they will also have a high probability of detection while looking at the network traffic and the server logs, while other techniques such as ICMP exfiltration will be stealthier at the expense of a longer time required).
+	\item \textbf{DB/application tampering}: if the goal of the attacker is not to access sensitive data but to cause undesired behaviour of the vehicles, once they have access to the DB or the application they can tamper the data in the DB, or attack the application/framework that is running on the server and which interacts with the vehicles.
+\end{itemize}
