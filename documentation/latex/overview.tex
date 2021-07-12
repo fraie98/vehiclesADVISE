@@ -31,6 +31,9 @@ On the other hand, they have advanced security and penetration skills, in-depth 
 
 %TODO improve table formatting?
 
+\section{Attacker's Profile}
+\noindent As we have seen each actor has its own set of knowledges, accesses and skills in table \ref{tab: profiles} it is possible to see the arrangment of them among the attackers.
+
 \begin{center}
     \begin{tabular}{ | p{1.5 cm} | p{3.5cm} | p{3.5cm} | p{3.5cm} |}
     \hline
@@ -50,9 +53,28 @@ On the other hand, they have advanced security and penetration skills, in-depth 
     Physical intruder & Lockpicking, ??? & Facilities location, personnel timetables & company's external premises \\ \hline
     Hacker & Reverse engineering, social engineering, advanced attack and penetration testing & - & vehicle (i.e. firmware) \\
     \hline
+ 
     \end{tabular}
+	%\label{tab: profiles}
+	%\caption{Attacker's knowledge, skills and accesses}
 \end{center}
 
+\noindent For what concern the attention of the actors about the probability of detection, the cost of the attacks and the expected payoff, the weights for each of these factors are shown in the table \ref{tab: weights}.
+
+\begin{table}[htpb]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Attacker Name} & \textbf{Cost Weight} & \textbf{Detection Weight} & \textbf{Payoff Weight} \\ \hline
+		Hacker                 & 0                    & 0.1                       & 0.9                    \\ \hline
+		Physical Intruder      & 0.2                  & 0.5                       & 0.3                    \\ \hline
+		Insider                & 0.1                  & 0.5                       & 0.4                    \\ \hline
+	\end{tabular}
+	\caption{Weights of Attacker Profile}
+	\label{tab: weights}
+\end{table}
+
+\noindent  Thus we can see that the choices that attackers done are guided by different things, for instance an insider will prefer to avoid an attack with an high probability of detection, as well as a physical intruder, instead an hacker has not this preoccupation and he will choice the attack with the higher payoff.
 
 \section{Goals}
 
