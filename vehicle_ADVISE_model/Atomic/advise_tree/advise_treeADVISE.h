@@ -19,6 +19,8 @@
 #include <cmath>
 extern Char attacker;
 extern Float costWeight;
+extern Float detectionWeight;
+extern Float payoffWeight;
 extern UserDistributions* TheDistribution;
 
 /*********************************************************************

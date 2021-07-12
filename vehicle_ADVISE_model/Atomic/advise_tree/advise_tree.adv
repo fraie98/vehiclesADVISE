@@ -248,19 +248,25 @@
     <arcElements sourceName="CorporateInternetAddress" targetName="WebIntrusion" sourceType="Knowledge" targetType="Step"/>
     <arcElements sourceName="WebIntrusion" targetName="CorporateNetworkAccess" sourceType="Step"/>
   </aeg>
-  <adversary name="Hacker" codename="Hacker" horizon="4" costSW="0" payoffSW="0.9">
+  <adversary name="Hacker" codename="Hacker" horizon="4" detectionSW="detectionWeight" costSW="costWeight" payoffSW="payoffWeight">
+    <accessInit key="VehicleServerRootAccess" value="0"/>
+    <accessInit key="vehicleServerUnprivAccess" value="attacker=='I'"/>
     <accessInit key="PhysicalAccess" value="attacker=='P'"/>
+    <accessInit key="CorporateNetworkAccess" value="attacker=='I'"/>
     <goalInit key="VehicleUndesideredBehaviour" value="0"/>
     <goalInit key="DataBreach" value="0"/>
     <goalInit key="DoS" value="0"/>
     <goalPayoff key="VehicleUndesideredBehaviour" value="300"/>
     <goalPayoff key="DataBreach" value="150"/>
     <goalPayoff key="DoS" value="100"/>
-    <knowledgeInit key="CorporateServerLocation" value="0"/>
-    <knowledgeInit key="CorporateInternetAddress" value="0"/>
-    <knowledgeInit key="BinaryDump" value="1"/>
-    <knowledgeInit key="EmoployeePersonalInfo" value="0"/>
-    <skillInit key="ReverseEngineering" value="5"/>
-    <skillInit key="Script" value="7"/>
+    <knowledgeInit key="SocketAddress" value="attacker=='I'"/>
+    <knowledgeInit key="BinaryDump" value="attacker=='H'"/>
+    <knowledgeInit key="VulnerabilityAwareness" value="attacker=='I'"/>
+    <knowledgeInit key="EmoployeePersonalInfo" value="attacker=='I'"/>
+    <knowledgeInit key="CorporateServerLocation" value="attacker=='I'"/>
+    <knowledgeInit key="CorporateInternetAddress" value="attacker=='I'"/>
+    <knowledgeInit key="HandshakeProtocol" value="attacker=='I'"/>
+    <skillInit key="ReverseEngineering" value="(attacker=='H')?5:0"/>
+    <skillInit key="Script" value="(attacker=='H')?7:0"/>
   </adversary>
 </models:AdviseAtomicModel>

@@ -198,18 +198,18 @@ advise_treeADVISE::advise_treeADVISE() {
   };
 
   VehicleServerRootAccess = new Access("VehicleServerRootAccess", 0);
-  vehicleServerUnprivAccess = new Access("vehicleServerUnprivAccess", 0);
+  vehicleServerUnprivAccess = new Access("vehicleServerUnprivAccess", attacker=='I');
   PhysicalAccess = new Access("PhysicalAccess", attacker=='P');
-  CorporateNetworkAccess = new Access("CorporateNetworkAccess", 0);
-  SocketAddress = new Knowledge("SocketAddress", 0);
-  BinaryDump = new Knowledge("BinaryDump", 1);
-  VulnerabilityAwareness = new Knowledge("VulnerabilityAwareness", 0);
-  CorporateServerLocation = new Knowledge("CorporateServerLocation", 0);
-  CorporateInternetAddress = new Knowledge("CorporateInternetAddress", 0);
-  EmoployeePersonalInfo = new Knowledge("EmoployeePersonalInfo", 0);
-  HandshakeProtocol = new Knowledge("HandshakeProtocol", 0);
-  ReverseEngineering = new Skill("ReverseEngineering", 5);
-  Script = new Skill("Script", 7);
+  CorporateNetworkAccess = new Access("CorporateNetworkAccess", attacker=='I');
+  SocketAddress = new Knowledge("SocketAddress", attacker=='I');
+  BinaryDump = new Knowledge("BinaryDump", attacker=='H');
+  VulnerabilityAwareness = new Knowledge("VulnerabilityAwareness", attacker=='I');
+  CorporateServerLocation = new Knowledge("CorporateServerLocation", attacker=='I');
+  CorporateInternetAddress = new Knowledge("CorporateInternetAddress", attacker=='I');
+  EmoployeePersonalInfo = new Knowledge("EmoployeePersonalInfo", attacker=='I');
+  HandshakeProtocol = new Knowledge("HandshakeProtocol", attacker=='I');
+  ReverseEngineering = new Skill("ReverseEngineering", (attacker=='H')?5:0);
+  Script = new Skill("Script", (attacker=='H')?7:0);
   DataBreach = new Goal("DataBreach", 0);
   DataBreach->setPayoff(150);
   VehicleUndesideredBehaviour = new Goal("VehicleUndesideredBehaviour", 0);
@@ -300,9 +300,9 @@ advise_treeADVISE::advise_treeADVISE() {
 
   commonInit("advise_tree", 43, InitialSVs, 39, InitialActions, 14, InitialGroups, 13, outCounts, InitialSteps, 3, InitialGoals);
 
-  advCostPref = 0;
-  advDetectPref = 0.1;
-  advPayPref = 0.9;
+  advCostPref = costWeight;
+  advDetectPref = detectionWeight;
+  advPayPref = payoffWeight;
 
   planningHorizon = 4;
   costDiscount = 1.0;

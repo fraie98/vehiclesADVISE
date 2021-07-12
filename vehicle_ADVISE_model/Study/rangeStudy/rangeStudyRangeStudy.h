@@ -9,6 +9,8 @@
 
 extern Char attacker;
 extern Float costWeight;
+extern Float detectionWeight;
+extern Float payoffWeight;
 
 class rangeStudyRangeStudy : public BaseStudyClass {
 public:
@@ -20,9 +22,13 @@ private:
 
 char *attackerValues;
 float *costWeightValues;
+float *detectionWeightValues;
+float *payoffWeightValues;
 
 void SetValues_attacker();
 void SetValues_costWeight();
+void SetValues_detectionWeight();
+void SetValues_payoffWeight();
 
 void PrintGlobalValues(int);
 void *GetGVValue(char *TheGVName);
