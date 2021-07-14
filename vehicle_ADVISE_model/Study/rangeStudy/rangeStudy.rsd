@@ -35,8 +35,8 @@
 					<string id="PVModelName">Reward</string>
 					<vector id="ActiveExpVector">
 						<boolean id="0">true</boolean>
-						<boolean id="1">false</boolean>
-						<boolean id="2">false</boolean>
+						<boolean id="1">true</boolean>
+						<boolean id="2">true</boolean>
 						<boolean id="3">false</boolean>
 						<boolean id="4">false</boolean>
 						<boolean id="5">false</boolean>

@@ -23,7 +23,7 @@
       <value name="CorporateServerLocation" codename="CorporateServerLocation" xpos="769" ypos="85" sourceArcs="//@aeg/@arcElements.20" attackExecutionGraph="//@aeg"/>
     </knowledgeElements>
     <knowledgeElements key="EmoployeePersonalInfo">
-      <value name="EmoployeePersonalInfo" codename="EmoployeePersonalInfo" xpos="916" ypos="147" sourceArcs="//@aeg/@arcElements.24" attackExecutionGraph="//@aeg"/>
+      <value name="EmoployeePersonalInfo" codename="EmoployeePersonalInfo" xpos="961" ypos="148" sourceArcs="//@aeg/@arcElements.24" attackExecutionGraph="//@aeg"/>
     </knowledgeElements>
     <knowledgeElements key="CorporateInternetAddress">
       <value name="CorporateInternetAddress" codename="CorporateInternetAddress" xpos="926" ypos="597" sourceArcs="//@aeg/@arcElements.26" attackExecutionGraph="//@aeg"/>
@@ -51,7 +51,7 @@
       </value>
     </stepElements>
     <stepElements key="FirmwareReversing">
-      <value name="FirmwareReversing" codename="FirmwareReversing" xpos="129" ypos="203" sourceArcs="//@aeg/@arcElements.2 //@aeg/@arcElements.3" targetArcs="//@aeg/@arcElements.0 //@aeg/@arcElements.1" attackExecutionGraph="//@aeg" width="150" preconditions="return (BinaryDump->Mark() &amp;&amp; (ReverseEngineering->Mark()>1) &amp;&amp; !HandshakeProtocol->Mark());&#xA;&#x9;" cost="return 0;">
+      <value name="FirmwareReversing" codename="FirmwareReversing" xpos="129" ypos="203" sourceArcs="//@aeg/@arcElements.2 //@aeg/@arcElements.3" targetArcs="//@aeg/@arcElements.0 //@aeg/@arcElements.1" attackExecutionGraph="//@aeg" width="150" preconditions="return (BinaryDump->Mark() &amp;&amp; (ReverseEngineering->Mark()>1) &amp;&amp; !HandshakeProtocol->Mark() &amp;&amp; !SocketAddress->Mark());&#xA;&#x9;" cost="return 0;">
         <outcomes key="Success">
           <value name="Obtain address only" probability="return 0.7;" detection="return 0;" effects="SocketAddress->Mark() = 1;"/>
         </outcomes>

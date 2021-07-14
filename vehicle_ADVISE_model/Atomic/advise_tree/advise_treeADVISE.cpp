@@ -2869,7 +2869,7 @@ int advise_treeADVISE::FirmwareReversingFailureStep::Rank() {
 }
 
 bool advise_treeADVISE::FirmwareReversingFailureStep::preconditionsMet() {
-return (BinaryDump->Mark() && (ReverseEngineering->Mark()>1) && !HandshakeProtocol->Mark());
+return (BinaryDump->Mark() && (ReverseEngineering->Mark()>1) && !HandshakeProtocol->Mark() && !SocketAddress->Mark());
 	
   return true;
 }
@@ -2964,7 +2964,7 @@ int advise_treeADVISE::FirmwareReversingObtainallStep::Rank() {
 }
 
 bool advise_treeADVISE::FirmwareReversingObtainallStep::preconditionsMet() {
-return (BinaryDump->Mark() && (ReverseEngineering->Mark()>1) && !HandshakeProtocol->Mark());
+return (BinaryDump->Mark() && (ReverseEngineering->Mark()>1) && !HandshakeProtocol->Mark() && !SocketAddress->Mark());
 	
   return true;
 }
@@ -3060,7 +3060,7 @@ int advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::Rank() {
 }
 
 bool advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::preconditionsMet() {
-return (BinaryDump->Mark() && (ReverseEngineering->Mark()>1) && !HandshakeProtocol->Mark());
+return (BinaryDump->Mark() && (ReverseEngineering->Mark()>1) && !HandshakeProtocol->Mark() && !SocketAddress->Mark());
 	
   return true;
 }

@@ -27,7 +27,8 @@
 			<int id="DisplayUpdateFrequency">1000</int>
 			<boolean id="MaximizeProcessorUsage">false</boolean>
 			<int id="ProcessorsPerExperiment">1</int>
-			<int id="NumMachines">1</int>
+			<int id="NumMachines">2</int>
+			<string id="MachineName">student-VirtualBox</string>
 			<string id="MachineName">student-VirtualBox</string>
 			<int id="NumGroups">0</int>
 			<string id="StudyName">rangeStudy</string>
