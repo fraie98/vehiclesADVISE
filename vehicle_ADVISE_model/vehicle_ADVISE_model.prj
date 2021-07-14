@@ -13,7 +13,7 @@
     <value name="sim" category="Solver" type="Simulator"/>
   </solver>
   <globalVariable name="attacker" type="Char"/>
-  <globalVariable name="costWeight" type="Float"/>
-  <globalVariable name="detectionWeight" type="Float"/>
-  <globalVariable name="payoffWeight" type="Float"/>
+  <globalVariable name="firewallSensitivity"/>
+  <globalVariable name="codeObfuscation"/>
+  <globalVariable name="IDSsensitivity"/>
 </models:Project>

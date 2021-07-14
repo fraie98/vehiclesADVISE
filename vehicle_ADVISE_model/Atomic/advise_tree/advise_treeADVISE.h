@@ -18,9 +18,9 @@
 #include <limits.h>
 #include <cmath>
 extern Char attacker;
-extern Float costWeight;
-extern Float detectionWeight;
-extern Float payoffWeight;
+extern Short firewallSensitivity;
+extern Short codeObfuscation;
+extern Short IDSsensitivity;
 extern UserDistributions* TheDistribution;
 
 /*********************************************************************
@@ -1600,7 +1600,6 @@ public:
   double getDetection();
   int Rank();
   double timeDistributionParameter0();
-  double timeDistributionParameter1();
   bool preconditionsMet();
   void executeEffects();
 }; // FirmwareReversingFailureStep
@@ -1662,7 +1661,6 @@ public:
   double getDetection();
   int Rank();
   double timeDistributionParameter0();
-  double timeDistributionParameter1();
   bool preconditionsMet();
   void executeEffects();
 }; // FirmwareReversingObtainallStep
@@ -1724,7 +1722,6 @@ public:
   double getDetection();
   int Rank();
   double timeDistributionParameter0();
-  double timeDistributionParameter1();
   bool preconditionsMet();
   void executeEffects();
 }; // FirmwareReversingObtainaddressonlyStep

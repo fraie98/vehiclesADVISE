@@ -7,10 +7,10 @@
 #include "Cpp/BaseClasses/GlobalVariables.h"
 #include "Cpp/Study/BaseStudyClass.hpp"
 
+extern Short IDSsensitivity;
 extern Char attacker;
-extern Float costWeight;
-extern Float detectionWeight;
-extern Float payoffWeight;
+extern Short codeObfuscation;
+extern Short firewallSensitivity;
 
 class rangeStudyRangeStudy : public BaseStudyClass {
 public:
@@ -20,15 +20,15 @@ rangeStudyRangeStudy();
 
 private:
 
+short *IDSsensitivityValues;
 char *attackerValues;
-float *costWeightValues;
-float *detectionWeightValues;
-float *payoffWeightValues;
+short *codeObfuscationValues;
+short *firewallSensitivityValues;
 
+void SetValues_IDSsensitivity();
 void SetValues_attacker();
-void SetValues_costWeight();
-void SetValues_detectionWeight();
-void SetValues_payoffWeight();
+void SetValues_codeObfuscation();
+void SetValues_firewallSensitivity();
 
 void PrintGlobalValues(int);
 void *GetGVValue(char *TheGVName);

@@ -300,9 +300,9 @@ advise_treeADVISE::advise_treeADVISE() {
 
   commonInit("advise_tree", 43, InitialSVs, 39, InitialActions, 14, InitialGroups, 13, outCounts, InitialSteps, 3, InitialGoals);
 
-  advCostPref = costWeight;
-  advDetectPref = detectionWeight;
-  advPayPref = payoffWeight;
+  advCostPref = (attacker=='H')?0.1:(attacker=='I')?0.1:(attacker=='P')?0.2:0;
+  advDetectPref = (attacker=='H')?0.1:(attacker=='I')?0.4:(attacker=='P')?0.3:0;
+  advPayPref = (attacker=='H')?0.8:(attacker=='I')?0.5:(attacker=='P')?0.7:0;
 
   planningHorizon = 4;
   costDiscount = 1.0;
@@ -1487,7 +1487,7 @@ return 0.5;
 }
 
 double advise_treeADVISE::PrivilegeEscalationfaliureStep::getDetection() {
-return 0.5;
+if(IDSsensitivity<1)return 0.1; return 0.3;
 }
 
 /*====================== PrivilegeEscalationsuccessStep ========================*/
@@ -1574,7 +1574,7 @@ return 0.5;
 }
 
 double advise_treeADVISE::PrivilegeEscalationsuccessStep::getDetection() {
-return 0.5;
+if(IDSsensitivity<1)return 0.1; return 0.5;
 }
 
 /*====================== UnauthorizedRemoteLoginFaliureStep ========================*/
@@ -2183,7 +2183,7 @@ return 0.3;
 }
 
 double advise_treeADVISE::PivotingfaliureStep::getDetection() {
-return 0.5;
+return 0.2;
 }
 
 /*====================== PivotingsuccessStep ========================*/
@@ -2270,7 +2270,7 @@ return 0.7;
 }
 
 double advise_treeADVISE::PivotingsuccessStep::getDetection() {
-return 0.5;
+return 0.2;
 }
 
 /*====================== DatabaseDumpFailureStep ========================*/
@@ -2531,7 +2531,7 @@ return 0.1;
 }
 
 double advise_treeADVISE::TamperingFailureStep::getDetection() {
-return 0.3;
+return 0.1;
 }
 
 /*====================== TamperingSuccessStep ========================*/
@@ -2618,7 +2618,7 @@ return 0.9;
 }
 
 double advise_treeADVISE::TamperingSuccessStep::getDetection() {
-return 0.2;
+return 0.1;
 }
 
 /*====================== PortScanFailureStep ========================*/
@@ -2663,7 +2663,9 @@ return 4;
 }
 
 double advise_treeADVISE::PortScanFailureStep::Weight() {
-return 0.1;
+if(firewallSensitivity==0) return 0.1; 
+if(firewallSensitivity==1) return 0.8; 
+if(firewallSensitivity==2) return 0.9; 
 }
 
 bool advise_treeADVISE::PortScanFailureStep::ReactivationPredicate() {
@@ -2701,11 +2703,13 @@ return 0;
 }
 
 double advise_treeADVISE::PortScanFailureStep::getOutcomeProbability() {
-return 0.1;
+if(firewallSensitivity==0) return 0.1; 
+if(firewallSensitivity==1) return 0.8; 
+if(firewallSensitivity==2) return 0.9; 
 }
 
 double advise_treeADVISE::PortScanFailureStep::getDetection() {
-return 0.2;
+if(firewallSensitivity<1) return 0.2; return 0.5;
 }
 
 /*====================== PortScanSuccessStep ========================*/
@@ -2750,7 +2754,9 @@ return 4;
 }
 
 double advise_treeADVISE::PortScanSuccessStep::Weight() {
-return 0.9;
+if(firewallSensitivity==0) return 0.9;
+if(firewallSensitivity==1) return 0.2; 
+if(firewallSensitivity==2) return 0.1; 
 }
 
 bool advise_treeADVISE::PortScanSuccessStep::ReactivationPredicate() {
@@ -2788,18 +2794,20 @@ return 0;
 }
 
 double advise_treeADVISE::PortScanSuccessStep::getOutcomeProbability() {
-return 0.9;
+if(firewallSensitivity==0) return 0.9;
+if(firewallSensitivity==1) return 0.2; 
+if(firewallSensitivity==2) return 0.1; 
 }
 
 double advise_treeADVISE::PortScanSuccessStep::getDetection() {
-return 0.2;
+if(firewallSensitivity<1) return 0.1; return 0.5;
 }
 
 /*====================== FirmwareReversingFailureStep ========================*/
 
 advise_treeADVISE::FirmwareReversingFailureStep::FirmwareReversingFailureStep() {
-  TheDistributionParameters = new double[2];
-  commonInit("FirmwareReversingFailureStep", 11, Normal, RaceEnabled, 19, 2, false);}
+  TheDistributionParameters = new double[1];
+  commonInit("FirmwareReversingFailureStep", 11, Deterministic, RaceEnabled, 19, 2, false);}
 
 advise_treeADVISE::FirmwareReversingFailureStep::~FirmwareReversingFailureStep() {
   delete[] TheDistributionParameters;
@@ -2835,15 +2843,11 @@ bool advise_treeADVISE::FirmwareReversingFailureStep::Enabled() {
 }
 
 double advise_treeADVISE::FirmwareReversingFailureStep::timeDistributionParameter0() {
-return 3;
-}
-
-double advise_treeADVISE::FirmwareReversingFailureStep::timeDistributionParameter1() {
-return 1;
+return 2;
 }
 
 double advise_treeADVISE::FirmwareReversingFailureStep::Weight() {
-return 0.2;
+if(codeObfuscation<1) return 0.2; return 0.9;
 }
 
 bool advise_treeADVISE::FirmwareReversingFailureStep::ReactivationPredicate() {
@@ -2855,12 +2859,11 @@ bool advise_treeADVISE::FirmwareReversingFailureStep::ReactivationFunction() {
 }
 
 double advise_treeADVISE::FirmwareReversingFailureStep::SampleDistribution() {
-  return TheDistribution->Normal(timeDistributionParameter0(), timeDistributionParameter1());
+  return TheDistribution->Deterministic(timeDistributionParameter0());
 }
 
 double *advise_treeADVISE::FirmwareReversingFailureStep::ReturnDistributionParameters() {
   TheDistributionParameters[0] = timeDistributionParameter0();
-  TheDistributionParameters[1] = timeDistributionParameter1();
   return TheDistributionParameters;
 }
 
@@ -2883,7 +2886,7 @@ return 0;
 }
 
 double advise_treeADVISE::FirmwareReversingFailureStep::getOutcomeProbability() {
-return 0.2;
+if(codeObfuscation<1) return 0.2; return 0.9;
 }
 
 double advise_treeADVISE::FirmwareReversingFailureStep::getDetection() {
@@ -2893,8 +2896,8 @@ return 0;
 /*====================== FirmwareReversingObtainallStep ========================*/
 
 advise_treeADVISE::FirmwareReversingObtainallStep::FirmwareReversingObtainallStep() {
-  TheDistributionParameters = new double[2];
-  commonInit("FirmwareReversingObtainallStep", 11, Normal, RaceEnabled, 19, 2, false);}
+  TheDistributionParameters = new double[1];
+  commonInit("FirmwareReversingObtainallStep", 11, Deterministic, RaceEnabled, 19, 2, false);}
 
 advise_treeADVISE::FirmwareReversingObtainallStep::~FirmwareReversingObtainallStep() {
   delete[] TheDistributionParameters;
@@ -2930,15 +2933,11 @@ bool advise_treeADVISE::FirmwareReversingObtainallStep::Enabled() {
 }
 
 double advise_treeADVISE::FirmwareReversingObtainallStep::timeDistributionParameter0() {
-return 3;
-}
-
-double advise_treeADVISE::FirmwareReversingObtainallStep::timeDistributionParameter1() {
-return 1;
+return 2;
 }
 
 double advise_treeADVISE::FirmwareReversingObtainallStep::Weight() {
-return 0.1;
+if(codeObfuscation<1) return 0.1; return 0;
 }
 
 bool advise_treeADVISE::FirmwareReversingObtainallStep::ReactivationPredicate() {
@@ -2950,12 +2949,11 @@ bool advise_treeADVISE::FirmwareReversingObtainallStep::ReactivationFunction() {
 }
 
 double advise_treeADVISE::FirmwareReversingObtainallStep::SampleDistribution() {
-  return TheDistribution->Normal(timeDistributionParameter0(), timeDistributionParameter1());
+  return TheDistribution->Deterministic(timeDistributionParameter0());
 }
 
 double *advise_treeADVISE::FirmwareReversingObtainallStep::ReturnDistributionParameters() {
   TheDistributionParameters[0] = timeDistributionParameter0();
-  TheDistributionParameters[1] = timeDistributionParameter1();
   return TheDistributionParameters;
 }
 
@@ -2979,7 +2977,7 @@ return 0;
 }
 
 double advise_treeADVISE::FirmwareReversingObtainallStep::getOutcomeProbability() {
-return 0.1;
+if(codeObfuscation<1) return 0.1; return 0;
 }
 
 double advise_treeADVISE::FirmwareReversingObtainallStep::getDetection() {
@@ -2989,8 +2987,8 @@ return 0;
 /*====================== FirmwareReversingObtainaddressonlyStep ========================*/
 
 advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::FirmwareReversingObtainaddressonlyStep() {
-  TheDistributionParameters = new double[2];
-  commonInit("FirmwareReversingObtainaddressonlyStep", 11, Normal, RaceEnabled, 19, 2, false);}
+  TheDistributionParameters = new double[1];
+  commonInit("FirmwareReversingObtainaddressonlyStep", 11, Deterministic, RaceEnabled, 19, 2, false);}
 
 advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::~FirmwareReversingObtainaddressonlyStep() {
   delete[] TheDistributionParameters;
@@ -3026,15 +3024,11 @@ bool advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::Enabled() {
 }
 
 double advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::timeDistributionParameter0() {
-return 3;
-}
-
-double advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::timeDistributionParameter1() {
-return 1;
+return 2;
 }
 
 double advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::Weight() {
-return 0.7;
+if(codeObfuscation<1) return 0.7; return 0.1;
 }
 
 bool advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::ReactivationPredicate() {
@@ -3046,12 +3040,11 @@ bool advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::ReactivationFunc
 }
 
 double advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::SampleDistribution() {
-  return TheDistribution->Normal(timeDistributionParameter0(), timeDistributionParameter1());
+  return TheDistribution->Deterministic(timeDistributionParameter0());
 }
 
 double *advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::ReturnDistributionParameters() {
   TheDistributionParameters[0] = timeDistributionParameter0();
-  TheDistributionParameters[1] = timeDistributionParameter1();
   return TheDistributionParameters;
 }
 
@@ -3074,7 +3067,7 @@ return 0;
 }
 
 double advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::getOutcomeProbability() {
-return 0.7;
+if(codeObfuscation<1) return 0.7; return 0.1;
 }
 
 double advise_treeADVISE::FirmwareReversingObtainaddressonlyStep::getDetection() {

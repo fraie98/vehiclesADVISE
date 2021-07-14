@@ -53,17 +53,16 @@
     <stepElements key="FirmwareReversing">
       <value name="FirmwareReversing" codename="FirmwareReversing" xpos="129" ypos="203" sourceArcs="//@aeg/@arcElements.2 //@aeg/@arcElements.3" targetArcs="//@aeg/@arcElements.0 //@aeg/@arcElements.1" attackExecutionGraph="//@aeg" width="150" preconditions="return (BinaryDump->Mark() &amp;&amp; (ReverseEngineering->Mark()>1) &amp;&amp; !HandshakeProtocol->Mark() &amp;&amp; !SocketAddress->Mark());&#xA;&#x9;" cost="return 0;">
         <outcomes key="Success">
-          <value name="Obtain address only" probability="return 0.7;" detection="return 0;" effects="SocketAddress->Mark() = 1;"/>
+          <value name="Obtain address only" probability="if(codeObfuscation&lt;1) return 0.7; return 0.1;" detection="return 0;" effects="SocketAddress->Mark() = 1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="return 0.2;" detection="return 0;" effects=""/>
+          <value name="Failure" probability="if(codeObfuscation&lt;1) return 0.2; return 0.9;" detection="return 0;" effects=""/>
         </outcomes>
         <outcomes key="Obtain all">
-          <value name="Obtain all" probability="return 0.1;" detection="return 0;" effects="HandshakeProtocol->Mark() = 1;&#xA;SocketAddress->Mark() = 1;"/>
+          <value name="Obtain all" probability="if(codeObfuscation&lt;1) return 0.1; return 0;" detection="return 0;" effects="HandshakeProtocol->Mark() = 1;&#xA;SocketAddress->Mark() = 1;"/>
         </outcomes>
-        <timing distributionType="Normal">
-          <parameters>return 3;</parameters>
-          <parameters>return 1;</parameters>
+        <timing distributionType="Deterministic">
+          <parameters>return 2;</parameters>
         </timing>
       </value>
     </stepElements>
@@ -81,12 +80,12 @@
       </value>
     </stepElements>
     <stepElements key="PortScan">
-      <value name="PortScan" codename="PortScan" xpos="331" ypos="321" sourceArcs="//@aeg/@arcElements.9" targetArcs="//@aeg/@arcElements.8" attackExecutionGraph="//@aeg" width="150" preconditions="return (SocketAddress->Mark() &amp;&amp; !VulnerabilityAwareness->Mark());" cost="return 0;">
+      <value name="PortScan" codename="PortScan" xpos="338" ypos="320" sourceArcs="//@aeg/@arcElements.9" targetArcs="//@aeg/@arcElements.8" attackExecutionGraph="//@aeg" width="150" preconditions="return (SocketAddress->Mark() &amp;&amp; !VulnerabilityAwareness->Mark());" cost="return 0;">
         <outcomes key="Success">
-          <value name="Success" probability="return 0.9;" detection="return 0.2;" effects="VulnerabilityAwareness->Mark()=1;"/>
+          <value name="Success" probability="if(firewallSensitivity==0) return 0.9;&#xA;if(firewallSensitivity==1) return 0.2; &#xA;if(firewallSensitivity==2) return 0.1; " detection="if(firewallSensitivity&lt;1) return 0.1; return 0.5;" effects="VulnerabilityAwareness->Mark()=1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="return 0.1;" detection="return 0.2;" effects=""/>
+          <value name="Failure" probability="if(firewallSensitivity==0) return 0.1; &#xA;if(firewallSensitivity==1) return 0.8; &#xA;if(firewallSensitivity==2) return 0.9; " detection="if(firewallSensitivity&lt;1) return 0.2; return 0.5;" effects=""/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 4;</parameters>
@@ -122,10 +121,10 @@
     <stepElements key="Tampering">
       <value name="Tampering" codename="Tampering" xpos="467" ypos="795" sourceArcs="//@aeg/@arcElements.13" targetArcs="//@aeg/@arcElements.12" attackExecutionGraph="//@aeg" width="150" preconditions="return (VehicleServerRootAccess->Mark() &amp;&amp; !VehicleUndesideredBehaviour->Mark());" cost="return 0;">
         <outcomes key="Success">
-          <value name="Success" probability="return 0.9;" detection="return 0.2;" effects="VehicleUndesideredBehaviour->Mark()=1;"/>
+          <value name="Success" probability="return 0.9;" detection="return 0.1;" effects="VehicleUndesideredBehaviour->Mark()=1;"/>
         </outcomes>
         <outcomes key="Failure">
-          <value name="Failure" probability="return 0.1;" detection="return 0.3;" effects=""/>
+          <value name="Failure" probability="return 0.1;" detection="return 0.1;" effects=""/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 5;</parameters>
@@ -135,10 +134,10 @@
     <stepElements key="PrivilegeEscalation">
       <value name="PrivilegeEscalation" codename="PrivilegeEscalation" xpos="513" ypos="609" sourceArcs="//@aeg/@arcElements.17" targetArcs="//@aeg/@arcElements.16" attackExecutionGraph="//@aeg" width="150" preconditions="return(vehicleServerUnprivAccess->Mark() &amp;&amp; !VehicleServerRootAccess->Mark());">
         <outcomes key="faliure">
-          <value name="faliure" probability="return 0.5;" detection="return 0.5;" effects=""/>
+          <value name="faliure" probability="return 0.5;" detection="if(IDSsensitivity&lt;1)return 0.1; return 0.3;" effects=""/>
         </outcomes>
         <outcomes key="success">
-          <value name="success" probability="return 0.5;" detection="return 0.5;" effects="VehicleServerRootAccess->Mark()=1;"/>
+          <value name="success" probability="return 0.5;" detection="if(IDSsensitivity&lt;1)return 0.1; return 0.5;" effects="VehicleServerRootAccess->Mark()=1;"/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 5;</parameters>
@@ -174,10 +173,10 @@
     <stepElements key="Pivoting">
       <value name="Pivoting" codename="Pivoting" xpos="704" ypos="474" sourceArcs="//@aeg/@arcElements.23" targetArcs="//@aeg/@arcElements.22" attackExecutionGraph="//@aeg" width="150" preconditions="return (CorporateNetworkAccess->Mark() &amp;&amp; !vehicleServerUnprivAccess->Mark());">
         <outcomes key="success">
-          <value name="success" probability="return 0.7;" detection="return 0.5;" effects="vehicleServerUnprivAccess->Mark()=1;"/>
+          <value name="success" probability="return 0.7;" detection="return 0.2;" effects="vehicleServerUnprivAccess->Mark()=1;"/>
         </outcomes>
         <outcomes key="faliure">
-          <value name="faliure" probability="return 0.3;" detection="return 0.5;" effects=""/>
+          <value name="faliure" probability="return 0.3;" detection="return 0.2;" effects=""/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 3;</parameters>
@@ -248,7 +247,7 @@
     <arcElements sourceName="CorporateInternetAddress" targetName="WebIntrusion" sourceType="Knowledge" targetType="Step"/>
     <arcElements sourceName="WebIntrusion" targetName="CorporateNetworkAccess" sourceType="Step"/>
   </aeg>
-  <adversary name="Hacker" codename="Hacker" horizon="4" detectionSW="detectionWeight" costSW="costWeight" payoffSW="payoffWeight">
+  <adversary name="Hacker" codename="Hacker" horizon="4" detectionSW="(attacker=='H')?0.1:(attacker=='I')?0.4:(attacker=='P')?0.3:0" costSW="(attacker=='H')?0.1:(attacker=='I')?0.1:(attacker=='P')?0.2:0" payoffSW="(attacker=='H')?0.8:(attacker=='I')?0.5:(attacker=='P')?0.7:0">
     <accessInit key="VehicleServerRootAccess" value="0"/>
     <accessInit key="vehicleServerUnprivAccess" value="attacker=='I'"/>
     <accessInit key="PhysicalAccess" value="attacker=='P'"/>

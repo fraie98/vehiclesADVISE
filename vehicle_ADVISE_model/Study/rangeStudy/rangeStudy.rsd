@@ -29,17 +29,17 @@
 						<boolean id="DisplayToolTips">true</boolean>
 					</class>
 					<string id="FullPath">
-						/home/student/MobiusProject/vehicle_ADVISE_model/Study/range
-						Study/
+						/home/student/gitHub/vehiclesADVISE/vehicle_ADVISE_model/Stu
+						dy/rangeStudy/
 					</string>
 					<string id="PVModelName">Reward</string>
 					<vector id="ActiveExpVector">
-						<boolean id="0">true</boolean>
-						<boolean id="1">true</boolean>
+						<boolean id="0">false</boolean>
+						<boolean id="1">false</boolean>
 						<boolean id="2">true</boolean>
-						<boolean id="3">false</boolean>
-						<boolean id="4">false</boolean>
-						<boolean id="5">false</boolean>
+						<boolean id="3">true</boolean>
+						<boolean id="4">true</boolean>
+						<boolean id="5">true</boolean>
 						<boolean id="6">false</boolean>
 						<boolean id="7">false</boolean>
 						<boolean id="8">false</boolean>
@@ -70,63 +70,18 @@
 						<boolean id="33">false</boolean>
 						<boolean id="34">false</boolean>
 						<boolean id="35">false</boolean>
-						<boolean id="36">false</boolean>
-						<boolean id="37">false</boolean>
-						<boolean id="38">false</boolean>
-						<boolean id="39">false</boolean>
-						<boolean id="40">true</boolean>
-						<boolean id="41">false</boolean>
-						<boolean id="42">false</boolean>
-						<boolean id="43">false</boolean>
-						<boolean id="44">false</boolean>
-						<boolean id="45">false</boolean>
-						<boolean id="46">false</boolean>
-						<boolean id="47">false</boolean>
-						<boolean id="48">false</boolean>
-						<boolean id="49">false</boolean>
-						<boolean id="50">false</boolean>
-						<boolean id="51">false</boolean>
-						<boolean id="52">false</boolean>
-						<boolean id="53">false</boolean>
-						<boolean id="54">false</boolean>
-						<boolean id="55">false</boolean>
-						<boolean id="56">false</boolean>
-						<boolean id="57">false</boolean>
-						<boolean id="58">false</boolean>
-						<boolean id="59">false</boolean>
-						<boolean id="60">false</boolean>
-						<boolean id="61">false</boolean>
-						<boolean id="62">false</boolean>
-						<boolean id="63">false</boolean>
-						<boolean id="64">false</boolean>
-						<boolean id="65">false</boolean>
-						<boolean id="66">false</boolean>
-						<boolean id="67">false</boolean>
-						<boolean id="68">false</boolean>
-						<boolean id="69">false</boolean>
-						<boolean id="70">false</boolean>
-						<boolean id="71">true</boolean>
-						<boolean id="72">false</boolean>
-						<boolean id="73">false</boolean>
-						<boolean id="74">false</boolean>
-						<boolean id="75">false</boolean>
-						<boolean id="76">false</boolean>
-						<boolean id="77">false</boolean>
-						<boolean id="78">false</boolean>
-						<boolean id="79">false</boolean>
-						<boolean id="80">false</boolean>
 					</vector>
 					<vector id="GVNameVector">
-						<string id="0">attacker</string>
-						<string id="1">costWeight</string>
-						<string id="2">detectionWeight</string>
-						<string id="3">payoffWeight</string>
+						<string id="0">IDSsensitivity</string>
+						<string id="1">attacker</string>
+						<string id="2">codeObfuscation</string>
+						<string id="3">firewallSensitivity</string>
 					</vector>
 					<vector id="GVTypeStringVector">
-						<string id="0">char</string>
-						<string id="1">float</string>
-						<string id="2">float</string>
-						<string id="3">float</string>
+						<string id="0">short</string>
+						<string id="1">char</string>
+						<string id="2">short</string>
+						<string id="3">short</string>
 					</vector>
 				</class>
 				<int id="VectorLength">4</int>
@@ -151,24 +106,22 @@
 					<string id="2">0</string>
 				</vector>
 				<vector id="g">
+					<string id="0">0</string>
+					<string id="1">1</string>
+				</vector>
+				<vector id="g">
 					<string id="0">'H'</string>
 					<string id="1">'I'</string>
 					<string id="2">'P'</string>
 				</vector>
 				<vector id="g">
 					<string id="0">0</string>
-					<string id="1">0.2</string>
-					<string id="2">0.1</string>
+					<string id="1">1</string>
 				</vector>
 				<vector id="g">
-					<string id="0">0.1</string>
-					<string id="1">0.5</string>
-					<string id="2">0.5</string>
-				</vector>
-				<vector id="g">
-					<string id="0">0.9</string>
-					<string id="1">0.3</string>
-					<string id="2">0.4</string>
+					<string id="0">0</string>
+					<string id="1">1</string>
+					<string id="2">2</string>
 				</vector>
 			</class>
 			<boolean id="Valid">true</boolean>
