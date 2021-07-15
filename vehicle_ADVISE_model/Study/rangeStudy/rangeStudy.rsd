@@ -29,42 +29,42 @@
 						<boolean id="DisplayToolTips">true</boolean>
 					</class>
 					<string id="FullPath">
-						/home/student/gitHub/vehiclesADVISE/vehicle_ADVISE_model/Stu
-						dy/rangeStudy/
+						/home/student/MobiusProject/vehicle_ADVISE_model/Study/range
+						Study/
 					</string>
 					<string id="PVModelName">Reward</string>
 					<vector id="ActiveExpVector">
-						<boolean id="0">false</boolean>
+						<boolean id="0">true</boolean>
 						<boolean id="1">false</boolean>
 						<boolean id="2">true</boolean>
 						<boolean id="3">true</boolean>
 						<boolean id="4">true</boolean>
 						<boolean id="5">true</boolean>
-						<boolean id="6">false</boolean>
+						<boolean id="6">true</boolean>
 						<boolean id="7">false</boolean>
 						<boolean id="8">false</boolean>
 						<boolean id="9">false</boolean>
 						<boolean id="10">false</boolean>
 						<boolean id="11">false</boolean>
-						<boolean id="12">false</boolean>
+						<boolean id="12">true</boolean>
 						<boolean id="13">false</boolean>
 						<boolean id="14">false</boolean>
 						<boolean id="15">false</boolean>
 						<boolean id="16">false</boolean>
 						<boolean id="17">false</boolean>
-						<boolean id="18">false</boolean>
+						<boolean id="18">true</boolean>
 						<boolean id="19">false</boolean>
 						<boolean id="20">false</boolean>
 						<boolean id="21">false</boolean>
 						<boolean id="22">false</boolean>
 						<boolean id="23">false</boolean>
-						<boolean id="24">false</boolean>
+						<boolean id="24">true</boolean>
 						<boolean id="25">false</boolean>
 						<boolean id="26">false</boolean>
 						<boolean id="27">false</boolean>
 						<boolean id="28">false</boolean>
 						<boolean id="29">false</boolean>
-						<boolean id="30">false</boolean>
+						<boolean id="30">true</boolean>
 						<boolean id="31">false</boolean>
 						<boolean id="32">false</boolean>
 						<boolean id="33">false</boolean>
