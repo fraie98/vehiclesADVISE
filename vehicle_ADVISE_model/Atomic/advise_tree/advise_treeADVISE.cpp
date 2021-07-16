@@ -302,7 +302,7 @@ advise_treeADVISE::advise_treeADVISE() {
 
   advCostPref = (attacker=='H')?0.1:(attacker=='I')?0.1:(attacker=='P')?0.2:0;
   advDetectPref = (attacker=='H')?0.1:(attacker=='I')?0.4:(attacker=='P')?0.3:0;
-  advPayPref = (attacker=='H')?0.8:(attacker=='I')?0.5:(attacker=='P')?0.7:0;
+  advPayPref = (attacker=='H')?0.8:(attacker=='I')?0.5:(attacker=='P')?0.5:0;
 
   planningHorizon = 4;
   costDiscount = 1.0;

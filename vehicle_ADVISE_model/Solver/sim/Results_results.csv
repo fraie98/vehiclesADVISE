@@ -1,5 +1,5 @@
 Simulator Results
-Date:, Thu Jul 15 16:55:42 CEST 2021
+Date:, Fri Jul 16 18:20:30 CEST 2021
 
 Simulator Configuration
 Simulation Type:,Terminating
@@ -23,10 +23,10 @@ Processors Selected for Simulation:
 student-VirtualBox,amd64
 
 Experiment 1
-Experiment 1,Start Time:,Thu Jul 15 16:54:54 CEST 2021
-Experiment 1,Finish Time:,Thu Jul 15 16:55:02 CEST 2021
-Experiment 1,Elapsed Running Time:,8.243
-Experiment 1,Total CPU Time:,6.515722
+Experiment 1,Start Time:,Fri Jul 16 18:19:41 CEST 2021
+Experiment 1,Finish Time:,Fri Jul 16 18:19:50 CEST 2021
+Experiment 1,Elapsed Running Time:,8.879
+Experiment 1,Total CPU Time:,5.403537
 Experiment 1,Batches Completed:,10000
 Experiment 1,Experiment Name:,Experiment 1
 Experiment 1,Global Variable Settings:
@@ -574,10 +574,10 @@ Experiment 1,Mean,corporateNetworkAccess,200.0,200.0,0.0000000000E00 ,+/-,0.0000
 (*) This result did not converge to within the specified confidence interval
 
 Experiment 3
-Experiment 3,Start Time:,Thu Jul 15 16:55:02 CEST 2021
-Experiment 3,Finish Time:,Thu Jul 15 16:55:03 CEST 2021
-Experiment 3,Elapsed Running Time:,1.34
-Experiment 3,Total CPU Time:,0.695951
+Experiment 3,Start Time:,Fri Jul 16 18:19:50 CEST 2021
+Experiment 3,Finish Time:,Fri Jul 16 18:19:51 CEST 2021
+Experiment 3,Elapsed Running Time:,1.407
+Experiment 3,Total CPU Time:,0.770931
 Experiment 3,Batches Completed:,1000
 Experiment 3,Experiment Name:,Experiment 3
 Experiment 3,Global Variable Settings:
@@ -1122,10 +1122,10 @@ Experiment 3,Mean,corporateNetworkAccess,195.0,195.0,1.0000000000E00 ,+/-,0.0000
 Experiment 3,Mean,corporateNetworkAccess,200.0,200.0,1.0000000000E00 ,+/-,0.0000000000E00 
 
 Experiment 4
-Experiment 4,Start Time:,Thu Jul 15 16:55:03 CEST 2021
-Experiment 4,Finish Time:,Thu Jul 15 16:55:05 CEST 2021
-Experiment 4,Elapsed Running Time:,1.373
-Experiment 4,Total CPU Time:,0.686496
+Experiment 4,Start Time:,Fri Jul 16 18:19:51 CEST 2021
+Experiment 4,Finish Time:,Fri Jul 16 18:19:53 CEST 2021
+Experiment 4,Elapsed Running Time:,1.533
+Experiment 4,Total CPU Time:,0.7936970000000001
 Experiment 4,Batches Completed:,1000
 Experiment 4,Experiment Name:,Experiment 4
 Experiment 4,Global Variable Settings:
@@ -1670,10 +1670,10 @@ Experiment 4,Mean,corporateNetworkAccess,195.0,195.0,1.0000000000E00 ,+/-,0.0000
 Experiment 4,Mean,corporateNetworkAccess,200.0,200.0,1.0000000000E00 ,+/-,0.0000000000E00 
 
 Experiment 5
-Experiment 5,Start Time:,Thu Jul 15 16:55:05 CEST 2021
-Experiment 5,Finish Time:,Thu Jul 15 16:55:06 CEST 2021
-Experiment 5,Elapsed Running Time:,1.514
-Experiment 5,Total CPU Time:,0.831348
+Experiment 5,Start Time:,Fri Jul 16 18:19:53 CEST 2021
+Experiment 5,Finish Time:,Fri Jul 16 18:19:54 CEST 2021
+Experiment 5,Elapsed Running Time:,1.492
+Experiment 5,Total CPU Time:,0.583113
 Experiment 5,Batches Completed:,1000
 Experiment 5,Experiment Name:,Experiment 5
 Experiment 5,Global Variable Settings:
@@ -2218,10 +2218,10 @@ Experiment 5,Mean,corporateNetworkAccess,195.0,195.0,0.0000000000E00 ,+/-,0.0000
 Experiment 5,Mean,corporateNetworkAccess,200.0,200.0,0.0000000000E00 ,+/-,0.0000000000E00 
 
 Experiment 6
-Experiment 6,Start Time:,Thu Jul 15 16:55:06 CEST 2021
-Experiment 6,Finish Time:,Thu Jul 15 16:55:08 CEST 2021
-Experiment 6,Elapsed Running Time:,1.357
-Experiment 6,Total CPU Time:,0.740964
+Experiment 6,Start Time:,Fri Jul 16 18:19:54 CEST 2021
+Experiment 6,Finish Time:,Fri Jul 16 18:19:56 CEST 2021
+Experiment 6,Elapsed Running Time:,1.321
+Experiment 6,Total CPU Time:,0.682216
 Experiment 6,Batches Completed:,1000
 Experiment 6,Experiment Name:,Experiment 6
 Experiment 6,Global Variable Settings:
@@ -2766,10 +2766,10 @@ Experiment 6,Mean,corporateNetworkAccess,195.0,195.0,0.0000000000E00 ,+/-,0.0000
 Experiment 6,Mean,corporateNetworkAccess,200.0,200.0,0.0000000000E00 ,+/-,0.0000000000E00 
 
 Experiment 7
-Experiment 7,Start Time:,Thu Jul 15 16:55:08 CEST 2021
-Experiment 7,Finish Time:,Thu Jul 15 16:55:15 CEST 2021
-Experiment 7,Elapsed Running Time:,7.294
-Experiment 7,Total CPU Time:,4.524227
+Experiment 7,Start Time:,Fri Jul 16 18:19:56 CEST 2021
+Experiment 7,Finish Time:,Fri Jul 16 18:20:03 CEST 2021
+Experiment 7,Elapsed Running Time:,7.262
+Experiment 7,Total CPU Time:,6.214699
 Experiment 7,Batches Completed:,10000
 Experiment 7,Experiment Name:,Experiment 7
 Experiment 7,Global Variable Settings:
@@ -3317,10 +3317,10 @@ Experiment 7,Mean,corporateNetworkAccess,200.0,200.0,0.0000000000E00 ,+/-,0.0000
 (*) This result did not converge to within the specified confidence interval
 
 Experiment 13
-Experiment 13,Start Time:,Thu Jul 15 16:55:15 CEST 2021
-Experiment 13,Finish Time:,Thu Jul 15 16:55:22 CEST 2021
-Experiment 13,Elapsed Running Time:,7.149
-Experiment 13,Total CPU Time:,3.4501760000000004
+Experiment 13,Start Time:,Fri Jul 16 18:20:03 CEST 2021
+Experiment 13,Finish Time:,Fri Jul 16 18:20:10 CEST 2021
+Experiment 13,Elapsed Running Time:,7.475
+Experiment 13,Total CPU Time:,5.2171449999999995
 Experiment 13,Batches Completed:,10000
 Experiment 13,Experiment Name:,Experiment 13
 Experiment 13,Global Variable Settings:
@@ -3868,10 +3868,10 @@ Experiment 13,Mean,corporateNetworkAccess,200.0,200.0,0.0000000000E00 ,+/-,0.000
 (*) This result did not converge to within the specified confidence interval
 
 Experiment 19
-Experiment 19,Start Time:,Thu Jul 15 16:55:22 CEST 2021
-Experiment 19,Finish Time:,Thu Jul 15 16:55:29 CEST 2021
-Experiment 19,Elapsed Running Time:,6.777
-Experiment 19,Total CPU Time:,5.495569
+Experiment 19,Start Time:,Fri Jul 16 18:20:11 CEST 2021
+Experiment 19,Finish Time:,Fri Jul 16 18:20:17 CEST 2021
+Experiment 19,Elapsed Running Time:,6.789
+Experiment 19,Total CPU Time:,4.692467000000001
 Experiment 19,Batches Completed:,10000
 Experiment 19,Experiment Name:,Experiment 19
 Experiment 19,Global Variable Settings:
@@ -4419,10 +4419,10 @@ Experiment 19,Mean,corporateNetworkAccess,200.0,200.0,0.0000000000E00 ,+/-,0.000
 (*) This result did not converge to within the specified confidence interval
 
 Experiment 25
-Experiment 25,Start Time:,Thu Jul 15 16:55:29 CEST 2021
-Experiment 25,Finish Time:,Thu Jul 15 16:55:36 CEST 2021
-Experiment 25,Elapsed Running Time:,6.531
-Experiment 25,Total CPU Time:,5.410085
+Experiment 25,Start Time:,Fri Jul 16 18:20:17 CEST 2021
+Experiment 25,Finish Time:,Fri Jul 16 18:20:24 CEST 2021
+Experiment 25,Elapsed Running Time:,6.489
+Experiment 25,Total CPU Time:,5.389066000000001
 Experiment 25,Batches Completed:,10000
 Experiment 25,Experiment Name:,Experiment 25
 Experiment 25,Global Variable Settings:
@@ -4967,10 +4967,10 @@ Experiment 25,Mean,corporateNetworkAccess,195.0,195.0,0.0000000000E00 ,+/-,0.000
 Experiment 25,Mean,corporateNetworkAccess,200.0,200.0,0.0000000000E00 ,+/-,0.0000000000E00 
 
 Experiment 31
-Experiment 31,Start Time:,Thu Jul 15 16:55:36 CEST 2021
-Experiment 31,Finish Time:,Thu Jul 15 16:55:41 CEST 2021
-Experiment 31,Elapsed Running Time:,5.876
-Experiment 31,Total CPU Time:,4.944433
+Experiment 31,Start Time:,Fri Jul 16 18:20:24 CEST 2021
+Experiment 31,Finish Time:,Fri Jul 16 18:20:30 CEST 2021
+Experiment 31,Elapsed Running Time:,5.66
+Experiment 31,Total CPU Time:,4.8414019999999995
 Experiment 31,Batches Completed:,10000
 Experiment 31,Experiment Name:,Experiment 31
 Experiment 31,Global Variable Settings:

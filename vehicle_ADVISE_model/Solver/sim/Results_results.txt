@@ -1,5 +1,5 @@
 _______________________________Simulator Results______________________________
-Date:                        Thu Jul 15 16:55:42 CEST 2021
+Date:                        Fri Jul 16 18:20:30 CEST 2021
 
 ____________________________Simulator Configuration___________________________
 Simulation Type:             Terminating
@@ -23,10 +23,10 @@ Processors Selected for Simulation:
         student-VirtualBox   amd64
 
 _________________________________Experiment 1_________________________________
-Start Time:                  Thu Jul 15 16:54:54 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:02 CEST 2021
-Elapsed Running Time:        8.243
-Total CPU Time:              6.515722
+Start Time:                  Fri Jul 16 18:19:41 CEST 2021
+Finish Time:                 Fri Jul 16 18:19:50 CEST 2021
+Elapsed Running Time:        8.879
+Total CPU Time:              5.403537
 Batches Completed:           10000
 Experiment Name:             Experiment 1
 Global Variable Settings:    
@@ -585,10 +585,10 @@ _____________________________Distribution Results_____________________________
 (*) This result did not converge to within the specified confidence interval
 
 _________________________________Experiment 3_________________________________
-Start Time:                  Thu Jul 15 16:55:02 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:03 CEST 2021
-Elapsed Running Time:        1.34
-Total CPU Time:              0.695951
+Start Time:                  Fri Jul 16 18:19:50 CEST 2021
+Finish Time:                 Fri Jul 16 18:19:51 CEST 2021
+Elapsed Running Time:        1.407
+Total CPU Time:              0.770931
 Batches Completed:           1000
 Experiment Name:             Experiment 3
 Global Variable Settings:    
@@ -1144,10 +1144,10 @@ _______________________________Interval Results_______________________________
 _____________________________Distribution Results_____________________________
 
 _________________________________Experiment 4_________________________________
-Start Time:                  Thu Jul 15 16:55:03 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:05 CEST 2021
-Elapsed Running Time:        1.373
-Total CPU Time:              0.686496
+Start Time:                  Fri Jul 16 18:19:51 CEST 2021
+Finish Time:                 Fri Jul 16 18:19:53 CEST 2021
+Elapsed Running Time:        1.533
+Total CPU Time:              0.7936970000000001
 Batches Completed:           1000
 Experiment Name:             Experiment 4
 Global Variable Settings:    
@@ -1703,10 +1703,10 @@ _______________________________Interval Results_______________________________
 _____________________________Distribution Results_____________________________
 
 _________________________________Experiment 5_________________________________
-Start Time:                  Thu Jul 15 16:55:05 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:06 CEST 2021
-Elapsed Running Time:        1.514
-Total CPU Time:              0.831348
+Start Time:                  Fri Jul 16 18:19:53 CEST 2021
+Finish Time:                 Fri Jul 16 18:19:54 CEST 2021
+Elapsed Running Time:        1.492
+Total CPU Time:              0.583113
 Batches Completed:           1000
 Experiment Name:             Experiment 5
 Global Variable Settings:    
@@ -2262,10 +2262,10 @@ _______________________________Interval Results_______________________________
 _____________________________Distribution Results_____________________________
 
 _________________________________Experiment 6_________________________________
-Start Time:                  Thu Jul 15 16:55:06 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:08 CEST 2021
-Elapsed Running Time:        1.357
-Total CPU Time:              0.740964
+Start Time:                  Fri Jul 16 18:19:54 CEST 2021
+Finish Time:                 Fri Jul 16 18:19:56 CEST 2021
+Elapsed Running Time:        1.321
+Total CPU Time:              0.682216
 Batches Completed:           1000
 Experiment Name:             Experiment 6
 Global Variable Settings:    
@@ -2821,10 +2821,10 @@ _______________________________Interval Results_______________________________
 _____________________________Distribution Results_____________________________
 
 _________________________________Experiment 7_________________________________
-Start Time:                  Thu Jul 15 16:55:08 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:15 CEST 2021
-Elapsed Running Time:        7.294
-Total CPU Time:              4.524227
+Start Time:                  Fri Jul 16 18:19:56 CEST 2021
+Finish Time:                 Fri Jul 16 18:20:03 CEST 2021
+Elapsed Running Time:        7.262
+Total CPU Time:              6.214699
 Batches Completed:           10000
 Experiment Name:             Experiment 7
 Global Variable Settings:    
@@ -3383,10 +3383,10 @@ _____________________________Distribution Results_____________________________
 (*) This result did not converge to within the specified confidence interval
 
 _________________________________Experiment 13________________________________
-Start Time:                  Thu Jul 15 16:55:15 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:22 CEST 2021
-Elapsed Running Time:        7.149
-Total CPU Time:              3.4501760000000004
+Start Time:                  Fri Jul 16 18:20:03 CEST 2021
+Finish Time:                 Fri Jul 16 18:20:10 CEST 2021
+Elapsed Running Time:        7.475
+Total CPU Time:              5.2171449999999995
 Batches Completed:           10000
 Experiment Name:             Experiment 13
 Global Variable Settings:    
@@ -3945,10 +3945,10 @@ _____________________________Distribution Results_____________________________
 (*) This result did not converge to within the specified confidence interval
 
 _________________________________Experiment 19________________________________
-Start Time:                  Thu Jul 15 16:55:22 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:29 CEST 2021
-Elapsed Running Time:        6.777
-Total CPU Time:              5.495569
+Start Time:                  Fri Jul 16 18:20:11 CEST 2021
+Finish Time:                 Fri Jul 16 18:20:17 CEST 2021
+Elapsed Running Time:        6.789
+Total CPU Time:              4.692467000000001
 Batches Completed:           10000
 Experiment Name:             Experiment 19
 Global Variable Settings:    
@@ -4507,10 +4507,10 @@ _____________________________Distribution Results_____________________________
 (*) This result did not converge to within the specified confidence interval
 
 _________________________________Experiment 25________________________________
-Start Time:                  Thu Jul 15 16:55:29 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:36 CEST 2021
-Elapsed Running Time:        6.531
-Total CPU Time:              5.410085
+Start Time:                  Fri Jul 16 18:20:17 CEST 2021
+Finish Time:                 Fri Jul 16 18:20:24 CEST 2021
+Elapsed Running Time:        6.489
+Total CPU Time:              5.389066000000001
 Batches Completed:           10000
 Experiment Name:             Experiment 25
 Global Variable Settings:    
@@ -5066,10 +5066,10 @@ _______________________________Interval Results_______________________________
 _____________________________Distribution Results_____________________________
 
 _________________________________Experiment 31________________________________
-Start Time:                  Thu Jul 15 16:55:36 CEST 2021
-Finish Time:                 Thu Jul 15 16:55:41 CEST 2021
-Elapsed Running Time:        5.876
-Total CPU Time:              4.944433
+Start Time:                  Fri Jul 16 18:20:24 CEST 2021
+Finish Time:                 Fri Jul 16 18:20:30 CEST 2021
+Elapsed Running Time:        5.66
+Total CPU Time:              4.8414019999999995
 Batches Completed:           10000
 Experiment Name:             Experiment 31
 Global Variable Settings:    
