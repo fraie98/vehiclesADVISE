@@ -1967,7 +1967,7 @@ return 2;
 }
 
 double advise_treeADVISE::MalwareIntroductionfailureStep::Weight() {
-return 0.9;
+return 0.3;
 }
 
 bool advise_treeADVISE::MalwareIntroductionfailureStep::ReactivationPredicate() {
@@ -2005,7 +2005,7 @@ double advise_treeADVISE::MalwareIntroductionfailureStep::getCost() {
 }
 
 double advise_treeADVISE::MalwareIntroductionfailureStep::getOutcomeProbability() {
-return 0.9;
+return 0.3;
 }
 
 double advise_treeADVISE::MalwareIntroductionfailureStep::getDetection() {
@@ -2054,7 +2054,7 @@ return 2;
 }
 
 double advise_treeADVISE::MalwareIntroductionsuccessStep::Weight() {
-return 0.1;
+return 0.7;
 }
 
 bool advise_treeADVISE::MalwareIntroductionsuccessStep::ReactivationPredicate() {
@@ -2092,7 +2092,7 @@ double advise_treeADVISE::MalwareIntroductionsuccessStep::getCost() {
 }
 
 double advise_treeADVISE::MalwareIntroductionsuccessStep::getOutcomeProbability() {
-return 0.1;
+return 0.7;
 }
 
 double advise_treeADVISE::MalwareIntroductionsuccessStep::getDetection() {

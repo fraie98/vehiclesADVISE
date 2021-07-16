@@ -147,10 +147,10 @@
     <stepElements key="MalwareIntroduction">
       <value name="MalwareIntroduction" codename="MalwareIntroduction" xpos="542" ypos="365" sourceArcs="//@aeg/@arcElements.19" targetArcs="//@aeg/@arcElements.18" attackExecutionGraph="//@aeg" width="150" preconditions="return(PhysicalAccess->Mark() &amp;&amp; !vehicleServerUnprivAccess->Mark());" cost="10;">
         <outcomes key="faliure">
-          <value name="failure" probability="return 0.9;" detection="return 0.1;" effects=""/>
+          <value name="failure" probability="return 0.3;" detection="return 0.1;" effects=""/>
         </outcomes>
         <outcomes key="success">
-          <value name="success" probability="return 0.1;" detection="return 0.2;" effects="vehicleServerUnprivAccess->Mark()=1;"/>
+          <value name="success" probability="return 0.7;" detection="return 0.2;" effects="vehicleServerUnprivAccess->Mark()=1;"/>
         </outcomes>
         <timing distributionType="Deterministic">
           <parameters>return 2;</parameters>
