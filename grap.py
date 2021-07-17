@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
+import matplotlib
 file="vehicle_ADVISE_model/Solver/sim/Results_results.csv"
 info = pd.read_csv(file, header=None, error_bad_lines=False, skiprows=32, nrows=4)
 info=np.array(info)
@@ -15,6 +16,8 @@ ex=np.array(ex["Experiment"])
 cmap=cm.get_cmap("rainbow")
 goals=["DoS", "vehicleUndesideredBehaviour", "dataBreach"]
 p_colors=cmap(np.linspace(0, 1 ,20))
+font = {'size'   : 13}
+matplotlib.rc('font', **font)
 for t in ex:
     if(t[0]!='E'):
         continue
@@ -43,11 +46,13 @@ for t in ex:
         plt.xlabel("time")
         plt.xticks(np.arange(0,220,20))
         plt.ylabel("probability")
-        #plt.yticks(np.arange(0,1.1,11))
-        label=str(info[:,2:])
+        plt.yticks(np.arange(0,11,0.1))
+        label=info[0,2]+"= "+info[0,3]+"\n"
+        label+=info[2,2]+"= "+info[2,3]+"\n"
+        label+=info[3,2]+"= "+info[3,3]
         plt.errorbar(x=prob[:,0], y=prob[:,1], yerr=prob[:,2], capsize=3, linestyle="solid",
                marker='s', markersize=3, mfc="black", mec="black", label=label)
-        plt.legend(title="Experiments", loc='lower center', bbox_to_anchor=(1,0.5))
+        plt.legend(title="Experiments", loc='lower center', bbox_to_anchor=(0.87,0.19))
         print(t)
         print(info)
     info=[]
