@@ -51,9 +51,9 @@ On the other hand, they have advanced security and penetration skills, in-depth 
 	\begin{tabular}{|c|c|c|c|}
 		\hline
 		\textbf{Attacker Name} & \textbf{Cost Weight} & \textbf{Detection Weight} & \textbf{Payoff Weight} \\ \hline
-		Hacker                 & 0                    & 0.1                       & 0.9                    \\ \hline
-		Physical Intruder      & 0.2                  & 0.5                       & 0.3                    \\ \hline
-		Insider                & 0.1                  & 0.5                       & 0.4                    \\ \hline
+		Hacker                 & 0.1                    & 0.1                       & 0.8                    \\ \hline
+		Physical Intruder      & 0.2                  & 0.3                       & 0.5                    \\ \hline
+		Insider                & 0.1                  & 0.4                       & 0.5                    \\ \hline
 	\end{tabular}
 	\caption{Weights of Attacker Profile}
 	\label{tab:weights}
@@ -63,11 +63,37 @@ On the other hand, they have advanced security and penetration skills, in-depth 
 
 \section{Goals}
 
-\subsection*{Attack a vehicle or extract data}
+\noindent In the following we will describe the goals that an attacker can achieve.
+
+\subsection*{Vehicle Undesidered Behaviour}
 The back-end servers can be used as a means to attack a vehicle and/or extract data from it e.g. its position, the destination the driver is heading to etc.
 
+\noindent Moreover having accesses to the back-end server allow the attacker to cause an undesidered behaviour of the vehicle.
+
+\noindent This is the most rewarding attack (reward equal to 300 in the ADVISE model) because allow the attacker to completely control the vehicles.
+
 \subsection*{Data breach}
-Servers can be also attacked to extract sensitive data related to customers
+Servers can be also attacked to extract sensitive data related to customers.
+
+\noindent This is the second most rewarding attack (reward equal to 150 in the ADVISE model) because the data can be very useful and valuable to the attacker, but he has no control over the vehicles.
 
 \subsection*{Back-end server service disruption (DoS)}
 An attacker could also target the back-end server just to take them down and disrupt their service (Denial of Service), causing issues to all the vehicles whose proper functioning relies on it.
+
+\noindent It is the the attack with the lower reward value (150) because it allows the attacker only to stop the service.
+
+\section{Countermeasures}
+\noindent We have considered the following countermeasure in order to cope with the attacks that the attackers wants to perform.
+
+\subsection*{Intrusion Detection System}
+\noindent It is a software that inspects the network in order to detect unauthorized intrusion or unauthorized changes in the level of privileges, it affects the attack step \textit{Privilege Escalation} and so the Insider and the Physical Intruder. We consider two level of sensitivity: 0 (disabled) and 1 (enabled).
+
+
+\subsection*{Code Obfuscation}
+\noindent It is the technique that consists in the deliberate act of creating source code that is difficult for humans to understand. It affects the \textit{Firmware Reversing} attack and so the Hacker. We consider two level of sensitivity: 0 (disabled) and 1 (enabled).
+
+\subsection*{Firewall}
+\noindent We consider different qualities of firewall, it affect the \textit{Port Scan} and the \textit{Query Flooding} and so the Hacker. We consider three level of sensitivity: 0 (no firewall), 1 (bad quality firewall), 2 (very good firewall).
+
+
+
