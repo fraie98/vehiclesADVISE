@@ -6,3 +6,26 @@
 %         Created on 30/06/2021
 %-------------------------------------------------------------------------------
 \chapter{Simulation}\label{ch:simulation}
+\section{general results}
+We decide to simulate 200 units of time (200h) with Mobius in order to evaluate each attacker results for 
+different configuration of mitigations. We obtain those general results:\\
+\begin{itemize}
+    \item the \textbf{Hacker} will always try to achieve the mosts remuneratives goals, despite the
+        possibility to be discovered; 
+    \item the \textbf{Physical intruder} will try to achieve only the most remunerative goal, and will
+        ignore others because of the high probability of beeing discovered (risk-reward ratio is too low)
+    \item the \textbf{Insider} have the same behaveour of the Physical intruder, but for him the probability
+        to reach the goal increase faster becuse his attack path is shorter.
+\end{itemize}
+\section{deep results}
+\subsection*{Hacker}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.3]{img/Hacker_DoS.pdf}
+        \includegraphics[scale=0.3]{img/Hacker_vOB.pdf}
+        \includegraphics[scale=0.3]{img/Hacker_dataBreach.pdf}
+    \end{center}
+    \caption{Hacker Attacks}
+    \label{fig:Hacker_Attacks}
+    \vspace*{-0.4cm}
+\end{figure}
