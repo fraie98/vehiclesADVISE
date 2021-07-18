@@ -43,7 +43,7 @@ All the attacks has its own probability of achieving results and each of them ne
 	
 	\item \textbf{Malware deployment}: an attacker can deploy a malware in different ways e.g. dropping an infected USB drive and wait for some employee to plug it in a corporate machine. The malware can guarantee them the access to a server with a varying level of privilege. (1.3) (3.4)
 	
-	\item \textbf{Privilege escalation}: once an attacker has gained the so-called ``foothold" into the target server, they will try to increase their privilege level on the system as to access to a greater number of resources. (1.2) (3.4)	
+	\item \textbf{Privilege escalation}: once an attacker has gained the so-called ``foothold" into the target server, they will try to increase their privilege level in the system to access a greater number of resources. (1.2) (3.4)	
 	
 	\item \textbf{Database dump}: once the attacker has gained access to the database, the latter can be dumped and the \textit{Data Breach} goal is reached. For the sake of simplicity the \texttt{database dump} attack in the tree is considered to have constant time duration and probability of detection. In reality this is not the case as there are different ways to perform data exfiltration, which can be more or less stealthy (simple \texttt{scp} or \texttt{wget} commands -- or their equivalent on non-Unix systems -- will be faster but they will also have a high probability of detection while looking at the network traffic and the server logs, while other techniques such as ICMP exfiltration will be stealthier at the expense of a longer time required). (3.2) (3.5)
 	

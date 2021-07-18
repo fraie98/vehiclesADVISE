@@ -8,22 +8,22 @@
 %-------------------------------------------------------------------------------
 \chapter{Simulation}\label{ch:simulation}
 \section{General Results}
-We decide to simulate 200 units of time (200h) with Mobius in order to evaluate each attacker results for 
-different configuration of mitigations. We obtain those general results:\\
+We decided to simulate 200 units of time (200 h) with Mobius in order to evaluate each attacker's results for 
+different configuration of mitigations. We obtained these general results:\\
 \begin{itemize}
     \item the \textbf{Hacker} will always try to achieve the most remunerative goals, despite the
-        possibility to be discovered; 
+        possibility to be detected; 
     \item the \textbf{Physical intruder} will try to achieve only the most remunerative goal, and will
-        ignore others because of the high probability of being discovered (risk-reward ratio is too low)
-    \item the \textbf{Insider} has the same behaviour of the Physical intruder, but for him the probability
-        to reach the goal increases faster because his attack path has higher success probability.
+        ignore the others because of the high probability of being detected (reward-risk ratio is too low)
+    \item the \textbf{Insider} has the same behaviour as the Physical intruder, but for them the probability
+        to reach the goal increases faster because their attack path has a higher success probability.
 \end{itemize}
 \newpage
 \section{Hacker Attacks}
 \subsection*{DoS}
-When no mitigation are applied, the Hacker will rarely try to obtain a DoS, but he will commit himself
-on other attacks in order to obtain high reward goals. Introducing \textbf{CodeObfuscation}, binary reversing
-become harder to complete with success, leading to a probability of reach DoS near to 0.\\
+When no mitigations are applied, the Hacker will rarely try to obtain a DoS, but they will commit themselves
+to other attacks in order to obtain high reward goals. Introducing \textbf{CodeObfuscation}, binary reversing
+become harder to complete with success, leading to a probability of reaching the DoS goal near to 0.\\
 Increasing the firewall sensitivity will indeed increase the probability for the hacker to reach the DoS,
 because he will give up on trying to reach other goals, focusing only on this one.
 \begin{figure}[H]
@@ -36,9 +36,9 @@ because he will give up on trying to reach other goals, focusing only on this on
 \end{figure}
 \newpage
 \subsection*{Data Breach and Vehicle Undesidered Behaviour}
-When no mitigation are applied, the Hacker will reach those goals pretty fast. Introducing \textbf{CodeObfuscation}
-will slow him down, but increasing \textbf{Firewall Sensitivity} we are able to reduce his will to reach them
-until he will give up. 
+When no mitigations are applied, the Hacker will reach these goals pretty fast. Introducing \textbf{CodeObfuscation}
+will slow them down, but increasing \textbf{Firewall Sensitivity} we are able to reduce their will to reach them
+until they will give up. 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.4]{img/Hacker_dataBreach.pdf}
@@ -50,23 +50,23 @@ until he will give up.
 \end{figure}
 \section{Physical Intruder and Insider Attacks}
 
-\subsection*{Vehicle Undesidered Behaviour}
-When no mitigation are applied, both attackers will reach this goal pretty fast. Increasing 
+\subsection*{Vehicle Undesired Behaviour}
+When no mitigations are applied, both attackers will reach this goal pretty fast. Increasing 
 \textbf{Intrusion Detection System Sensitivity}, we are able to reduce their will to reach the goal
 until they will give up, because the probability to be discovered will be to high.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.4]{img/Physical_vOB.pdf}
-        \includegraphics[scale=0.4]{img/Insider_vOB.pdf}
+        \includegraphics[scale=0.38]{img/Physical_vOB.pdf}
+        \includegraphics[scale=0.38]{img/Insider_vOB.pdf}
     \end{center}
-    \caption{Physical intruder and Insider Vehicle Undesidered Behaviou}
+    \caption{Physical intruder and Insider Vehicle Undesidered Behaviour}
     \label{fig:P_I_vob}
     \vspace*{-3cm}
 \end{figure}
 
-\noindent It is important to underline that in the case of insider attacker the time needed to achieve an high probability is lesser w.r.t. the one needed for a physical intruder, since the two attacker follows different path and the one of the physical intruder is longer and require more time.
+\noindent It is important to underline that in the case of insider attacker the time needed to achieve an high probability is lower w.r.t. the one needed for a physical intruder, since the two attackers follow different path and the one of the physical intruder is longer and requires more time.
 
 \section{Conclusion}
-\noindent At the end of our analysis we can infer that is a very good idea to invest in an high reliable and effective \textbf{Firewall} in order to discourage attacks from the hacker, furthermore also IDS and code obfuscation techniques are good countermeasures.
+\noindent At the end of our analysis we can infer that is a very good idea to invest in a high reliable and effective \textbf{Firewall} in order to discourage attacks from the hacker; furthermore IDS and code obfuscation techniques proved to be good countermeasures too.
 
-\noindent Thus implementing this mitigations causes an improvement in the security of the overall system.
+\noindent Thus implementing this mitigations results in an improvement in the overall security of the system.
