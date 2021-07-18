@@ -1479,7 +1479,7 @@ void advise_treeADVISE::PrivilegeEscalationfaliureStep::executeEffects() {
 }
 
 double advise_treeADVISE::PrivilegeEscalationfaliureStep::getCost() {
-
+return 0;
 }
 
 double advise_treeADVISE::PrivilegeEscalationfaliureStep::getOutcomeProbability() {
@@ -1566,7 +1566,7 @@ VehicleServerRootAccess->Mark()=1;
 }
 
 double advise_treeADVISE::PrivilegeEscalationsuccessStep::getCost() {
-
+return 0;
 }
 
 double advise_treeADVISE::PrivilegeEscalationsuccessStep::getOutcomeProbability() {
@@ -1827,7 +1827,7 @@ void advise_treeADVISE::NetworkAttackfailureStep::executeEffects() {
 }
 
 double advise_treeADVISE::NetworkAttackfailureStep::getCost() {
-
+return 0;
 }
 
 double advise_treeADVISE::NetworkAttackfailureStep::getOutcomeProbability() {
@@ -1914,7 +1914,7 @@ CorporateNetworkAccess->Mark()=1;
 }
 
 double advise_treeADVISE::NetworkAttacksuccessStep::getCost() {
-
+return 0;
 }
 
 double advise_treeADVISE::NetworkAttacksuccessStep::getOutcomeProbability() {
@@ -2001,7 +2001,7 @@ void advise_treeADVISE::MalwareIntroductionfailureStep::executeEffects() {
 }
 
 double advise_treeADVISE::MalwareIntroductionfailureStep::getCost() {
-10;
+return 10;
 }
 
 double advise_treeADVISE::MalwareIntroductionfailureStep::getOutcomeProbability() {
@@ -2088,7 +2088,7 @@ vehicleServerUnprivAccess->Mark()=1;
 }
 
 double advise_treeADVISE::MalwareIntroductionsuccessStep::getCost() {
-10;
+return 10;
 }
 
 double advise_treeADVISE::MalwareIntroductionsuccessStep::getOutcomeProbability() {
@@ -2175,7 +2175,7 @@ void advise_treeADVISE::PivotingfaliureStep::executeEffects() {
 }
 
 double advise_treeADVISE::PivotingfaliureStep::getCost() {
-
+return 0;
 }
 
 double advise_treeADVISE::PivotingfaliureStep::getOutcomeProbability() {
@@ -2262,7 +2262,7 @@ vehicleServerUnprivAccess->Mark()=1;
 }
 
 double advise_treeADVISE::PivotingsuccessStep::getCost() {
-
+return 0;
 }
 
 double advise_treeADVISE::PivotingsuccessStep::getOutcomeProbability() {

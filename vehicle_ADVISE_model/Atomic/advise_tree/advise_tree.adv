@@ -132,7 +132,7 @@
       </value>
     </stepElements>
     <stepElements key="PrivilegeEscalation">
-      <value name="PrivilegeEscalation" codename="PrivilegeEscalation" xpos="513" ypos="609" sourceArcs="//@aeg/@arcElements.17" targetArcs="//@aeg/@arcElements.16" attackExecutionGraph="//@aeg" width="150" preconditions="return(vehicleServerUnprivAccess->Mark() &amp;&amp; !VehicleServerRootAccess->Mark());">
+      <value name="PrivilegeEscalation" codename="PrivilegeEscalation" xpos="513" ypos="609" sourceArcs="//@aeg/@arcElements.17" targetArcs="//@aeg/@arcElements.16" attackExecutionGraph="//@aeg" width="150" preconditions="return(vehicleServerUnprivAccess->Mark() &amp;&amp; !VehicleServerRootAccess->Mark());" cost="return 0;">
         <outcomes key="faliure">
           <value name="faliure" probability="return 0.5;" detection="if(IDSsensitivity&lt;1)return 0.1; return 0.3;" effects=""/>
         </outcomes>
@@ -145,7 +145,7 @@
       </value>
     </stepElements>
     <stepElements key="MalwareIntroduction">
-      <value name="MalwareIntroduction" codename="MalwareIntroduction" xpos="542" ypos="365" sourceArcs="//@aeg/@arcElements.19" targetArcs="//@aeg/@arcElements.18" attackExecutionGraph="//@aeg" width="150" preconditions="return(PhysicalAccess->Mark() &amp;&amp; !vehicleServerUnprivAccess->Mark());" cost="10;">
+      <value name="MalwareIntroduction" codename="MalwareIntroduction" xpos="542" ypos="365" sourceArcs="//@aeg/@arcElements.19" targetArcs="//@aeg/@arcElements.18" attackExecutionGraph="//@aeg" width="150" preconditions="return(PhysicalAccess->Mark() &amp;&amp; !vehicleServerUnprivAccess->Mark());" cost="return 10;">
         <outcomes key="faliure">
           <value name="failure" probability="return 0.3;" detection="return 0.1;" effects=""/>
         </outcomes>
@@ -158,7 +158,7 @@
       </value>
     </stepElements>
     <stepElements key="NetworkAttack">
-      <value name="NetworkAttack" codename="NetworkAttack" xpos="716" ypos="232" sourceArcs="//@aeg/@arcElements.21" targetArcs="//@aeg/@arcElements.20" attackExecutionGraph="//@aeg" width="150" preconditions="return (CorporateServerLocation->Mark() &amp;&amp; !CorporateNetworkAccess->Mark());">
+      <value name="NetworkAttack" codename="NetworkAttack" xpos="716" ypos="232" sourceArcs="//@aeg/@arcElements.21" targetArcs="//@aeg/@arcElements.20" attackExecutionGraph="//@aeg" width="150" preconditions="return (CorporateServerLocation->Mark() &amp;&amp; !CorporateNetworkAccess->Mark());" cost="return 0;">
         <outcomes key="success">
           <value name="success" probability="return 0.7;" detection="return 0.3;" effects="CorporateNetworkAccess->Mark()=1;"/>
         </outcomes>
@@ -171,7 +171,7 @@
       </value>
     </stepElements>
     <stepElements key="Pivoting">
-      <value name="Pivoting" codename="Pivoting" xpos="704" ypos="474" sourceArcs="//@aeg/@arcElements.23" targetArcs="//@aeg/@arcElements.22" attackExecutionGraph="//@aeg" width="150" preconditions="return (CorporateNetworkAccess->Mark() &amp;&amp; !vehicleServerUnprivAccess->Mark());">
+      <value name="Pivoting" codename="Pivoting" xpos="704" ypos="474" sourceArcs="//@aeg/@arcElements.23" targetArcs="//@aeg/@arcElements.22" attackExecutionGraph="//@aeg" width="150" preconditions="return (CorporateNetworkAccess->Mark() &amp;&amp; !vehicleServerUnprivAccess->Mark());" cost="return 0;">
         <outcomes key="success">
           <value name="success" probability="return 0.7;" detection="return 0.2;" effects="vehicleServerUnprivAccess->Mark()=1;"/>
         </outcomes>
