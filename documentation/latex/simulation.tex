@@ -15,17 +15,51 @@ different configuration of mitigations. We obtain those general results:\\
     \item the \textbf{Physical intruder} will try to achieve only the most remunerative goal, and will
         ignore others because of the high probability of beeing discovered (risk-reward ratio is too low)
     \item the \textbf{Insider} have the same behaveour of the Physical intruder, but for him the probability
-        to reach the goal increase faster becuse his attack path is shorter.
+        to reach the goal increase faster becuse his attack path has higher success porbability.
 \end{itemize}
-\section{deep results}
-\subsection*{Hacker}
+\newpage
+\section{Hacker Attacks}
+\subsection*{DoS}
+When no mitigation are applied, the Hacker will rarely try to obtain a DoS, but he will commit himself
+on other attacks in order to obtain high reward goals. Introducing \textbf{CodeObfuscation}, binary reversing
+become harder to complete with success, leading to a probability of reach DoS near to 0.\\
+Increasing the firewall sensitivity will indeed increase the probability for the hacker to reach the DoS,
+because he will give up on trying to reach other goals, focusing only on this one.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.3]{img/Hacker_DoS.pdf}
-        \includegraphics[scale=0.3]{img/Hacker_vOB.pdf}
-        \includegraphics[scale=0.3]{img/Hacker_dataBreach.pdf}
+        \includegraphics[scale=0.45]{img/Hacker_DoS.pdf}
     \end{center}
-    \caption{Hacker Attacks}
-    \label{fig:Hacker_Attacks}
-    \vspace*{-0.4cm}
+    \caption{Hacker DoS}
+    \label{fig:Hacker_DoS}
+    \vspace*{-0.8cm}
 \end{figure}
+\newpage
+\subsection*{Data Breach and Vehicle Undesidered Behaviour}
+When no mitigation are applied, the Hacker will reach those goals pretty fast. Introducing \textbf{CodeObfuscation}
+will slow him down, but increasing \textbf{firewall Sensitivity} we are able to reduce his will to reach them
+until he will give up. 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.4]{img/Hacker_dataBreach.pdf}
+        \includegraphics[scale=0.4]{img/Hacker_vOB.pdf}
+    \end{center}
+    \caption{Hacker Data Breach and Vehicle Undesidered Behaviour}
+    \label{fig:Hacker_dataBreach}
+    \vspace*{-2cm}
+\end{figure}
+\section{Physical intruder and Insider Attacks}
+
+\subsection*{Vehicle Undesidered Behaviour}
+When no mitigation are applied, both attackers will reach this goal pretty fast. Increasing 
+\textbf{Intrusion Detection System Sensitivity}, we are able to reduce their will to reach the goal
+until they will give up, because the probaility to be discovered will be to high.
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.4]{img/Physical_vOB.pdf}
+        \includegraphics[scale=0.4]{img/Insider_vOB.pdf}
+    \end{center}
+    \caption{Physical intruder and Insider Vehicle Undesidered Behaviou}
+    \label{fig:P_I_vob}
+    \vspace*{-3cm}
+\end{figure}
+
