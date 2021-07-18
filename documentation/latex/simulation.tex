@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_GB
 %-------------------------------------------------------------------------------
 % File: simulation.tex
 %       Vehicle ADVISE project documentation.
@@ -6,16 +7,16 @@
 %         Created on 30/06/2021
 %-------------------------------------------------------------------------------
 \chapter{Simulation}\label{ch:simulation}
-\section{general results}
+\section{General Results}
 We decide to simulate 200 units of time (200h) with Mobius in order to evaluate each attacker results for 
 different configuration of mitigations. We obtain those general results:\\
 \begin{itemize}
-    \item the \textbf{Hacker} will always try to achieve the mosts remuneratives goals, despite the
+    \item the \textbf{Hacker} will always try to achieve the most remunerative goals, despite the
         possibility to be discovered; 
     \item the \textbf{Physical intruder} will try to achieve only the most remunerative goal, and will
-        ignore others because of the high probability of beeing discovered (risk-reward ratio is too low)
-    \item the \textbf{Insider} have the same behaveour of the Physical intruder, but for him the probability
-        to reach the goal increase faster becuse his attack path has higher success porbability.
+        ignore others because of the high probability of being discovered (risk-reward ratio is too low)
+    \item the \textbf{Insider} has the same behaviour of the Physical intruder, but for him the probability
+        to reach the goal increases faster because his attack path has higher success probability.
 \end{itemize}
 \newpage
 \section{Hacker Attacks}
@@ -36,7 +37,7 @@ because he will give up on trying to reach other goals, focusing only on this on
 \newpage
 \subsection*{Data Breach and Vehicle Undesidered Behaviour}
 When no mitigation are applied, the Hacker will reach those goals pretty fast. Introducing \textbf{CodeObfuscation}
-will slow him down, but increasing \textbf{firewall Sensitivity} we are able to reduce his will to reach them
+will slow him down, but increasing \textbf{Firewall Sensitivity} we are able to reduce his will to reach them
 until he will give up. 
 \begin{figure}[H]
     \begin{center}
@@ -47,7 +48,7 @@ until he will give up.
     \label{fig:Hacker_dataBreach}
     \vspace*{-2cm}
 \end{figure}
-\section{Physical intruder and Insider Attacks}
+\section{Physical Intruder and Insider Attacks}
 
 \subsection*{Vehicle Undesidered Behaviour}
 When no mitigation are applied, both attackers will reach this goal pretty fast. Increasing 
