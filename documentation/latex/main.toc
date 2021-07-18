@@ -25,4 +25,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}Physical Intruder and Insider Attacks}{13}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Appendices}{14}{chapter.5}%
+\contentsline {section}{\numberline {4.4}Conclusion}{14}{section.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Appendices}{15}{chapter.5}%
