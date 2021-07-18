@@ -8,13 +8,12 @@
 %-------------------------------------------------------------------------------
 \chapter{Simulation}\label{ch:simulation}
 
-We implemented the attack tree in with Mobius Tool in order to get some insights about
-attackers behaviour and most dangerous attacks paths. 
-We take an euristic approch in order to evaluate cost and duration of different attacks; we 
-express time in hours.
+We implemented the attack tree in Mobius Tool in order to get some insights about the
+attackers behaviour and the most dangerous attack paths. 
+We took an heuristic approach in order to evaluate cost and duration of different attacks; the time unit for attacks is \textit{hours}.
 \section{General Results}
 We decided to simulate 200 units of time (200 h) with Mobius in order to evaluate each attacker's results for 
-different configuration of mitigations. We obtained these general results:\\
+different configuration of mitigations. The following general results were obtained:\\
 \begin{itemize}
     \item the \textbf{Hacker} will always try to achieve the most remunerative goals, despite the
         possibility to be detected; 
@@ -30,7 +29,7 @@ When no mitigations are applied, the Hacker will rarely try to obtain a DoS, but
 to other attacks in order to obtain high reward goals. Introducing \textbf{CodeObfuscation}, binary reversing
 become harder to complete with success, leading to a probability of reaching the DoS goal near to 0.\\
 Increasing the firewall sensitivity will indeed increase the probability for the hacker to reach the DoS,
-because he will give up on trying to reach other goals, focusing only on this one.
+because they will give up on trying to reach other goals, focusing only on this one.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[scale=0.45]{img/Hacker_DoS.pdf}
@@ -69,9 +68,8 @@ until they will give up, because the probability to be discovered will be to hig
     \vspace*{-3cm}
 \end{figure}
 
-\noindent It is important to underline that in the case of insider attacker the time needed to achieve an high probability is lower w.r.t. the one needed for a physical intruder, since the two attackers follow different path and the one of the physical intruder is longer and requires more time.
+It is important to underline that in the case of an insider attacker, the time needed to achieve a high probability is lower w.r.t. the one needed for a physical intruder, since the two attackers follow different paths and the one taken by the physical intruder is longer and requires more time.
 
 \section{Conclusion}
-\noindent At the end of our analysis we can infer that is a very good idea to invest in a high reliable and effective \textbf{Firewall} in order to discourage attacks from the hacker; furthermore IDS and code obfuscation techniques proved to be good countermeasures too.
-
-\noindent Thus implementing this mitigations results in an improvement in the overall security of the system.
+\noindent At the end of our analysis we can infer that is a very good idea to invest in a highly reliable and effective \textbf{Firewall} in order to discourage attacks from the hacker; furthermore IDS and code obfuscation techniques proved to be good countermeasures too.
+Therefore implementing these mitigations results in an improvement in the overall security of the system.

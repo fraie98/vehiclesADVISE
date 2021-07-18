@@ -20,9 +20,8 @@
 \end{figure}
 
 \section{Attacks}
-All the attacks has its own probability of achieving results and each of them needs a different time to be executed: in the attack tree we have considered \textit{hours} as unit of time and a deterministic distribution for all the attacks except for the \textit{Query Flooding} (rate equal to 0.1) and \textit{Exploit} (rate equal to 0.2).
-
-\noindent Below there is a brief description of every attack in the tree with the reference to the table used as starting-point (see Appendix A):
+All the attacks have their own probability of achieving results and each one of them needs a different amount of time to be executed: in the attack tree we have considered \textit{hours} as unit of time and a deterministic distribution for all the attacks except for the \textit{Query Flooding} and \textit{Exploit} which have an exponential distribution with rates respectively equal to 0.1 and 0.2.\\
+Below is a brief description of every attack in the tree with the reference to the table used as starting-point (see Appendix A):
 
 \begin{itemize}
 	\item \textbf{Firmware reversing}: a hacker in possession of a vehicle and with reverse engineering skills can dump the vehicle firmware, reverse engineer it and acquire information about the IP/port of the server, as well as the protocol used for the communication and/or the structure of the messages sent.

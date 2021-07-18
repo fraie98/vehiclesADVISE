@@ -9,10 +9,11 @@
 \chapter{Overview}\label{ch:overview}
 
 In this chapter a general overview of the scenarios and the involved actors is given.\\
-The final goal for each one of the attackers it to gain access to the back-end servers related to self-driving vehicles. This goal can be reached by means of different knowledges, skills and types of attacks, which all differ from one adversary to the other.
+The final goal for each one of the attackers is to gain access to the back-end servers related to self-driving vehicles or to disrupt their service. This goal can be reached by means of different knowledges, skills and types of attacks, which all differ from one adversary to the other.
 
 \vspace{0.2cm}
-\noindent The attack steps and the goals analyzed in this report are based on \textit{"Agreement Concerning the Adoption of Harmonized Technical United Nations Regulations for Wheeled Vehicles, Equipment and Parts which can be Fitted and/or be Used on Wheeled Vehicles and the Conditions for Reciprocal Recognition of Approvals Granted on the Basis of these United Nations Regulations - 4 March 2021"} and in particular on Table A1 page 20 (see Appendix A).
+\noindent The attack steps and the goals analysed in this report are based on \textit{"Agreement Concerning the Adoption of Harmonized Technical United Nations Regulations for Wheeled Vehicles, Equipment and Parts which can be Fitted and/or be Used on Wheeled Vehicles and the Conditions for Reciprocal Recognition of Approvals Granted on the Basis of these United Nations Regulations - 4 March 2021"}\footnote{https://unece.org/sites/default/files/2021-03/R155e.docx (p. 20 table A1)
+} and in particular on Table A1 page 20 (see Appendix A).
 
 \section{Actors}
 \noindent Three different types of actor have been identified:
@@ -37,7 +38,7 @@ On the other hand, they have advanced security and penetration skills, in-depth 
 	\hline
 	\textbf{Actor}    & \textbf{Skills}                                                                                                               & \textbf{Knowledges}                                                                                                                                         & \textbf{Accesses}                                                                                            \\ \hline
 	Hacker            & \begin{tabular}[c]{@{}c@{}}Reverse engineering,\\ social engineering,\\ advanced attack and\\ penetration skills\end{tabular} & -                                                                                                                                                           & \begin{tabular}[c]{@{}c@{}}Vehicle\\ (i.e. Firmware)\end{tabular}                                            \\ \hline
-	Physical Intruder & \begin{tabular}[c]{@{}c@{}}Lockpicking, \\ Basic/medium\\ IT skills\end{tabular}                                              & \begin{tabular}[c]{@{}c@{}}Facilities location,\\ personnel timetables\end{tabular}                                                                         & \begin{tabular}[c]{@{}c@{}}Server \\ Physical Access\end{tabular}                                            \\ \hline
+	Physical Intruder & \begin{tabular}[c]{@{}c@{}}Lockpicking, \\ Basic \\ IT skills\end{tabular}                                              & \begin{tabular}[c]{@{}c@{}}Facilities location,\\ personnel timetables\end{tabular}                                                                         & \begin{tabular}[c]{@{}c@{}}Server \\ Physical Access\end{tabular}                                            \\ \hline
 	Insider           & \begin{tabular}[c]{@{}c@{}}Basic/medium IT\\ skills\end{tabular}                                                              & \begin{tabular}[c]{@{}c@{}}Login credentials\\ (website, LAN,\\ VPN, DB),\\ employees info,\\ vulnerabilities in\\ company's security\\ system\end{tabular} & \begin{tabular}[c]{@{}c@{}}LAN, VPN, DB,\\ facilities, PCs,\\ workstations,\\ routers, switches\end{tabular} \\ \hline
 	\end{tabular}
 	\caption{Attackers' skills, knowledges and accesses}
@@ -45,10 +46,10 @@ On the other hand, they have advanced security and penetration skills, in-depth 
 \end{table}
 
 \section{Attacker's Profile}
-\noindent As we have seen each actor has its own set of knowledges, accesses and skills in table \ref{tab:profiles} it is possible to see the arrangement of them among the attackers.
+\noindent As we have seen each actor has their own set of knowledges, accesses and skills. In table \ref{tab:profiles} it is possible to see the arrangement of them among the attackers.
 
 
-\noindent For what concern the attention of the actors about the probability of detection, the cost of the attacks and the expected payoff, the weights for each of these factors are shown in the table \ref{tab:weights}.
+\noindent For what concerns the attention of the actors about the probability of detection, the cost of the attacks and the expected payoff, the weights for each of these factors are shown in the table \ref{tab:weights}.
 
 \begin{table}[htpb]
 	\centering
@@ -63,41 +64,37 @@ On the other hand, they have advanced security and penetration skills, in-depth 
 	\label{tab:weights}
 \end{table}
 
-\noindent  Thus we can see that the choices that attackers done are guided by different things, for instance an insider will prefer to avoid an attack with an high probability of detection, as well as a physical intruder, instead an hacker has not this preoccupation and he will choice the attack with the higher payoff.
+\noindent  Thus we can see that the choices that attackers make are guided by different factors: for instance an insider will prefer to avoid an attack with a high probability of detection, as well as a physical intruder. A hacker, instead, does not have this concern and they will choose the attack with the higher payoff.
 
 \section{Goals}
 
-\noindent In the following we will describe the goals that an attacker can achieve.
+\noindent In the following we describe the goals that an attacker can achieve.
 
 \subsection*{Vehicle Undesidered Behaviour}
-The back-end servers can be used as a means to attack a vehicle and/or extract data from it e.g. its position, the destination the driver is heading to etc.
-
-\noindent Moreover having accesses to the back-end server allow the attacker to cause an undesidered behaviour of the vehicle.
-
-\noindent This is the most rewarding attack (reward equal to 300 in the ADVISE model) because allow the attacker to completely control the vehicles.
+The back-end servers can be used as a means to attack a vehicle and/or extract data from it e.g. its position, the destination the driver is heading to, etc.\\
+Moreover having accesses to the back-end server allows the attacker to cause undesired behaviour of the vehicle.\\
+If an attacker reaches this goal, \textbf{data integrity} is lost.\\
+This is the most rewarding attack (reward equal to 300 in the ADVISE model) because it allows the attacker to completely control the vehicles.
 
 \subsection*{Data breach}
-Servers can be also attacked to extract sensitive data related to customers.
-
-\noindent This is the second most rewarding attack (reward equal to 150 in the ADVISE model) because the data can be very useful and valuable to the attacker, but he has no control over the vehicles.
+Servers can be also attacked to extract sensitive data related to customers.\\
+If an attacker reaches this goal, \textbf{data confidentiality} is lost.\\
+This is the second most rewarding attack (reward equal to 150 in the ADVISE model) because the data can be very useful and valuable to the attacker, but they have no control over the vehicles.
 
 \subsection*{Back-end server service disruption (DoS)}
-An attacker could also target the back-end server just to take them down and disrupt their service (Denial of Service), causing issues to all the vehicles whose proper functioning relies on it.
-
-\noindent It is the the attack with the lower reward value (150) because it allows the attacker only to stop the service.
+An attacker could also target the back-end servers just to take them down and disrupt their service (Denial of Service), causing issues to all the vehicles whose proper functioning relies on it.\\
+If an attacker reaches this goal, \textbf{data availability} is lost.\\
+DoS is the the attack with the lower reward value (150) because it only allows the attacker to stop the service.
 
 \section{Countermeasures}
-\noindent We have considered the following countermeasure in order to cope with the attacks that the attackers wants to perform.
+\noindent We have considered the following countermeasures in order to cope with the attacks that the attackers want to perform:
 
 \subsection*{Intrusion Detection System}
-\noindent It is a software that inspects the network in order to detect unauthorized intrusion or unauthorized changes in the level of privileges, it affects the attack step \textit{Privilege Escalation} and so the Insider and the Physical Intruder. We consider two level of sensitivity: 0 (disabled) and 1 (enabled).
+\noindent It is a software that inspects the network in order to detect unauthorized intrusion or unauthorized changes in the levels of privilege; it affects the attack step \textit{Privilege Escalation} and so the Insider and the Physical Intruder. We consider two level of sensitivity: 0 (disabled) and 1 (enabled).
 
 
 \subsection*{Code Obfuscation}
-\noindent It is the technique that consists in the deliberate act of creating source code that is difficult for humans to understand. It affects the \textit{Firmware Reversing} attack and so the Hacker. We consider two level of sensitivity: 0 (disabled) and 1 (enabled).
+It is a technique that consists in the deliberate act of creating source code that is difficult for humans to understand. It affects the \textit{Firmware Reversing} attack and so the Hacker. We consider two level of obfuscation: 0 (disabled) and 1 (enabled).
 
 \subsection*{Firewall}
-\noindent We consider different qualities of firewall, it affect the \textit{Port Scan} and so the Hacker. We consider three level of sensitivity: 0 (no firewall), 1 (bad quality firewall), 2 (very good firewall).
-
-
-
+\noindent It affect the \textit{Port Scan} and so the Hacker. We consider three different qualities of firewall, each with a different level of sensitivity: 0 (no firewall), 1 (bad quality firewall), 2 (very good firewall).
